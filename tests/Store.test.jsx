@@ -8,4 +8,10 @@ describe("Store rendering", () => {
         expect(screen.getByRole("heading", { name: "Store" }))
             .toBeInTheDocument();
     });
+    
+    it("renders an shopping-cart-item-count element", () => {
+        render(<Store />);
+        expect(screen.getByLabelText("shopping-cart-item-count"))
+            .toBeInTheDocument();
+    })
 })

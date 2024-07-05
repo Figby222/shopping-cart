@@ -4,3 +4,4 @@ render navbar with links to Store and Shopping cart
 
 Store:
 render heading with text "Store"
+render shopping cart item count
