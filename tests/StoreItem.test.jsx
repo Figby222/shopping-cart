@@ -23,4 +23,20 @@ describe("Add to cart button", () =>{
 
         expect(onClick).toHaveBeenCalled();
     })
+    it.skip("calls onClick function with item quantity", async () => {
+        const onClick = vi.fn();
+
+        render(<StoreItem addToCartHandler={onClick} />);
+
+        const user = userEvent.setup();
+        const addToCart = screen.getByRole("button", { name: /Add to cart/i});
+        const quantityInput = 
+            screen.getByRole("textbox", { name: /item quantity/i });
+        
+        await user.type(quantityInput, "2");
+        await user.click(addToCart);
+
+        expect(onClick.mock.calls[0][1]).toBe(2);
+
+    })
 });
