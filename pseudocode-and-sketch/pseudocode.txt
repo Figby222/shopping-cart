@@ -1,2 +1,3 @@
 Homepage:
 render heading with text "Ryan's totally real Jewelry"
+render navbar with links to Store and Shopping cart
