@@ -1,7 +1,11 @@
 import "./StoreItem.css";
 
 function StoreItem() {
-    return <></>
-}
+    return (
+        <>
+        <button onClick={() => {}}>Add to cart</button>
+        </>
+    );
+};
 
 export default StoreItem;
