@@ -6,7 +6,7 @@ function Store() {
             <h2>Store</h2>
             <aside>
                 <p aria-label="shopping-cart-item-count">
-                    a
+                    Item count: 0
                 </p>
             </aside>
         </>

@@ -14,4 +14,14 @@ describe("Store rendering", () => {
         expect(screen.getByLabelText("shopping-cart-item-count"))
             .toBeInTheDocument();
     })
+
+    it(`renders shopping-cart-item-count element with the text:
+         "Item count: <digit>"`, () => {
+        render(<Store />);
+        const shoppingCartItemCount = 
+            screen.getByLabelText("shopping-cart-item-count");
+        
+        expect(shoppingCartItemCount.textContent).toMatch(/item count: \d/i);
+
+    })
 })
