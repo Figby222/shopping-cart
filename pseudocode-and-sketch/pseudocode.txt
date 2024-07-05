@@ -1,0 +1,2 @@
+Homepage:
+render heading with text "Ryan's totally real Jewelry"
