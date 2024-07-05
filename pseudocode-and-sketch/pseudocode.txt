@@ -8,3 +8,4 @@ render shopping cart item count
 
 StoreItem:
 add "Add to cart" button"
+"Add to cart" button: use handler given through props
