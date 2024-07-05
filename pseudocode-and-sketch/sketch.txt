@@ -1,0 +1,16 @@
+Components (each component is marked by all caps):
+SHOPPINGCART, which will contain an item count and a list of ITEM components.
+
+HOMEPAGE, which will be an introduction page describing the shop. It will have a nav bar which can navigate to HOMEPAGE, STORE, SHOPPINGCART
+
+STORE, which will contain a list of items available to add to the shopping cart, and also a mini shopping cart on a sidebar
+
+
+Funcitonalities:
+User can click on the links in the navbar which will bring you to each page.
+
+On the STORE page: user can scroll through the list of items. User can also add and choose the quantity of each item.
+                                                              and add and choose
+
+On the SHOPPINGCART page, user can see an item count of the number of items they added to cart. 
+user can scroll through the items that they added to the shopping cart. This could be implemented using a context.
