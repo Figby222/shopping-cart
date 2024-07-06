@@ -23,7 +23,7 @@ describe("Add to cart button", () =>{
 
         expect(onClick).toHaveBeenCalled();
     })
-    it.skip("calls onClick function with item quantity", async () => {
+    it("calls onClick function with item quantity", async () => {
         const onClick = vi.fn();
 
         render(<StoreItem addToCartHandler={onClick} />);
@@ -40,3 +40,13 @@ describe("Add to cart button", () =>{
 
     })
 });
+
+describe("Item quantity input", () => {
+    it("renders input for item quantity", () => {
+        render(<StoreItem addToCartHandler={() => {}} />);
+
+        expect(screen.getByLabelText(/item quantity/i))
+        // somehow query number input. I don't think textbox will work
+            .toBeInTheDocument();
+    })
+})
