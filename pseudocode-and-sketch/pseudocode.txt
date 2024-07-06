@@ -7,6 +7,14 @@ render heading with text "Store"
 render shopping cart item count
 
 StoreItem:
+takes props: addToCartHandler(), itemDetails{}
 add "Add to cart" button"
 "Add to cart" button: use handler given through props
 add "Item quantity" number input box, set "item quantity" initial value to 1
+"Add to cart" button calls handler with item quantity as args
+
+Item details:
+StoreItem could take itemId and fetch() props, and call fetch using the item id, and
+set an item state as the response from the API request,
+or I could fetch the items from the API in the parent div, and send the item as a prop to
+StoreItem
