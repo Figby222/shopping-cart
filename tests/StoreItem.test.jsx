@@ -31,7 +31,7 @@ describe("Add to cart button", () =>{
         const user = userEvent.setup();
         const addToCart = screen.getByRole("button", { name: /Add to cart/i});
         const quantityInput = 
-            screen.getByLabelText(/item quantity/i);
+            screen.getByRole("spinbutton", { name: /item quantity/i});
         
         await user.type(quantityInput, "2");
         await user.click(addToCart);
@@ -45,7 +45,7 @@ describe("Item quantity input", () => {
     it("renders input for item quantity", () => {
         render(<StoreItem addToCartHandler={() => {}} />);
 
-        expect(screen.getByLabelText(/item quantity/i))
+        expect(screen.getByRole("spinbutton", { name: /item quantity/i}))
         // somehow query number input. I don't think textbox will work
             .toBeInTheDocument();
     });
@@ -54,7 +54,7 @@ describe("Item quantity input", () => {
         render(<StoreItem addToCartHandler={() => {}} />);
 
         const user = userEvent.setup();
-        const input = screen.getByLabelText(/item quantity/i);
+        const input = screen.getByRole("spinbutton", { name: /item quantity/i});
 
         await user.type(input, "2");
 
@@ -65,7 +65,7 @@ describe("Item quantity input", () => {
         render (<StoreItem addToCartHandler={() =>{}} />);
 
         const user = userEvent.setup();
-        const input = screen.getByLabelText(/item quantity/i);
+        const input = screen.getByRole("spinbutton", { name: /item quantity/i});
 
         await user.type(input, "a");
         expect(input.value).not.toBe("a");
