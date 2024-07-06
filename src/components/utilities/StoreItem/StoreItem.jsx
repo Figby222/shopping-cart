@@ -5,7 +5,12 @@ function StoreItem({ addToCartHandler }) {
     return (
         <>
         <label htmlFor="item-quantity">Item quantity</label>
-        <input type="number" id="item-quantity" step="1" name="item-quantity" /> 
+        <input 
+            type="number" 
+            id="item-quantity" 
+            step="1" 
+            name="item-quantity" 
+            value="1" /> 
         <button onClick={() => addToCartHandler()}>Add to cart</button>
         </>
     );

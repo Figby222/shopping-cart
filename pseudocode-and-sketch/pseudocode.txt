@@ -9,4 +9,4 @@ render shopping cart item count
 StoreItem:
 add "Add to cart" button"
 "Add to cart" button: use handler given through props
-add "Item quantity" number input box
+add "Item quantity" number input box, set "item quantity" initial value to 1

@@ -50,6 +50,13 @@ describe("Item quantity input", () => {
             .toBeInTheDocument();
     });
 
+    it("starts with a value of 1", () => {
+        render(<StoreItem addToCartHandler={() => {}} />);
+
+        expect(screen.getByRole("spinbutton", { name: /item quantity/i }))
+            .toHaveValue(1);
+    })
+
     it("sets input value correctly when user types a number", async () => {
         render(<StoreItem addToCartHandler={() => {}} />);
 
