@@ -2,7 +2,7 @@ import "./StoreItem.css";
 import PropTypes from "prop-types";
 import { useState } from 'react';
 
-function StoreItem({ addToCartHandler }) {
+function StoreItem({ addToCartHandler, itemId, useItemData }) {
     const [ itemQuantity, setItemQuantity ] = useState(1);
     return (
         <>
@@ -14,13 +14,15 @@ function StoreItem({ addToCartHandler }) {
             name="item-quantity" 
             value={itemQuantity}
             onChange={(e) => setItemQuantity(e.target.value)} /> 
-        <button onClick={() => addToCartHandler()}>Add to cart</button>
+        <button onClick={() => addToCartHandler(itemDetails)}>Add to cart</button>
         </>
     );
 };
 
 StoreItem.propTypes = {
-    addToCartHandler: PropTypes.func.isRequired, 
+    addToCartHandler: PropTypes.func.isRequired,
+    itemId: PropTypes.string.isRequired,
+    useItemData: PropTypes.func.isRequired,
 }
 
 export default StoreItem;
