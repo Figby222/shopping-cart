@@ -23,6 +23,47 @@ describe("Add to cart button", () =>{
 
         expect(onClick).toHaveBeenCalled();
     })
+
+    it("calls onClick function with item's details, which come from a mocked fetch", async () => {
+        const mockItemId = "FreshCookies"
+
+        const onClick = vi.fn();
+        const mockUseItemData = vi.fn((itemId) => {
+            let error = null;
+            let isLoading = false;
+            let itemDetails = {
+                itemId,
+            };
+            const fetchedItemDetails = Promise.resolve(itemDetails)
+                .then((response) => response);
+
+            return { error, isLoading, itemDetails: fetchedItemDetails }
+        })
+
+        render (
+            <StoreItem 
+                addToCartHandler={onClick} 
+                itemId={mockItemId} 
+                useItemData={mockUseItemData} />
+        );
+        
+        expect(onClick.mock.calls[0][0].itemId).toEqual(mockItemId)
+
+    })
+    
+    it.skip("calls onClick function with item quantity", async () => {
+        const onClick = vi.fn();
+
+        render(<StoreItem addToCartHandler={onClick} />);
+
+        const user = userEvent.setup();
+        const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+        
+        await user.click(addToCart);
+
+        expect(onClick.mock.calls[0][2]).toBe(1);
+    })
+
     it.skip("calls onClick function with item quantity", async () => {
         const onClick = vi.fn();
 
@@ -43,7 +84,7 @@ describe("Add to cart button", () =>{
 
 describe("Item quantity input", () => {
     it("renders input for item quantity", () => {
-        render(<StoreItem addToCartHandler={() => {}} />);
+        render(<StoreItem addToCartHandler={() => {}} itemId="" useItemData={() =>{}} />);
 
         expect(screen.getByRole("spinbutton", { name: /item quantity/i}))
         // somehow query number input. I don't think textbox will work
