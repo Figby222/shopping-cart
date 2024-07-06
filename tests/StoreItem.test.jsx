@@ -60,4 +60,14 @@ describe("Item quantity input", () => {
 
         expect(input.value).toBe("2")
     })
+
+    it("does not set input when a letter is typed in", async () => {
+        render (<StoreItem addToCartHandler={() =>{}} />);
+
+        const user = userEvent.setup();
+        const input = screen.getByLabelText(/item quantity/i);
+
+        await user.type(input, "a");
+        expect(input.value).not.toBe("a");
+    })
 })
