@@ -48,5 +48,16 @@ describe("Item quantity input", () => {
         expect(screen.getByLabelText(/item quantity/i))
         // somehow query number input. I don't think textbox will work
             .toBeInTheDocument();
+    });
+
+    it("sets input value correctly when user types a number", async () => {
+        render(<StoreItem addToCartHandler={() => {}} />);
+
+        const user = userEvent.setup();
+        const input = screen.getByLabelText(/item quantity/i);
+
+        await user.type(input, "2");
+
+        expect(input.value).toBe("2")
     })
 })
