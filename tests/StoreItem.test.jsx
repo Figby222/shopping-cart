@@ -81,16 +81,19 @@ describe("Item quantity input", () => {
         expect(input.value).not.toBe("a");
     })
     
-    it.skip("Increments input on up arrow", async () => {
+    it.skip("Increments input on up arrow", async () => { // unsupported functionality
         render (<StoreItem addToCartHandler={() => {}} />);
 
         const user = userEvent.setup();
         const input = screen.getByRole("spinbutton", { name: /item quantity/i});
+        const initialValue = input.value;
 
         await user.click(input);
-        await user.type(input, "0");
+        
+        expect(input).toHaveFocus();
+
         await user.keyboard("[ArrowUp]");
         
-        expect(input).toHaveValue("1");
+        expect(parseInt(input.value)).toBe(parseInt(initialValue) + 1);
     })
 })
