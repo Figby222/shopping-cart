@@ -31,7 +31,7 @@ describe("Add to cart button", () =>{
         const user = userEvent.setup();
         const addToCart = screen.getByRole("button", { name: /Add to cart/i});
         const quantityInput = 
-            screen.getByRole("textbox", { name: /item quantity/i });
+            screen.getByLabelText(/item quantity/i);
         
         await user.type(quantityInput, "2");
         await user.click(addToCart);
