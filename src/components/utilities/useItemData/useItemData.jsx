@@ -1,5 +1,5 @@
-const useItemData = function({ itemId }) {
-    
+const useItemData = function(itemId) {
+
 }
 
 export default useItemData;
