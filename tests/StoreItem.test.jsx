@@ -24,7 +24,7 @@ describe("Add to cart button", () =>{
         expect(onClick).toHaveBeenCalled();
     })
 
-    it("calls onClick function with item's details, which come from a mocked fetch", async () => {
+    it.only("calls onClick function with item's details, which come from a mocked fetch", async () => {
         const mockItemId = "FreshCookies"
 
         const onClick = vi.fn();
@@ -34,10 +34,10 @@ describe("Add to cart button", () =>{
             let itemDetails = {
                 itemId,
             };
-            const fetchedItemDetails = Promise.resolve(itemDetails)
-                .then((response) => response);
+            // const fetchedItemDetails = Promise.resolve(itemDetails)
+            //     .then((response) => response);
 
-            return { error, isLoading, itemDetails: fetchedItemDetails }
+            return { error, isLoading, itemDetails: itemDetails }
         })
 
         render (
@@ -46,6 +46,11 @@ describe("Add to cart button", () =>{
                 itemId={mockItemId} 
                 useItemData={mockUseItemData} />
         );
+
+        const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+
+        const user = userEvent.setup();
+        await user.click(addToCart)
         
         expect(onClick.mock.calls[0][0].itemId).toEqual(mockItemId)
 
