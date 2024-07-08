@@ -1,5 +1,9 @@
 const useItemData = function(URL) {
-    return { error: false, isLoading: false, data: null };
+    let error;
+    if (!URL) {
+        error = true;
+    }
+    return { error, isLoading: false, data: null };
 }
 
 export default useItemData;

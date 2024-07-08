@@ -73,4 +73,15 @@ describe("useItemData API request", () => {
         expect(response.isLoading).toBe(false);
 
     })
+
+    it("should set 'error' to true if URL isn't provided", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData();
+        });
+        vi.runAllTimers();
+        
+        expect(response.error).toBe(true);
+    })
 })
