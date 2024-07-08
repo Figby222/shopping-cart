@@ -1,4 +1,4 @@
-const useItemData = function(itemId) {
+const useItemData = function(URL) {
     return { error: false, isLoading: false, data: null };
 }
 
