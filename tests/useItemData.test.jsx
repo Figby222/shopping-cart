@@ -26,4 +26,37 @@ describe("useItemData", () => {
         expect(typeof response).toBe('object');
     });
 
+    
 });
+describe("useItemData response properties", () => {
+    it("should return an object that has an 'error' property", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData();
+        })
+        vi.runAllTimers();
+        expect(response).toHaveProperty("error");
+    });
+    
+    it ("should return an object that has a 'isLoading' property", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData();
+        })
+        vi.runAllTimers();
+        expect(response).toHaveProperty("isLoading");
+    });
+    
+    it("should return an object that has a 'data' property", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData();
+        })
+        vi.runAllTimers();
+        expect(response).toHaveProperty("data");
+    })
+
+})

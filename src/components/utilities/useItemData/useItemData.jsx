@@ -1,5 +1,5 @@
 const useItemData = function(itemId) {
-    return {};
+    return { error: false, isLoading: false, data: null };
 }
 
 export default useItemData;
