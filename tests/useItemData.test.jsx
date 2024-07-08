@@ -60,3 +60,17 @@ describe("useItemData response properties", () => {
     })
 
 })
+
+describe("useItemData API request", () => {
+    it("should not return 'isLoading: true' when timers are ran", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData();
+        });
+        vi.runAllTimers();
+
+        expect(response.isLoading).toBe(false);
+
+    })
+})
