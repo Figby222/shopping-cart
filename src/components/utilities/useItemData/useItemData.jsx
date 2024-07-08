@@ -1,5 +1,5 @@
 const useItemData = function(itemId) {
-    return true;
+    return {};
 }
 
 export default useItemData;

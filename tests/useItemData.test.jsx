@@ -14,5 +14,12 @@ describe("useItemData", () => {
         expect(response).toBeTruthy();
     });
 
-    
-})
+    it("should return an object", () => {
+        let response;
+        act(() => {
+            response = useItemData();
+        })
+        expect(typeof response).toBe('object');
+    });
+
+});
