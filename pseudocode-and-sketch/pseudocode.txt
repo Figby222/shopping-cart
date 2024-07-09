@@ -30,3 +30,5 @@ error should be true if URL isn't provided as an arg
 data shouldn't be null
 data should be an object
 return object with "id", "title", "price", "description", & "imageSrc"
+return an object with "id": (number), "title": (string), "price": (number),
+"description": (string), "imageSrc": (string)

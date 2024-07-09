@@ -5,11 +5,11 @@ const useItemData = function(URL) {
     }
 
     const data = {
-        id: true,
-        title: true,
-        price: true,
-        description: true,
-        imageSrc: true
+        id: 5,
+        title: "a",
+        price: 2,
+        description: "a",
+        imageSrc: "a"
     }
     return { error, isLoading: false, data };
 }

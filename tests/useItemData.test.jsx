@@ -118,4 +118,18 @@ describe("useItemData API request", () => {
         expect(response.data).toHaveProperty("description");
         expect(response.data).toHaveProperty("imageSrc");
     })
+
+    it("returns object with 'data' that includes accurate prop types", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData("https://fakestoreapi.com/products/1");
+        });
+        vi.runAllTimers();
+        expect(typeof response.data.id).toBe("number");
+        expect(typeof response.data.title).toBe("string");
+        expect(typeof response.data.price).toBe("number");
+        expect(typeof response.data.description).toBe("string");
+        expect(typeof response.data.imageSrc).toBe("string");
+    })
 })
