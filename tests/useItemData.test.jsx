@@ -84,4 +84,14 @@ describe("useItemData API request", () => {
         
         expect(response.error).toBe(true);
     })
+
+    it("returns response with a not null 'data' property", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData("https://fakestoreapi.com/products/1");
+        });
+        vi.runAllTimers();
+        expect(response.data).not.toBeNull();
+    })
 })

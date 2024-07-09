@@ -27,3 +27,4 @@ return an object with "loading" property
 return an object with "data" property
 isLoading should be false when all timers are ran
 error should be true if URL isn't provided as an arg
+data shouldn't be null
