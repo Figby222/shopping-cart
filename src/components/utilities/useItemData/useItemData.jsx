@@ -3,7 +3,15 @@ const useItemData = function(URL) {
     if (!URL) {
         error = true;
     }
-    return { error, isLoading: false, data: {} };
+
+    const data = {
+        id: true,
+        title: true,
+        price: true,
+        description: true,
+        imageSrc: true
+    }
+    return { error, isLoading: false, data };
 }
 
 export default useItemData;

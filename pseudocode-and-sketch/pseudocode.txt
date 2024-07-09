@@ -29,3 +29,4 @@ isLoading should be false when all timers are ran
 error should be true if URL isn't provided as an arg
 data shouldn't be null
 data should be an object
+return object with "id", "title", "price", "description", & "imageSrc"
