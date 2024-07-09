@@ -89,7 +89,7 @@ describe("useItemData API request", () => {
         let response;
         vi.useFakeTimers();
         act(() => {
-            response = useItemData("https://fakestoreapi.com/products/1");
+            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
         });
         vi.runAllTimers();
         expect(response.data).not.toBeNull();
@@ -99,7 +99,7 @@ describe("useItemData API request", () => {
         let response;
         vi.useFakeTimers();
         act(() => {
-            response = useItemData("https://fakestoreapi.com/products/1");
+            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
         });
         vi.runAllTimers();
         expect(typeof response.data).toBe('object')
@@ -109,7 +109,7 @@ describe("useItemData API request", () => {
         let response;
         vi.useFakeTimers();
         act(() => {
-            response = useItemData("https://fakestoreapi.com/products/1");
+            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
         });
         vi.runAllTimers();
         expect(response.data).toHaveProperty("id");
@@ -123,7 +123,7 @@ describe("useItemData API request", () => {
         let response;
         vi.useFakeTimers();
         act(() => {
-            response = useItemData("https://fakestoreapi.com/products/1");
+            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
         });
         vi.runAllTimers();
         expect(typeof response.data.id).toBe("number");
