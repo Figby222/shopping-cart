@@ -94,4 +94,14 @@ describe("useItemData API request", () => {
         vi.runAllTimers();
         expect(response.data).not.toBeNull();
     })
+
+    it("returns response with 'data' property that is an object", () => {
+        let response;
+        vi.useFakeTimers();
+        act(() => {
+            response = useItemData("https://fakestoreapi.com/products/1");
+        });
+        vi.runAllTimers();
+        expect(typeof response.data).toBe('object')
+    })
 })

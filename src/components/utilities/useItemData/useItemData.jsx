@@ -3,7 +3,7 @@ const useItemData = function(URL) {
     if (!URL) {
         error = true;
     }
-    return { error, isLoading: false, data: true };
+    return { error, isLoading: false, data: {} };
 }
 
 export default useItemData;
