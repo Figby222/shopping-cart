@@ -5,6 +5,46 @@ import { userEvent } from "@testing-library/user-event";
 import { act } from "@testing-library/react";
 import { useEffect } from 'react';
 
+function setup(fetchURL) {
+    let resolve;
+    function fetch(URL, options) {
+        return new Promise(_resolve => {
+            resolve = _resolve;
+        })
+    }
+
+    const MockComponent = ({ useItemData, URL }) => {
+        const { error, isLoading, data } = useItemData(URL, fetch);
+
+        return (
+            <>
+                <div role="isLoading">{isLoading}</div>
+                <div role="error">{error}</div>
+                <div role="id">{data.id}</div>
+                <div role="title">{data.title}</div>
+                <div role="price">{data.price}</div>
+                <div role="description">{data.description}</div>
+                <div role="imageSrc">{data.imageSrc}</div>
+            </>
+        )
+    }
+
+    act(() => {
+        render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
+    });
+
+    const isLoading = screen.getByRole("isLoading");
+    const error = screen.getByRole("error");
+
+    const id = screen.getByRole("id");
+    const title = screen.getByRole("title");
+    const price = screen.getByRole("price");
+    const description = screen.getByRole("description");
+    const imageSrc = screen.getByRole("imageSrc");
+
+    return { resolve, isLoading, error, id, title, price, description, imageSrc }
+}
+
 describe("useItemData", () => {
     it("should return something", () => {
         let response;
@@ -63,45 +103,6 @@ describe("useItemData response properties", () => {
 })
 
 describe("useItemData API request", () => {
-    function setup(fetchURL) {
-        let resolve;
-        function fetch(URL, options) {
-            return new Promise(_resolve => {
-                resolve = _resolve;
-            })
-        }
-
-        const MockComponent = ({ useItemData, URL }) => {
-            const { error, isLoading, data } = useItemData(URL, fetch);
-
-            return (
-                <>
-                    <div role="isLoading">{isLoading}</div>
-                    <div role="error">{error}</div>
-                    <div role="id">{data.id}</div>
-                    <div role="title">{data.title}</div>
-                    <div role="price">{data.price}</div>
-                    <div role="description">{data.description}</div>
-                    <div role="imageSrc">{data.imageSrc}</div>
-                </>
-            )
-        }
-
-        act(() => {
-            render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
-        });
-
-        const isLoading = screen.getByRole("isLoading");
-        const error = screen.getByRole("error");
-
-        const id = screen.getByRole("id");
-        const title = screen.getByRole("title");
-        const price = screen.getByRole("price");
-        const description = screen.getByRole("description");
-        const imageSrc = screen.getByRole("imageSrc");
-
-        return { resolve, isLoading, error, id, title, price, description, imageSrc }
-    }
     
     it("should not return 'isLoading: true' when timers are ran", () => {
         let response;
