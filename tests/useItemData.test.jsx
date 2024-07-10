@@ -63,7 +63,7 @@ describe("useItemData response properties", () => {
 })
 
 describe("useItemData API request", () => {
-    function setup() {
+    function setup(fetchURL) {
         let resolve;
         function fetch(URL, options) {
             return new Promise(_resolve => {
@@ -84,7 +84,7 @@ describe("useItemData API request", () => {
             )
         }
         act(() => {
-            render(<MockComponent useItemData={useItemData} URL="https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1" />)
+            render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
         });
         const id = screen.getByRole("id");
         const title = screen.getByRole("title");
