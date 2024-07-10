@@ -70,6 +70,7 @@ describe("useItemData API request", () => {
                 resolve = _resolve;
             })
         }
+
         const MockComponent = ({ useItemData, URL }) => {
             const { error, isLoading, data } = useItemData(URL, fetch);
 
@@ -83,17 +84,20 @@ describe("useItemData API request", () => {
                 </>
             )
         }
+
         act(() => {
             render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
         });
+
         const id = screen.getByRole("id");
         const title = screen.getByRole("title");
         const price = screen.getByRole("price");
         const description = screen.getByRole("description");
         const imageSrc = screen.getByRole("imageSrc");
 
-        return { resolve, id, title, price, description, imageSrc}
+        return { resolve, id, title, price, description, imageSrc }
     }
+    
     it("should not return 'isLoading: true' when timers are ran", () => {
         let response;
         vi.useFakeTimers();
