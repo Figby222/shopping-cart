@@ -3,6 +3,7 @@ import { screen, render } from "@testing-library/react";
 import { vi, describe, it, expect } from "vitest";
 import { userEvent } from "@testing-library/user-event";
 import { act } from "@testing-library/react";
+import { useEffect } from 'react';
 
 describe("useItemData", () => {
     it("should return something", () => {
@@ -62,6 +63,37 @@ describe("useItemData response properties", () => {
 })
 
 describe("useItemData API request", () => {
+    function setup() {
+        let resolve;
+        function fetch(URL, options) {
+            return new Promise(_resolve => {
+                resolve = _resolve;
+            })
+        }
+        const MockComponent = ({ useItemData, URL }) => {
+            const { error, isLoading, data } = useItemData(URL, fetch);
+
+            return (
+                <>
+                    <div role="id">{data.id}</div>
+                    <div role="title">{data.title}</div>
+                    <div role="price">{data.price}</div>
+                    <div role="description">{data.description}</div>
+                    <div role="imageSrc">{data.imageSrc}</div>
+                </>
+            )
+        }
+        act(() => {
+            render(<MockComponent useItemData={useItemData} URL="https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1" />)
+        });
+        const id = screen.getByRole("id");
+        const title = screen.getByRole("title");
+        const price = screen.getByRole("price");
+        const description = screen.getByRole("description");
+        const imageSrc = screen.getByRole("imageSrc");
+
+        return { resolve, id, title, price, description, imageSrc}
+    }
     it("should not return 'isLoading: true' when timers are ran", () => {
         let response;
         vi.useFakeTimers();
