@@ -76,6 +76,8 @@ describe("useItemData API request", () => {
 
             return (
                 <>
+                    <div role="isLoading">{isLoading}</div>
+                    <div role="error">{error}</div>
                     <div role="id">{data.id}</div>
                     <div role="title">{data.title}</div>
                     <div role="price">{data.price}</div>
@@ -89,13 +91,16 @@ describe("useItemData API request", () => {
             render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
         });
 
+        const isLoading = screen.getByRole("isLoading");
+        const error = screen.getByRole("error");
+
         const id = screen.getByRole("id");
         const title = screen.getByRole("title");
         const price = screen.getByRole("price");
         const description = screen.getByRole("description");
         const imageSrc = screen.getByRole("imageSrc");
 
-        return { resolve, id, title, price, description, imageSrc }
+        return { resolve, isLoading, error, id, title, price, description, imageSrc }
     }
     
     it("should not return 'isLoading: true' when timers are ran", () => {
