@@ -28,20 +28,13 @@ function setup(fetchURL) {
         )
     }
 
+    const getResponse = () => response;
+
     act(() => {
         render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
     });
 
-    const isLoading = screen.getByRole("isLoading");
-    const error = screen.getByRole("error");
-
-    const id = screen.getByRole("id");
-    const title = screen.getByRole("title");
-    const price = screen.getByRole("price");
-    const description = screen.getByRole("description");
-    const imageSrc = screen.getByRole("imageSrc");
-
-    return { resolve, isLoading, error, id, title, price, description, imageSrc }
+    return { resolve, getResponse }
 }
 
 describe("useItemData", () => {
