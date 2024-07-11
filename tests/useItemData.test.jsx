@@ -13,18 +13,17 @@ function setup(fetchURL) {
         })
     }
 
+    let response;
+
     const MockComponent = ({ useItemData, URL }) => {
         const { error, isLoading, data } = useItemData(URL, fetch);
 
+        useEffect(() => {
+            response = { error, isLoading, data }
+        }, [ error, isLoading, data ])
+
         return (
             <>
-                <div role="isLoading">{isLoading}</div>
-                <div role="error">{error}</div>
-                <div role="id">{data.id}</div>
-                <div role="title">{data.title}</div>
-                <div role="price">{data.price}</div>
-                <div role="description">{data.description}</div>
-                <div role="imageSrc">{data.imageSrc}</div>
             </>
         )
     }
