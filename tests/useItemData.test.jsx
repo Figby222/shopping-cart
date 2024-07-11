@@ -182,4 +182,29 @@ describe("useItemData API request", () => {
         expect(typeof response.data.description).toBe("string");
         expect(typeof response.data.imageSrc).toBe("string");
     })
+    
+
+    it("returns object with 'data' that includes accurate prop values", async () => {
+        const { resolve, getResponse } = 
+            setup("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+        let response = getResponse();
+        await act( async () => {
+            resolve({
+                json: () => Promise.resolve({
+                    id: 1,
+                    title: "Oriental Fresh Shirt",
+                    price: 124,
+                    description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                    image: "https://loremflickr.com/640/480"
+                })
+            })
+        })
+
+        response = getResponse();
+        expect(response.data.id).toBe(1);
+        expect(response.data.title).toBe("Oriental Fresh Shirt");
+        expect(response.data.price).toBe(124);
+        expect(response.data.description).toBe("Carbonite web goalkeeper gloves are ergonomically designed to give easy fit");
+        expect(response.data.imageSrc).toBe("https://loremflickr.com/640/480");
+    })
 })
