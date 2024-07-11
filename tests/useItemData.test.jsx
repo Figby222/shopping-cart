@@ -39,23 +39,16 @@ function setup(fetchURL) {
 
 describe("useItemData", () => {
     it("should return something", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        })
-        vi.runAllTimers();
-
+        const { getResponse } = setup();
+        const response = getResponse();
+        
         expect(response).toBeTruthy();
     });
 
     it("should return an object", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        })
-        vi.runAllTimers();
+        const { getResponse } = setup();
+        const response = getResponse();
+        
         expect(typeof response).toBe('object');
     });
 
@@ -63,32 +56,23 @@ describe("useItemData", () => {
 });
 describe("useItemData response properties", () => {
     it("should return an object that has an 'error' property", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        })
-        vi.runAllTimers();
+        const { getResponse } = setup();
+        const response = getResponse();
+
         expect(response).toHaveProperty("error");
     });
     
     it ("should return an object that has a 'isLoading' property", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        })
-        vi.runAllTimers();
+        const { getResponse } = setup();
+        const response = getResponse();
+
         expect(response).toHaveProperty("isLoading");
     });
     
     it("should return an object that has a 'data' property", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        })
-        vi.runAllTimers();
+        const { getResponse } = setup();
+        const response = getResponse();
+
         expect(response).toHaveProperty("data");
     })
 
@@ -97,55 +81,77 @@ describe("useItemData response properties", () => {
 describe("useItemData API request", () => {
     
     it("should not return 'isLoading: true' when timers are ran", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        });
-        vi.runAllTimers();
+        const { getResponse } = setup();
+        const response = getResponse();
 
         expect(response.isLoading).toBe(false);
 
     })
 
     it("should set 'error' to true if URL isn't provided", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData();
-        });
-        vi.runAllTimers();
+        const { getResponse } = setup();
+        const response = getResponse();
         
         expect(response.error).toBe(true);
     })
 
-    it("returns response with a not null 'data' property", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
-        });
-        vi.runAllTimers();
+    it("returns response with a not null 'data' property", async () => {
+        const { resolve, getResponse } = setup("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+
+        await act( async () => {
+            resolve({
+                json: () => Promise.resolve({
+                    id: 1,
+                    title: "Oriental Fresh Shirt",
+                    price: 124,
+                    description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                    image: "https://loremflickr.com/640/480"
+                })
+            })
+        })
+
+        const response = getResponse();
+        
         expect(response.data).not.toBeNull();
     })
 
-    it("returns response with 'data' property that is an object", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
-        });
-        vi.runAllTimers();
+    it("returns response with 'data' property that is an object", async () => {
+        const { resolve, getResponse } = setup("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1")
+        await act( async () => {
+            resolve({
+                json: () => Promise.resolve({
+                    id: 1,
+                    title: "Oriental Fresh Shirt",
+                    price: 124,
+                    description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                    image: "https://loremflickr.com/640/480"
+                })
+            })
+        })
+
+        const response = getResponse();
+
         expect(typeof response.data).toBe('object')
     })
 
-    it("returns object with 'data' that includes 'id', 'title', 'price', 'description', & 'imageSrc'", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+    it("returns object with 'data' that includes 'id', 'title', 'price', 'description', & 'imageSrc'", async () => {
+        const { resolve, getResponse } = setup();
+        let response = getResponse();
+
+        await act( async () => {
+            resolve({
+                json: () => Promise.resolve({
+                    id: "",
+                    title: "",
+                    price: "",
+                    description:"",
+                    image: ""
+                })
+            });
         });
-        vi.runAllTimers();
+
+        response = getResponse();
+
         expect(response.data).toHaveProperty("id");
         expect(response.data).toHaveProperty("title");
         expect(response.data).toHaveProperty("price");
@@ -153,13 +159,23 @@ describe("useItemData API request", () => {
         expect(response.data).toHaveProperty("imageSrc");
     })
 
-    it("returns object with 'data' that includes accurate prop types", () => {
-        let response;
-        vi.useFakeTimers();
-        act(() => {
-            response = useItemData("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+    it("returns object with 'data' that includes accurate prop types", async () => {
+        const { resolve, getResponse } = setup();
+
+        await act( async () => {
+            resolve({
+                json: () => Promise.resolve({
+                    id: 1,
+                    title: "",
+                    price: 1,
+                    description: "",
+                    image: ""
+                })
+            });
         });
-        vi.runAllTimers();
+
+        const response = getResponse();
+
         expect(typeof response.data.id).toBe("number");
         expect(typeof response.data.title).toBe("string");
         expect(typeof response.data.price).toBe("number");
