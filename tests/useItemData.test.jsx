@@ -7,9 +7,11 @@ import { useEffect } from 'react';
 
 function setup(fetchURL) {
     let resolve;
+    let reject;
     function fetch(URL, options) {
-        return new Promise(_resolve => {
+        return new Promise((_resolve, _reject) => {
             resolve = _resolve;
+            reject = _reject;
         })
     }
 
@@ -34,7 +36,7 @@ function setup(fetchURL) {
         render(<MockComponent useItemData={useItemData} URL={fetchURL} />)
     });
 
-    return { resolve, getResponse }
+    return { resolve, reject, getResponse }
 }
 
 describe("useItemData", () => {
