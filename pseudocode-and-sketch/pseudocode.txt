@@ -33,3 +33,4 @@ return object with "id", "title", "price", "description", & "imageSrc"
 return an object with "id": (number), "title": (string), "price": (number),
 "description": (string), "imageSrc": (string)
 return an object with 'data' that has accurate properties & values
+set error to true if fetch rejects

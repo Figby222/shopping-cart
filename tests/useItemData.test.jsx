@@ -209,4 +209,16 @@ describe("useItemData API request", () => {
         expect(response.data.description).toBe("Carbonite web goalkeeper gloves are ergonomically designed to give easy fit");
         expect(response.data.imageSrc).toBe("https://loremflickr.com/640/480");
     })
+
+    it("sets error to true if API call is rejected", async () => {
+        const { reject, getResponse } = setup();
+
+        await act(async () => {
+            reject("Fetch call rejected");
+        });
+
+        const response = getResponse();
+
+        expect(response.error).toBe(true);
+    })
 })
