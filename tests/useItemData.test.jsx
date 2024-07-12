@@ -90,8 +90,15 @@ describe("useItemData API request", () => {
 
     })
 
-    it("should set 'error' to true if URL isn't provided", () => {
-        const { getResponse } = setup();
+    it("should set 'error' to true if URL isn't provided", async () => {
+        const { resolve, getResponse } = setup();
+
+        await act( async () => {
+            resolve({
+                status: 404,
+            })
+        })
+
         const response = getResponse();
         
         expect(response.error).toBe(true);
@@ -220,5 +227,5 @@ describe("useItemData API request", () => {
         const response = getResponse();
 
         expect(response.error).toBe(true);
-    })
+    });
 })
