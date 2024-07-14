@@ -228,4 +228,17 @@ describe("useItemData API request", () => {
 
         expect(response.error).toBe(true);
     });
+
+    it("sets error to true if response has 404 status", async () => {
+        const { resolve, getResponse } = setup();
+
+        await act( async () => {
+            resolve({
+                status: 404,
+            });
+        });
+
+        const response = getResponse();
+        expect(response.error).toBeTruthy();
+    });
 })

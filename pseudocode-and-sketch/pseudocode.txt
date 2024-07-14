@@ -35,3 +35,5 @@ return an object with "id": (number), "title": (string), "price": (number),
 return an object with 'data' that has accurate properties & values
 set error to true if fetch rejects
 set error to true if response.status is > 400
+possibly setError as the error itself instead of just a boolean variable, and directly test
+the response.status from the fetch.then resolve callback
