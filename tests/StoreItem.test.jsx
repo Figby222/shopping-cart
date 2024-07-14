@@ -2,6 +2,15 @@ import StoreItem from "../src/components/utilities/StoreItem/StoreItem.jsx";
 import { screen, render } from "@testing-library/react";
 import { vi, describe, it, expect } from "vitest";
 import { userEvent } from "@testing-library/user-event";
+import { act } from "@testing-library/react";
+
+globalThis.fetch = vi.fn((URL, options) => Promise.resolve({
+  json: () => Promise.resolve({})
+}));
+
+beforeEach(() => {
+  vi.clearAllMocks();
+})
 
 describe("Add to cart button", () => {
   it("renders button with text 'Add to cart'", () => {
