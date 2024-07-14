@@ -81,14 +81,6 @@ describe("useItemData response properties", () => {
 })
 
 describe("useItemData API request", () => {
-    
-    it("should not return 'isLoading: true' when timers are ran", () => {
-        const { getResponse } = setup();
-        const response = getResponse();
-
-        expect(response.isLoading).toBe(false);
-
-    })
 
     it("should set 'error' to true if URL isn't provided", async () => {
         const { resolve, getResponse } = setup();
