@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-const useItemData = function(URL, fetch) {
+const useItemData = function(URL) {
     const [ error, setError ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true);
     const [ data, setData ] = useState(null);

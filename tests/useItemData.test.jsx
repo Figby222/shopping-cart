@@ -8,17 +8,17 @@ import { useEffect } from 'react';
 function setup(fetchURL) {
     let resolve;
     let reject;
-    function fetch(URL, options) {
+    globalThis.fetch = vi.fn((URL, options) => {
         return new Promise((_resolve, _reject) => {
             resolve = _resolve;
             reject = _reject;
         })
-    }
+    })
 
     let response;
 
     const MockComponent = ({ useItemData, URL }) => {
-        const { error, isLoading, data } = useItemData(URL, fetch);
+        const { error, isLoading, data } = useItemData(URL);
 
         useEffect(() => {
             response = { error, isLoading, data }
