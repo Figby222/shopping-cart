@@ -21,7 +21,7 @@ function StoreItem({ addToCartHandler, itemId }) {
 
 StoreItem.propTypes = {
     addToCartHandler: PropTypes.func.isRequired,
-    itemId: PropTypes.string.isRequired,
+    itemId: PropTypes.number.isRequired,
 }
 
 export default StoreItem;
