@@ -5,7 +5,13 @@ import { userEvent } from "@testing-library/user-event";
 import { act } from "@testing-library/react";
 
 globalThis.fetch = vi.fn((URL, options) => Promise.resolve({
-  json: () => Promise.resolve({})
+  json: () => Promise.resolve({
+    id: 1,
+    title: "Oriental Fresh Shirt",
+    price: 124,
+    description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    image: "https://loremflickr.com/640/480"
+  })
 }));
 
 beforeEach(() => {
