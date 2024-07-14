@@ -6,7 +6,7 @@ const useItemData = function(URL, fetch) {
 
     useEffect(() => {
         const dataFetch = async () => {
-            const response = await fetch(URL, { mode: "cors" })
+            await fetch(URL, { mode: "cors" })
             .then(response => response.json(), (error) => {
                 throw new Error(error);
             })
