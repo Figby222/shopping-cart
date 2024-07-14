@@ -233,4 +233,11 @@ describe("useItemData API request", () => {
         const response = getResponse();
         expect(response.error).toBeTruthy();
     });
+
+    it("sets isLoading to true after API request is called", () => {
+        const { getResponse } = setup("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+
+        const response = getResponse();
+        expect(response.isLoading).toBe(true);
+    });
 })

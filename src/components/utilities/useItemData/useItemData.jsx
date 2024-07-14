@@ -27,7 +27,7 @@ const useItemData = function(URL, fetch) {
         dataFetch();
     }, [ URL, setData, fetch, setError ])
     
-    return { error, isLoading: false, data: data };
+    return { error, isLoading: true, data: data };
 }
 
 export default useItemData;
