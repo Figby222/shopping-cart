@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 const useItemData = function(URL, fetch) {
     const [ error, setError ] = useState(false)
+    const [ isLoading, setIsLoading ] = useState(true);
     const [ data, setData ] = useState(null);
 
     useEffect(() => {
@@ -17,7 +18,8 @@ const useItemData = function(URL, fetch) {
                     price: response.price,
                     description: response.description,
                     imageSrc: response.image
-                })
+                });
+                setIsLoading(false);
             })
             .catch(() => {
                 setError(true)
@@ -27,7 +29,7 @@ const useItemData = function(URL, fetch) {
         dataFetch();
     }, [ URL, setData, fetch, setError ])
     
-    return { error, isLoading: true, data: data };
+    return { error, isLoading, data: data };
 }
 
 export default useItemData;

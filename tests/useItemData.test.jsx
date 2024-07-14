@@ -235,9 +235,30 @@ describe("useItemData API request", () => {
     });
 
     it("sets isLoading to true after API request is called", () => {
-        const { getResponse } = setup("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+        const { getResponse } = setup();
 
         const response = getResponse();
         expect(response.isLoading).toBe(true);
     });
+
+    it("sets isLoading to false after API request is resolved", async () => {
+        const { resolve, getResponse } = setup("https://668d0428099db4c579f15f4d.mockapi.io/api/v1/items/1");
+        
+        await act(async () => {
+            resolve({
+                json: () => Promise.resolve({
+                    id: 1,
+                    title: "",
+                    price: 1,
+                    description: "",
+                    image: "",
+                })
+            });
+        });
+
+        const response = getResponse();
+        expect(response.data).not.toBeNull();
+        expect(response.isLoading).toBe(false);
+    });
+
 })

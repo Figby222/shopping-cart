@@ -38,3 +38,4 @@ set error to true if response.status is > 400
 possibly setError as the error itself instead of just a boolean variable, and directly test
 the response.status from the fetch.then resolve callback
 set isLoading to true after API request is made
+set isLoading to false after API request is resolved
