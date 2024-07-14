@@ -22,56 +22,56 @@ describe("Add to cart button", () => {
 
     await user.click(button);
 
-        expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
+  })
+
+  it("calls onClick function with item's details, which come from a mocked fetch", async () => {
+    const mockItemId = "FreshCookies"
+
+    const onClick = vi.fn();
+    const mockUseItemData = vi.fn((itemId) => {
+        let error = null;
+        let isLoading = false;
+        let itemDetails = {
+            itemId,
+        };
+        // const fetchedItemDetails = Promise.resolve(itemDetails)
+        //     .then((response) => response);
+
+        return { error, isLoading, itemDetails: itemDetails }
     })
 
-    it.only("calls onClick function with item's details, which come from a mocked fetch", async () => {
-        const mockItemId = "FreshCookies"
+    render (
+        <StoreItem 
+            addToCartHandler={onClick} 
+            itemId={mockItemId} 
+            useItemData={mockUseItemData} />
+    );
 
-        const onClick = vi.fn();
-        const mockUseItemData = vi.fn((itemId) => {
-            let error = null;
-            let isLoading = false;
-            let itemDetails = {
-                itemId,
-            };
-            // const fetchedItemDetails = Promise.resolve(itemDetails)
-            //     .then((response) => response);
+    const addToCart = screen.getByRole("button", { name: /Add to cart/i });
 
-            return { error, isLoading, itemDetails: itemDetails }
-        })
-
-        render (
-            <StoreItem 
-                addToCartHandler={onClick} 
-                itemId={mockItemId} 
-                useItemData={mockUseItemData} />
-        );
-
-        const addToCart = screen.getByRole("button", { name: /Add to cart/i });
-
-        const user = userEvent.setup();
-        await user.click(addToCart)
-        
-        expect(onClick.mock.calls[0][0].itemId).toEqual(mockItemId)
-
-    })
+    const user = userEvent.setup();
+    await user.click(addToCart)
     
-    it.skip("calls onClick function with item quantity", async () => {
-        const onClick = vi.fn();
+    expect(onClick.mock.calls[0][0].itemId).toEqual(mockItemId)
 
-        render(<StoreItem addToCartHandler={onClick} />);
+  })
+  
+  it.skip("calls onClick function with item quantity", async () => {
+    const onClick = vi.fn();
 
-        const user = userEvent.setup();
-        const addToCart = screen.getByRole("button", { name: /Add to cart/i });
-        
-        await user.click(addToCart);
+    render(<StoreItem addToCartHandler={onClick} />);
 
-        expect(onClick.mock.calls[0][2]).toBe(1);
-    })
+    const user = userEvent.setup();
+    const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+    
+    await user.click(addToCart);
 
-    it.skip("calls onClick function with item quantity", async () => {
-        const onClick = vi.fn();
+    expect(onClick.mock.calls[0][2]).toBe(1);
+  })
+
+  it.skip("calls onClick function with item quantity", async () => {
+    const onClick = vi.fn();
 
     render(<StoreItem addToCartHandler={onClick} />);
 
@@ -89,8 +89,8 @@ describe("Add to cart button", () => {
 });
 
 describe("Item quantity input", () => {
-    it("renders input for item quantity", () => {
-        render(<StoreItem addToCartHandler={() => {}} itemId="" useItemData={() =>{}} />);
+  it("renders input for item quantity", () => {
+    render(<StoreItem addToCartHandler={() => {}} itemId="" useItemData={() =>{}} />);
 
     expect(screen.getByRole("spinbutton", { name: /item quantity/i }))
       // somehow query number input. I don't think textbox will work
@@ -108,17 +108,17 @@ describe("Item quantity input", () => {
   it("sets input value correctly when user types a number", async () => {
     render(<StoreItem addToCartHandler={() => {}} />);
 
-      const user = userEvent.setup();
-      const input = screen.getByRole("spinbutton", { name: /item quantity/i});
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: /item quantity/i});
 
-      await user.clear(input);
-      expect(input).toHaveValue(null);
+    await user.clear(input);
+    expect(input).toHaveValue(null);
 
-      await user.clear(input);
-      expect(input).toHaveValue("");
+    await user.clear(input);
+    expect(input).toHaveValue("");
 
-      await user.type(input, "2");
-      expect(input.value).toBe("2");
+    await user.type(input, "2");
+    expect(input.value).toBe("2");
   });
 
   it("does not set input when a letter is typed in", async () => {
@@ -127,23 +127,23 @@ describe("Item quantity input", () => {
     const user = userEvent.setup();
     const input = screen.getByRole("spinbutton", { name: /item quantity/i });
 
-        await user.type(input, "a");
-        expect(input.value).not.toBe("a");
-    })
+    await user.type(input, "a");
+    expect(input.value).not.toBe("a");
+  })
+  
+  it.skip("Increments input on up arrow", async () => { // unsupported functionality
+    render (<StoreItem addToCartHandler={() => {}} />);
+
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: /item quantity/i});
+    const initialValue = input.value;
+
+    await user.click(input);
     
-    it.skip("Increments input on up arrow", async () => { // unsupported functionality
-        render (<StoreItem addToCartHandler={() => {}} />);
+    expect(input).toHaveFocus();
 
-        const user = userEvent.setup();
-        const input = screen.getByRole("spinbutton", { name: /item quantity/i});
-        const initialValue = input.value;
-
-        await user.click(input);
-        
-        expect(input).toHaveFocus();
-
-        await user.keyboard("[ArrowUp]");
-        
-        expect(parseInt(input.value)).toBe(parseInt(initialValue) + 1);
-    })
+    await user.keyboard("[ArrowUp]");
+    
+    expect(parseInt(input.value)).toBe(parseInt(initialValue) + 1);
+  })
 })
