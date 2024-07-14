@@ -18,11 +18,13 @@ const useItemData = function(URL, fetch) {
                     price: response.price,
                     description: response.description,
                     imageSrc: response.image
-                });
-                setIsLoading(false);
+                })
             })
             .catch(() => {
                 setError(true)
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
         }
 

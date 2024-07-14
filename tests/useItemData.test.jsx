@@ -261,4 +261,15 @@ describe("useItemData API request", () => {
         expect(response.isLoading).toBe(false);
     });
 
+    it("sets isLoading to false after API request is rejected", async () => {
+        const { reject, getResponse } = setup();
+        
+        await act(async () => {
+            reject("Fetch request failed");
+        });
+
+        const response = getResponse();
+        expect(response.error).toBeTruthy();
+        expect(response.isLoading).toBe(false);
+    })
 })
