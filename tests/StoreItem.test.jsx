@@ -4,15 +4,26 @@ import { vi, describe, it, expect } from "vitest";
 import { userEvent } from "@testing-library/user-event";
 import { act } from "@testing-library/react";
 
-globalThis.fetch = vi.fn((URL, options) => Promise.resolve({
-  json: () => Promise.resolve({
-    id: 1,
-    title: "Oriental Fresh Shirt",
-    price: 124,
-    description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-    image: "https://loremflickr.com/640/480"
+globalThis.fetch = vi.fn((URL, options) => {
+  if (
+    URL === "https//fakestoreapi.com/products/1" ||
+    URL === "https//fakestoreapi.com/products/1/"
+  ) {
+    return Promise.resolve({
+      json: () => Promise.resolve({
+        id: 1,
+        title: "Oriental Fresh Shirt",
+        price: 124,
+        description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+        image: "https://loremflickr.com/640/480"
+      })
+    })
+  }
+
+  return Promise.resolve({
+    status: 404
   })
-}));
+});
 
 beforeEach(() => {
   vi.clearAllMocks();
