@@ -186,6 +186,16 @@ describe("data retrieving", () => {
     const loadingHeading = screen.getByRole("heading", { name: /Loading.../i});
     expect(loadingHeading).toBeInTheDocument();
   })
+
+  it("displays 'An error has occured' on error", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={-3} />);
+    })
+
+    const errorHeading = 
+      screen.getByRole("heading", { name: /An error has occurred/i });
+    expect(errorHeading).toBeInTheDocument();
+  })
 })
 
 describe("StoreItem content", () => {

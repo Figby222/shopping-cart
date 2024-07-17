@@ -26,7 +26,15 @@ function StoreItem({ addToCartHandler, itemId }) {
             </>
         )
     }
-    
+
+    if (error) {
+        return (
+            <>
+                <h3 className="error">An error has occurred</h3>
+            </>
+        )
+    }
+
     return (
         <>
         <div className="content">
