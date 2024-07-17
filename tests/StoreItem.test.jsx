@@ -80,16 +80,22 @@ describe("Add to cart button", () => {
 });
 
 describe("Item quantity input", () => {
-  it("renders input for item quantity", () => {
-    render(<StoreItem addToCartHandler={() => {}} itemId="" useItemData={() =>{}} />);
+  it("renders input for item quantity", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+
+    })
 
     expect(screen.getByRole("spinbutton", { name: /item quantity/i }))
       // somehow query number input. I don't think textbox will work
       .toBeInTheDocument();
   });
 
-  it("starts with a value of 1", () => {
-    render(<StoreItem addToCartHandler={() => {}} />);
+  it("starts with a value of 1", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} />);
+
+    })
 
     expect(
       screen.getByRole("spinbutton", { name: /item quantity/i }),
@@ -97,7 +103,10 @@ describe("Item quantity input", () => {
   });
 
   it("sets input value correctly when user types a number", async () => {
-    render(<StoreItem addToCartHandler={() => {}} />);
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} />);
+
+    })
 
     const user = userEvent.setup();
     const input = screen.getByRole("spinbutton", { name: /item quantity/i});
@@ -105,15 +114,15 @@ describe("Item quantity input", () => {
     await user.clear(input);
     expect(input).toHaveValue(null);
 
-    await user.clear(input);
-    expect(input).toHaveValue("");
-
     await user.type(input, "2");
     expect(input.value).toBe("2");
   });
 
   it("does not set input when a letter is typed in", async () => {
-    render(<StoreItem addToCartHandler={() => {}} />);
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+
+    })
 
     const user = userEvent.setup();
     const input = screen.getByRole("spinbutton", { name: /item quantity/i });
@@ -122,8 +131,11 @@ describe("Item quantity input", () => {
     expect(input.value).not.toBe("a");
   })
   
-  it.skip("Increments input on up arrow", async () => { // unsupported functionality
-    render (<StoreItem addToCartHandler={() => {}} />);
+  it("Increments input on up arrow", async () => { // unsupported functionality
+    await act(async() => {
+      render (<StoreItem addToCartHandler={() => {}} itemId={1} />);
+
+    })
 
     const user = userEvent.setup();
     const input = screen.getByRole("spinbutton", { name: /item quantity/i});
