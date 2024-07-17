@@ -29,78 +29,54 @@ describe("Add to cart button", () => {
   it("calls prop function when clicked", async () => {
     const onClick = vi.fn();
 
-    render(<StoreItem addToCartHandler={onClick} />);
+    await act(async () => {
+      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+    });
 
     const user = userEvent.setup();
 
     const button = screen.getByRole("button", { name: /Add to cart/i });
 
-    await user.click(button);
+    await act(() => user.click(button));
 
     expect(onClick).toHaveBeenCalled();
   })
 
   it("calls onClick function with item's details, which come from a mocked fetch", async () => {
-    const mockItemId = "FreshCookies"
-
+    const itemId = 1;
     const onClick = vi.fn();
-    const mockUseItemData = vi.fn((itemId) => {
-        let error = null;
-        let isLoading = false;
-        let itemDetails = {
-            itemId,
-        };
-        // const fetchedItemDetails = Promise.resolve(itemDetails)
-        //     .then((response) => response);
-
-        return { error, isLoading, itemDetails: itemDetails }
-    })
-
-    render (
-        <StoreItem 
-            addToCartHandler={onClick} 
-            itemId={mockItemId} 
-            useItemData={mockUseItemData} />
-    );
+    await act(async () => {
+      render (
+          <StoreItem 
+              addToCartHandler={onClick} 
+              itemId={itemId} />
+      );
+    });
 
     const addToCart = screen.getByRole("button", { name: /Add to cart/i });
 
     const user = userEvent.setup();
     await user.click(addToCart)
     
-    expect(onClick.mock.calls[0][0].itemId).toEqual(mockItemId)
+    expect(onClick.mock.calls[0][0].id).toEqual(itemId)
 
   })
   
-  it.skip("calls onClick function with item quantity", async () => {
+  it("calls onClick function with item quantity", async () => {
     const onClick = vi.fn();
+    
+    await act(async () => {
+      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
 
-    render(<StoreItem addToCartHandler={onClick} />);
+    })
 
     const user = userEvent.setup();
     const addToCart = screen.getByRole("button", { name: /Add to cart/i });
     
     await user.click(addToCart);
 
-    expect(onClick.mock.calls[0][2]).toBe(1);
+    expect(onClick.mock.calls[0][1]).toBe(1);
   })
-
-  it.skip("calls onClick function with item quantity", async () => {
-    const onClick = vi.fn();
-
-    render(<StoreItem addToCartHandler={onClick} />);
-
-    const user = userEvent.setup();
-    const addToCart = screen.getByRole("button", { name: /Add to cart/i });
-    const quantityInput = screen.getByRole("spinbutton", {
-      name: /item quantity/i,
-    });
-
-    await user.type(quantityInput, "2");
-    await user.click(addToCart);
-
-    expect(onClick.mock.calls[0][1]).toBe(2);
-  });
 });
 
 describe("Item quantity input", () => {

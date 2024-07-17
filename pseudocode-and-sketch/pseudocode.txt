@@ -18,6 +18,7 @@ StoreItem could take itemId and fetch() props, and call fetch using the item id,
 set an item state as the response from the API request,
 or I could fetch the items from the API in the parent div, and send the item as a prop to
 StoreItem
+call addToCartHandler with data & itemQuantity
 
 useItemDetails:
 return a truthy value
