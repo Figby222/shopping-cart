@@ -1,9 +1,11 @@
 import "./StoreItem.css";
 import PropTypes from "prop-types";
 import { useState } from 'react';
+import useItemData from "../useItemData/useItemData.jsx";
 
 function StoreItem({ addToCartHandler, itemId }) {
     const [ itemQuantity, setItemQuantity ] = useState(1);
+    const { error, isLoading, data } = useItemData(`https//fakestoreapi.com/products${itemId}`)
     return (
         <>
         <label htmlFor="item-quantity">Item quantity</label>
@@ -14,7 +16,7 @@ function StoreItem({ addToCartHandler, itemId }) {
             name="item-quantity" 
             value={itemQuantity}
             onChange={(e) => setItemQuantity(e.target.value)} /> 
-        <button onClick={() => addToCartHandler()}>Add to cart</button>
+        <button onClick={() => addToCartHandler(data, itemQuantity)}>Add to cart</button>
         </>
     );
 };
