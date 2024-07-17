@@ -148,5 +148,18 @@ describe("Item quantity input", () => {
     expect(input.value).not.toBe("a");
   })
 
-  describe 
+  it("does not set input as negative number", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: /item quantity/i });
+
+    await user.clear(input);
+    await user.type(input, "-3");
+    
+    expect(parseInt(input.value)
+  ).not.toBeLessThan(0);
+  })
 })

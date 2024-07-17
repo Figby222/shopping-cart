@@ -3,6 +3,18 @@ import PropTypes from "prop-types";
 import { useState } from 'react';
 import useItemData from "../useItemData/useItemData.jsx";
 
+const setValidatedUnsignedInteger = (value, setValue) => {
+    if (value.includes("-")) {
+        return;
+    }
+
+    if (value.includes(".")) {
+        return;
+    }
+
+    setValue(parseInt(value));
+}
+
 function StoreItem({ addToCartHandler, itemId }) {
     const [ itemQuantity, setItemQuantity ] = useState(1);
     const { error, isLoading, data } = useItemData(`https//fakestoreapi.com/products${itemId}`)
@@ -15,7 +27,7 @@ function StoreItem({ addToCartHandler, itemId }) {
             step="1" 
             name="item-quantity" 
             value={itemQuantity}
-            onChange={(e) => setItemQuantity(e.target.value)} /> 
+            onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity)} /> 
         <button onClick={() => addToCartHandler(data, parseInt(itemQuantity))}>Add to cart</button>
         </>
     );

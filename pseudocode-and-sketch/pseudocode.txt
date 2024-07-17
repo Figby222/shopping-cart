@@ -21,6 +21,7 @@ StoreItem
 call addToCartHandler with data & itemQuantity
 parse itemQuantity to int & 
 call addToCartHandler with updated itemQuantity after input value change
+make sure itemQuantity isn't negative
 
 useItemDetails:
 return a truthy value
