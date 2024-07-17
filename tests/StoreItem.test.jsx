@@ -125,7 +125,7 @@ describe("Item quantity input", () => {
 
   it("starts with a value of 1", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} />);
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
 
     })
 
@@ -136,7 +136,7 @@ describe("Item quantity input", () => {
 
   it("sets input value correctly when user types a number", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} />);
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
 
     })
 
