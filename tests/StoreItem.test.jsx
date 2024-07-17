@@ -206,4 +206,14 @@ describe("StoreItem content", () => {
 
     expect(screen.getByRole("heading")).toBeInTheDocument();
   })
+
+  it("renders a heading that has the textContent of the item's title", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />)
+    })
+    
+    const titleHeading = screen.getByRole("heading", { name: /Oriental Fresh Shirt/i});
+    expect(titleHeading).toBeInTheDocument();
+  })
+
 })

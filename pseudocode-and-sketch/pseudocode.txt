@@ -15,6 +15,7 @@ add "Item quantity" number input box, set "item quantity" initial value to 1
 render heading
 display "Loading..." if data is loading
 display "An error has occurred" on error
+add a heading that displays data.title
 
 Item details:
 StoreItem could take itemId and fetch() props, and call fetch using the item id, and
