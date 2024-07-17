@@ -30,8 +30,12 @@ beforeEach(() => {
 })
 
 describe("Add to cart button", () => {
-  it("renders button with text 'Add to cart'", () => {
-    render(<StoreItem />);
+  it("renders button with text 'Add to cart'", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+
+    });
+
     expect(
       screen.getByRole("button", { name: /Add to cart/i }),
     ).toBeInTheDocument();
