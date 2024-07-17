@@ -179,6 +179,15 @@ describe("Item quantity input", () => {
   })
 })
 
+describe("data retrieving", () => {
+  it("displays 'Loading...' as data is loading", () => {
+    render(<StoreItem addToCartHandler={() => {}} itemId={1} />)
+
+    const loadingHeading = screen.getByRole("heading", { name: /Loading.../i});
+    expect(loadingHeading).toBeInTheDocument();
+  })
+})
+
 describe("StoreItem content", () => {
   it("renders a heading", async () => {
     await act(async () => {

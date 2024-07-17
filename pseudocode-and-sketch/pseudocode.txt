@@ -13,6 +13,7 @@ add "Add to cart" button"
 add "Item quantity" number input box, set "item quantity" initial value to 1
 "Add to cart" button calls handler with item quantity as args
 render heading
+display "Loading..." if data is loading
 
 Item details:
 StoreItem could take itemId and fetch() props, and call fetch using the item id, and
