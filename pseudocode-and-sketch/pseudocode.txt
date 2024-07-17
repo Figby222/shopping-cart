@@ -19,6 +19,8 @@ set an item state as the response from the API request,
 or I could fetch the items from the API in the parent div, and send the item as a prop to
 StoreItem
 call addToCartHandler with data & itemQuantity
+parse itemQuantity to int & 
+call addToCartHandler with updated itemQuantity after input value change
 
 useItemDetails:
 return a truthy value

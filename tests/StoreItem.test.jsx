@@ -77,6 +77,23 @@ describe("Add to cart button", () => {
 
     expect(onClick.mock.calls[0][1]).toBe(1);
   })
+
+  it("calls onClick function with updated item quantity", async () => {
+    const onClick = vi.fn();
+    await act(async () => {
+      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+    })
+
+    const user = userEvent.setup();
+    const itemQuantity = screen.getByRole("spinbutton", { name: /Item quantity/i });
+    const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+
+    await user.clear(itemQuantity);
+    await user.type(itemQuantity, "2");
+    await user.click(addToCart);
+
+    expect(onClick.mock.calls[0][1]).toBe(2);
+  })
 });
 
 describe("Item quantity input", () => {
@@ -130,4 +147,6 @@ describe("Item quantity input", () => {
     await user.type(input, "a");
     expect(input.value).not.toBe("a");
   })
+
+  describe 
 })

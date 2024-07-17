@@ -16,7 +16,7 @@ function StoreItem({ addToCartHandler, itemId }) {
             name="item-quantity" 
             value={itemQuantity}
             onChange={(e) => setItemQuantity(e.target.value)} /> 
-        <button onClick={() => addToCartHandler(data, itemQuantity)}>Add to cart</button>
+        <button onClick={() => addToCartHandler(data, parseInt(itemQuantity))}>Add to cart</button>
         </>
     );
 };
