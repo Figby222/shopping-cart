@@ -20,6 +20,9 @@ function StoreItem({ addToCartHandler, itemId }) {
     const { error, isLoading, data } = useItemData(`https//fakestoreapi.com/products${itemId}`)
     return (
         <>
+        <div className="content">
+            <h3></h3>
+        </div>
         <label htmlFor="item-quantity">Item quantity</label>
         <input 
             type="number" 

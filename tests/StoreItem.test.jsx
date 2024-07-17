@@ -163,3 +163,13 @@ describe("Item quantity input", () => {
   ).not.toBeLessThan(0);
   })
 })
+
+describe("StoreItem content", () => {
+  it("renders a heading", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    expect(screen.getByRole("heading")).toBeInTheDocument();
+  })
+})
