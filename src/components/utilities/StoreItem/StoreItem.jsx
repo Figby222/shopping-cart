@@ -43,6 +43,7 @@ function StoreItem({ addToCartHandler, itemId }) {
             <p className="item-description" aria-label="item description">
                 Description: {data.description}
             </p>
+            <img className="item-image" src="/" alt={`image of ${data.title}`} />
         </div>
         <label htmlFor="item-quantity">Item quantity</label>
         <input 

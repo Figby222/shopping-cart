@@ -254,5 +254,15 @@ describe("StoreItem content", () => {
     )
   })
 
+  it("renders an image for item-image", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    expect(screen.getByRole("img", { name: /image of Oriental fresh shirt/i }))
+      .toBeInTheDocument();
+  })
+
+
 
 })
