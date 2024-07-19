@@ -263,6 +263,18 @@ describe("StoreItem content", () => {
       .toBeInTheDocument();
   })
 
+  it("renders an image for item-image with the correct src", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    const itemImage = screen.getByRole(
+      "img", 
+      { name: /image of Oriental fresh shirt/i }
+    );
+    expect(itemImage.src).toBe("https://loremflickr.com/640/480")
+  })
+
 
 
 })
