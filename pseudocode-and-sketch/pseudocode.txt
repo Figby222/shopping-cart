@@ -16,6 +16,7 @@ render heading
 display "Loading..." if data is loading
 display "An error has occurred" on error
 add a heading that displays data.title
+add a paragraph thaat displays data.price
 
 Item details:
 StoreItem could take itemId and fetch() props, and call fetch using the item id, and

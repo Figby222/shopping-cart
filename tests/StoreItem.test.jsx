@@ -216,4 +216,13 @@ describe("StoreItem content", () => {
     expect(titleHeading).toBeInTheDocument();
   })
 
+  it("renders a paragraph for item-price", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    expect(screen.getByLabelText(/item price/i))
+      .toBeInTheDocument();
+  })
+
 })
