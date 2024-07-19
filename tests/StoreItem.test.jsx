@@ -234,5 +234,14 @@ describe("StoreItem content", () => {
     expect(itemPrice.textContent).toMatch(/124/i);
   })
 
+  it("renders a paragraph for item-description", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    expect(screen.getByLabelText(/item description/i))
+      .toBeInTheDocument();
+  })
+
 
 })

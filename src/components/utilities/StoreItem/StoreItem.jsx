@@ -40,6 +40,7 @@ function StoreItem({ addToCartHandler, itemId }) {
         <div className="content">
             <h3 className="item-title">{data.title}</h3>
             <p className="item-price" aria-label="item price">Price: ${data.price}</p>
+            <p className="item-description" aria-label="item description"></p>
         </div>
         <label htmlFor="item-quantity">Item quantity</label>
         <input 
