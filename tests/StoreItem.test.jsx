@@ -243,5 +243,16 @@ describe("StoreItem content", () => {
       .toBeInTheDocument();
   })
 
+  it("renders a paragraph for item-description with the accurate description", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+    })
+
+    const itemDescription = screen.getByLabelText(/item description/i);
+    expect(itemDescription.textContent).toMatch(
+      /Carbonite web goalkeeper gloves are ergonomically designed to give easy fit/i
+    )
+  })
+
 
 })
