@@ -225,4 +225,14 @@ describe("StoreItem content", () => {
       .toBeInTheDocument();
   })
 
+  it ("renders a paragraph for item-price with the correct price", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() =>{}} itemId={1} />);
+    })
+
+    const itemPrice = screen.getByLabelText(/item price/i);
+    expect(itemPrice.textContent).toMatch(/124/i);
+  })
+
+
 })
