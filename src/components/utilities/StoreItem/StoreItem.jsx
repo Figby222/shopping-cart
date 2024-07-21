@@ -17,7 +17,7 @@ const setValidatedUnsignedInteger = (value, setValue) => {
 
 function StoreItem({ addToCartHandler, itemId }) {
     const [ itemQuantity, setItemQuantity ] = useState(1);
-    const { error, isLoading, data } = useItemData(`https//fakestoreapi.com/products/${itemId}`)
+    const { error, isLoading, data } = useItemData(`https://fakestoreapi.com/products/${itemId}`)
 
     if (isLoading) {
         return (

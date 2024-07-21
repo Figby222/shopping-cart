@@ -6,8 +6,8 @@ import { act } from "@testing-library/react";
 
 globalThis.fetch = vi.fn((URL, options) => {
   if (
-    URL === "https//fakestoreapi.com/products/1" ||
-    URL === "https//fakestoreapi.com/products/1/"
+    URL === "https://fakestoreapi.com/products/1" ||
+    URL === "https://fakestoreapi.com/products/1/"
   ) {
     return Promise.resolve({
       json: () => Promise.resolve({
