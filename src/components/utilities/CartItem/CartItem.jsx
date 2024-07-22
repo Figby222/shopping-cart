@@ -1,7 +1,11 @@
 import './CartItem.css';
 import PropTypes from 'prop-types';
 function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
-    return (<></>);
+    return (
+        <>
+            <p className="item-title" aria-label="item title"></p>
+        </>
+    );
 }
 
 CartItem.propTypes = {

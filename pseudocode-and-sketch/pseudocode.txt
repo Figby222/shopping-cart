@@ -58,3 +58,4 @@ set isLoading to false after API request is rejected
 
 CartItem:
 itemId prop, itemTitle prop, itemQuantity prop, removeFromCartHandler prop
+add paragraph with itemTitle text

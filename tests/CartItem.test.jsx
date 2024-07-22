@@ -3,5 +3,13 @@ import { screen, render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
 describe("CartItem", () => {
-    it("")
+    it("renders itemTitle paragraph", () => {
+        render(<CartItem 
+            itemId={1} 
+            itemTitle={""} 
+            itemQuantity={1} 
+            removeFromCartHandler={() => {}}/>);
+            
+        expect(screen.getByLabelText(/item title/i)).toBeInTheDocument();
+    })
 })
