@@ -19,6 +19,20 @@ globalThis.fetch = vi.fn((URL, options) => {
       })
     })
   }
+  else if (
+    URL === "https://fakestoreapi.com/products/2" ||
+    URL === "https://fakestoreapi.com/products/2/"
+  ) {
+    return Promise.resolve({
+      json: () => Promise.resolve({
+        id: 2,
+        title: "Mens Casual Premium Slim Fit T-Shirts",
+        price: 22.3,
+        description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+        image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+      })
+    })
+  }
 
   return Promise.resolve({
     status: 404
