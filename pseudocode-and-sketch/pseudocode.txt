@@ -60,3 +60,4 @@ CartItem:
 itemId prop, itemTitle prop, itemQuantity prop, removeFromCartHandler prop
 add paragraph with itemTitle text
 add paragraph with itemQuantity text
+add remove from cart button that calls onClick with itemId arg

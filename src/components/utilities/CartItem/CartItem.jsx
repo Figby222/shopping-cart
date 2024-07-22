@@ -5,6 +5,12 @@ function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
         <> 
             <p className="item-quantity" aria-label="item quantity">{itemQuantity}</p>
             <p className="item-title" aria-label="item title">{itemTitle}</p>
+            <button 
+                type="button" 
+                className="remove-from-cart" 
+                aria-label="remove item from cart"
+            >
+            </button>
         </>
     );
 }

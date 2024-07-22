@@ -72,3 +72,17 @@ describe("CartItem", () => {
         expect(itemQuantity.textContent).toMatch(/2/i);
     })
 })
+
+describe("remove from cart button", () => {
+    it("renders a button to remove from cart", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={2}
+            removeFromCartHandler={() => {}} />
+        )
+
+        expect(screen.getByRole("button", { name: /remove item from cart/i }))
+            .toBeInTheDocument();
+    })
+})
