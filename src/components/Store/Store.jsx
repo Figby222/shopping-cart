@@ -13,7 +13,7 @@ function Store({ cart, addToCartHandler }) {
     );
 }
 
-Store.PropTypes = {
+Store.propTypes = {
     cart: PropTypes.object.isRequired,
     addToCartHandler: PropTypes.func.isRequired,
 }
