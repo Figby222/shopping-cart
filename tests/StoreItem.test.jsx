@@ -71,7 +71,7 @@ describe("Add to cart button", () => {
     expect(onClick).toHaveBeenCalled();
   })
 
-  it("calls onClick function with item's details, which come from a mocked fetch", async () => {
+  it("calls onClick function with item's id, which comes from a mocked fetch", async () => {
     const itemId = 1;
     const onClick = vi.fn();
     await act(async () => {
