@@ -1,6 +1,7 @@
 import CartItem from "../src/components/utilities/CartItem/CartItem.jsx";
 import { screen, render } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
 
 describe("CartItem", () => {
     it("renders itemTitle paragraph", () => {
@@ -96,5 +97,20 @@ describe("remove from cart button", () => {
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         expect(removeFromCart.textContent).toMatch(/X/i);
+    })
+
+    it("calls removeFromCartHandler function on click", async () => {
+        const onClick = vi.fn();
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={2}
+            removeFromCartHandler={onClick} />
+        )
+        const user = userEvent.setup();
+
+        const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
+        await user.click(removeFromCart);
+        expect(onClick).toHaveBeenCalled();
     })
 })
