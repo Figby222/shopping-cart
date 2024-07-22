@@ -9,4 +9,11 @@ describe("ShoppingCart", () => {
         expect(screen.getByRole("heading", { name: /shopping cart/i }))
             .toBeInTheDocument();
     })
+
+    it("renders paragraph with 'item count' text", () => {
+        render(<ShoppingCart cart={{}} removeFromCartHandler={() => {}} />)
+        
+        expect(screen.getByLabelText(/shopping cart item count/i))
+            .toBeInTheDocument();
+    })
 })
