@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
     return (
         <>
-            <p className="item-title" aria-label="item title"></p>
+            <p className="item-title" aria-label="item title">{itemTitle}</p>
         </>
     );
 }

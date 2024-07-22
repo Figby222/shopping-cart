@@ -9,7 +9,31 @@ describe("CartItem", () => {
             itemTitle={""} 
             itemQuantity={1} 
             removeFromCartHandler={() => {}}/>);
-            
+
         expect(screen.getByLabelText(/item title/i)).toBeInTheDocument();
+    })
+
+    it("renders itemTitle paragraph with prop-given text", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"T-shirt"}
+            itemQuantity={1}
+            removeFromCartHandler={() => {}} />
+        )
+
+        const itemTitle = screen.getByLabelText(/item title/i);
+        expect(itemTitle.textContent).toMatch(/t-shirt/i);
+    })
+
+    it("renders itemTitle paragraph with different prop-given text", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={1}
+            removeFromCartHandler={() => {}} />
+        )
+
+        const itemTitle = screen.getByLabelText(/item title/i);
+        expect(itemTitle.textContent).toMatch(/black pants/i);
     })
 })
