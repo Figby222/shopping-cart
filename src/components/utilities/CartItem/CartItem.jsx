@@ -9,7 +9,7 @@ function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
                 type="button" 
                 className="remove-from-cart" 
                 aria-label="remove item from cart"
-                onClick={() => removeFromCartHandler()}
+                onClick={() => removeFromCartHandler(itemId)}
             >
             X
             </button>

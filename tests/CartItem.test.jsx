@@ -113,4 +113,34 @@ describe("remove from cart button", () => {
         await user.click(removeFromCart);
         expect(onClick).toHaveBeenCalled();
     })
+
+    it("calls removeFromCartHandler function with itemId arg", async () => {
+        const onClick = vi.fn();
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={2}
+            removeFromCartHandler={onClick} />
+        )
+        const user = userEvent.setup();
+
+        const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
+        await user.click(removeFromCart);
+        expect(onClick.mock.calls[0][0]).toBe(1);
+    })
+
+    it("calls removeFromCartHandler function with different itemId arg", async () => {
+        const onClick = vi.fn();
+        render(<CartItem
+            itemId={2}
+            itemTitle={"black pants"}
+            itemQuantity={2}
+            removeFromCartHandler={onClick} />
+        )
+        const user = userEvent.setup();
+
+        const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
+        await user.click(removeFromCart);
+        expect(onClick.mock.calls[0][0]).toBe(2);
+    })
 })
