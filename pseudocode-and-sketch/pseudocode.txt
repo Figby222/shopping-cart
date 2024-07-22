@@ -5,6 +5,10 @@ render navbar with links to Store and Shopping cart
 Store:
 render heading with text "Store"
 render shopping cart item count
+addToCartHandler(item):
+    check if item is already in cart
+        if so, combine the quanitity of items,
+        if not, add a new item with the quanitity listed
 
 StoreItem:
 takes props: addToCartHandler(), itemDetails{}
