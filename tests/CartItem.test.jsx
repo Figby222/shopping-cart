@@ -36,4 +36,15 @@ describe("CartItem", () => {
         const itemTitle = screen.getByLabelText(/item title/i);
         expect(itemTitle.textContent).toMatch(/black pants/i);
     })
+
+    it("renders itemQuantity paragraph", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={1}
+            removeFromCartHandler={() => {}} />
+        )
+
+        expect(screen.getByLabelText(/item quantity/i)).toBeInTheDocument();
+    })
 })
