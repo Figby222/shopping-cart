@@ -13,7 +13,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
 }
 
 ShoppingCart.propTypes = {
-    cart: PropTypes.object.isRequired,
+    cart: PropTypes.array.isRequired,
     removeFromCartHandler: PropTypes.func.isRequired
 }
 
