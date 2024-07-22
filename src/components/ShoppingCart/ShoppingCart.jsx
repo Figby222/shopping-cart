@@ -1,6 +1,7 @@
 import "./ShoppingCart.css";
+import PropTypes from 'prop-types';
 
-function ShoppingCart() {
+function ShoppingCart({ cart, removeFromCartHandler }) {
     return (
         <>
             <p className="shopping-cart-item-count" aria-label="shopping-cart-item-count">
@@ -8,6 +9,11 @@ function ShoppingCart() {
             </p>
         </>
     );
+}
+
+ShoppingCart.propTypes = {
+    cart: PropTypes.object.isRequired,
+    removeFromCartHandler: PropTypes.func.isRequired
 }
 
 export default ShoppingCart;
