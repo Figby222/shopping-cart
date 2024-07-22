@@ -85,4 +85,16 @@ describe("remove from cart button", () => {
         expect(screen.getByRole("button", { name: /remove item from cart/i }))
             .toBeInTheDocument();
     })
+
+    it("renders remove from cart button with 'X' textContent", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={2}
+            removeFromCartHandler={() => {}} />
+        )
+
+        const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
+        expect(removeFromCart.textContent).toMatch(/X/i);
+    })
 })

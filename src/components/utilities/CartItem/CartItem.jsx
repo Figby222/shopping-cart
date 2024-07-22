@@ -10,6 +10,7 @@ function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
                 className="remove-from-cart" 
                 aria-label="remove item from cart"
             >
+            X
             </button>
         </>
     );
