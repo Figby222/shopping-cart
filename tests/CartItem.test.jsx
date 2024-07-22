@@ -47,4 +47,28 @@ describe("CartItem", () => {
 
         expect(screen.getByLabelText(/item quantity/i)).toBeInTheDocument();
     })
+
+    it("renders itemQuantity paragraph with prop-given value", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={1}
+            removeFromCartHandler={() => {}} />
+        )
+
+        const itemQuantity = screen.getByLabelText(/item quantity/i); 
+        expect(itemQuantity.textContent).toMatch(/1/i);
+    })
+
+    it("renders itemQUantity paragraph with different prop-given value", () => {
+        render(<CartItem
+            itemId={1}
+            itemTitle={"black pants"}
+            itemQuantity={2}
+            removeFromCartHandler={() => {}} />
+        )
+
+        const itemQuantity = screen.getByLabelText(/item quantity/i); 
+        expect(itemQuantity.textContent).toMatch(/2/i);
+    })
 })
