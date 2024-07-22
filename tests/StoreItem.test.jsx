@@ -90,6 +90,27 @@ describe("Add to cart button", () => {
     expect(onClick.mock.calls[0][0].id).toEqual(itemId)
 
   })
+
+  it("calls onClick function with item's details, which come from mocked fetch", async () => {
+    const expectedObject = {
+      id: 1,
+      title: "Oriental Fresh Shirt",
+      price: 124,
+      description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      imageSrc: "https://loremflickr.com/640/480"
+    }
+
+    const onClick = vi.fn();
+
+    await act(async () => {
+      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+    });
+    const user = userEvent.setup();
+    const addToCart = screen.getByRole("button", { name: /Add to cart/i });
+
+    await user.click(addToCart);
+    expect(onClick.mock.calls[0][0]).toEqual(expectedObject);
+  })
   
   it("calls onClick function with item quantity", async () => {
     const onClick = vi.fn();
