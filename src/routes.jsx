@@ -2,7 +2,7 @@ import App from './App';
 
 const routes = [
     {
-        path: "/",
+        path: "/:name",
         element: <App />,
     },
 ];
