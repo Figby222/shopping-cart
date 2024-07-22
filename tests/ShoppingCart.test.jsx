@@ -16,4 +16,41 @@ describe("ShoppingCart", () => {
         expect(screen.getByLabelText(/shopping cart item count/i))
             .toBeInTheDocument();
     })
+
+    it("renders item count paragraph with correct item count", () => {
+        const mockCart = [
+            {
+                itemId: 1,
+                title: "T-shirt",
+                itemQuantity: 1,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const itemCountParagraph = screen.getByLabelText(/shopping cart item count/i);
+
+        expect(itemCountParagraph.textContent)
+            .toMatch(/1/i);
+    })
+
+    it("renders item count paragraph with correct item count", () => {
+        const mockCart = [
+            {
+                itemId: 1,
+                title: "T-shirt",
+                itemQuantity: 1,
+            },
+            {
+                itemId: 2,
+                title: "T-shirt",
+                itemQuantity: 1,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const itemCountParagraph = screen.getByLabelText(/shopping cart item count/i);
+
+        expect(itemCountParagraph.textContent)
+            .toMatch(/2/i);
+    })
 })

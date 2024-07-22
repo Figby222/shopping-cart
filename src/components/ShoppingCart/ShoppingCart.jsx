@@ -6,7 +6,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
         <>
             <h3 className="shopping-cart-heading">Shopping Cart</h3>
             <p className="shopping-cart-item-count" aria-label="shopping cart item count">
-                Item count: 0
+                Item count: {cart.length}
             </p>
         </>
     );
