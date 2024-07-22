@@ -292,3 +292,49 @@ describe("StoreItem content", () => {
 
 
 })
+
+describe("StoreItem content with itemId: 2", () => {
+  it("renders accurate title", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+    });
+    const itemTitle = screen.getByRole(
+      "heading", 
+      { name: /Mens Casual Premium Slim Fit T-Shirts/i }
+    );
+
+    expect(itemTitle).toBeInTheDocument();
+  })
+
+  it("renders accurate price", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+    });
+    const itemPrice = screen.getByLabelText(/item price/i);
+    expect(itemPrice.textContent).toMatch(/22.3/i)
+  })
+
+  it("renders accurate description", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+    });
+    const itemDescription = screen.getByLabelText(/item description/i);
+    expect(itemDescription.textContent).toMatch(
+      /Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket./i
+    );
+  })
+
+  it("renders accurate image src", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+    });
+    const itemImage = screen.getByRole(
+      "img", 
+      { name: /Mens casual premium slim fit t-shirts/i }
+    );
+    expect(itemImage.src)
+      .toBe("https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg");
+
+
+  })
+})
