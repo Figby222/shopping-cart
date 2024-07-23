@@ -256,7 +256,7 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
     })
 
-    expect(screen.getByLabelText(/item price/i))
+    expect(screen.getByText(/price/i))
       .toBeInTheDocument();
   })
 
@@ -265,7 +265,7 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() =>{}} itemId={1} />);
     })
 
-    const itemPrice = screen.getByLabelText(/item price/i);
+    const itemPrice = screen.getByText(/price/i);
     expect(itemPrice.textContent).toMatch(/124/i);
   })
 
@@ -274,7 +274,7 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
     })
 
-    expect(screen.getByLabelText(/item description/i))
+    expect(screen.getByText(/description/i))
       .toBeInTheDocument();
   })
 
@@ -283,7 +283,7 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
     })
 
-    const itemDescription = screen.getByLabelText(/item description/i);
+    const itemDescription = screen.getByText(/description/i);
     expect(itemDescription.textContent).toMatch(
       /Carbonite web goalkeeper gloves are ergonomically designed to give easy fit/i
     )
@@ -331,7 +331,7 @@ describe("StoreItem content with itemId: 2", () => {
     await act(async () => {
       render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
     });
-    const itemPrice = screen.getByLabelText(/item price/i);
+    const itemPrice = screen.getByText(/price/i);
     expect(itemPrice.textContent).toMatch(/22.3/i)
   })
 
@@ -339,7 +339,7 @@ describe("StoreItem content with itemId: 2", () => {
     await act(async () => {
       render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
     });
-    const itemDescription = screen.getByLabelText(/item description/i);
+    const itemDescription = screen.getByText(/description/i);
     expect(itemDescription.textContent).toMatch(
       /Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket./i
     );

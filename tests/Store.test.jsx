@@ -31,7 +31,7 @@ describe("Store rendering", () => {
             removeFromCartHandler={() => {}}/>
         );
         const shoppingCartItemCount = 
-            screen.getByLabelText("shopping-cart-item-count");
+            screen.getByText(/item count/i);
         
         expect(shoppingCartItemCount.textContent).toMatch(/item count: \d/i);
 

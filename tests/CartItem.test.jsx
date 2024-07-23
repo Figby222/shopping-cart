@@ -11,7 +11,7 @@ describe("CartItem", () => {
             itemQuantity={1} 
             removeFromCartHandler={() => {}}/>);
 
-        expect(screen.getByLabelText(/item title/i)).toBeInTheDocument();
+        expect(screen.getByText(/title/i)).toBeInTheDocument();
     })
 
     it("renders itemTitle paragraph with prop-given text", () => {
@@ -22,7 +22,7 @@ describe("CartItem", () => {
             removeFromCartHandler={() => {}} />
         )
 
-        const itemTitle = screen.getByLabelText(/item title/i);
+        const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/t-shirt/i);
     })
 
@@ -34,7 +34,7 @@ describe("CartItem", () => {
             removeFromCartHandler={() => {}} />
         )
 
-        const itemTitle = screen.getByLabelText(/item title/i);
+        const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/black pants/i);
     })
 
@@ -46,7 +46,7 @@ describe("CartItem", () => {
             removeFromCartHandler={() => {}} />
         )
 
-        expect(screen.getByLabelText(/item quantity/i)).toBeInTheDocument();
+        expect(screen.getByText(/quantity/i)).toBeInTheDocument();
     })
 
     it("renders itemQuantity paragraph with prop-given value", () => {
@@ -57,7 +57,7 @@ describe("CartItem", () => {
             removeFromCartHandler={() => {}} />
         )
 
-        const itemQuantity = screen.getByLabelText(/item quantity/i); 
+        const itemQuantity = screen.getByText(/quantity/i); 
         expect(itemQuantity.textContent).toMatch(/1/i);
     })
 
@@ -69,7 +69,7 @@ describe("CartItem", () => {
             removeFromCartHandler={() => {}} />
         )
 
-        const itemQuantity = screen.getByLabelText(/item quantity/i); 
+        const itemQuantity = screen.getByText(/quantity/i); 
         expect(itemQuantity.textContent).toMatch(/2/i);
     })
 })
