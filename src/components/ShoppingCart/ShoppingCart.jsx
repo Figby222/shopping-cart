@@ -9,7 +9,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                 Item count: {cart.length}
             </p>
             <p className="item-title">title: {cart[0] && cart[0].title}</p>
-            <p className="item-quantity">Quantity: </p>
+            <p className="item-quantity">Quantity: 1</p>
         </>
     );
 }
