@@ -8,6 +8,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
             <p className="shopping-cart-item-count">
                 Item count: {cart.length}
             </p>
+            <p>title</p>
         </>
     );
 }

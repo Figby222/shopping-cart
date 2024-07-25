@@ -54,3 +54,20 @@ describe("ShoppingCart", () => {
             .toMatch(/2/i);
     })
 })
+
+describe("shopping cart items", () => {
+    it("renders a title paragraph", () => {
+        const mockCart = [
+            {
+                itemId: 1,
+                title: "T-shirt",
+                itemQuantity: 1,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const itemTitleParagraph = screen.getByText(/title/i);
+        expect(itemTitleParagraph).toBeInTheDocument();
+
+    })
+})
