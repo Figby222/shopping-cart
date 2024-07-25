@@ -8,7 +8,7 @@ describe("CartItem", () => {
         render(<CartItem 
             itemId={1} 
             itemTitle={""} 
-            itemQuantity={1} 
+            quantity={1} 
             removeFromCartHandler={() => {}}/>);
 
         expect(screen.getByText(/title/i)).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe("CartItem", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"T-shirt"}
-            itemQuantity={1}
+            quantity={1}
             removeFromCartHandler={() => {}} />
         )
 
@@ -30,7 +30,7 @@ describe("CartItem", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={1}
+            quantity={1}
             removeFromCartHandler={() => {}} />
         )
 
@@ -38,39 +38,39 @@ describe("CartItem", () => {
         expect(itemTitle.textContent).toMatch(/black pants/i);
     })
 
-    it("renders itemQuantity paragraph", () => {
+    it("renders quantity paragraph", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={1}
+            quantity={1}
             removeFromCartHandler={() => {}} />
         )
 
         expect(screen.getByText(/quantity/i)).toBeInTheDocument();
     })
 
-    it("renders itemQuantity paragraph with prop-given value", () => {
+    it("renders quantity paragraph with prop-given value", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={1}
+            quantity={1}
             removeFromCartHandler={() => {}} />
         )
 
-        const itemQuantity = screen.getByText(/quantity/i); 
-        expect(itemQuantity.textContent).toMatch(/1/i);
+        const quantity = screen.getByText(/quantity/i); 
+        expect(quantity.textContent).toMatch(/1/i);
     })
 
-    it("renders itemQUantity paragraph with different prop-given value", () => {
+    it("renders quantity paragraph with different prop-given value", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={2}
+            quantity={2}
             removeFromCartHandler={() => {}} />
         )
 
-        const itemQuantity = screen.getByText(/quantity/i); 
-        expect(itemQuantity.textContent).toMatch(/2/i);
+        const quantity = screen.getByText(/quantity/i); 
+        expect(quantity.textContent).toMatch(/2/i);
     })
 })
 
@@ -79,7 +79,7 @@ describe("remove from cart button", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={2}
+            quantity={2}
             removeFromCartHandler={() => {}} />
         )
 
@@ -91,7 +91,7 @@ describe("remove from cart button", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={2}
+            quantity={2}
             removeFromCartHandler={() => {}} />
         )
 
@@ -104,7 +104,7 @@ describe("remove from cart button", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={2}
+            quantity={2}
             removeFromCartHandler={onClick} />
         )
         const user = userEvent.setup();
@@ -119,7 +119,7 @@ describe("remove from cart button", () => {
         render(<CartItem
             itemId={1}
             itemTitle={"black pants"}
-            itemQuantity={2}
+            quantity={2}
             removeFromCartHandler={onClick} />
         )
         const user = userEvent.setup();
@@ -134,7 +134,7 @@ describe("remove from cart button", () => {
         render(<CartItem
             itemId={2}
             itemTitle={"black pants"}
-            itemQuantity={2}
+            quantity={2}
             removeFromCartHandler={onClick} />
         )
         const user = userEvent.setup();

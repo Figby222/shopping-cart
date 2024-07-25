@@ -135,11 +135,11 @@ describe("Add to cart button", () => {
     })
 
     const user = userEvent.setup();
-    const itemQuantity = screen.getByRole("spinbutton", { name: /Item quantity/i });
+    const quantity = screen.getByRole("spinbutton", { name: /Item quantity/i });
     const addToCart = screen.getByRole("button", { name: /Add to cart/i });
 
-    await user.clear(itemQuantity);
-    await user.type(itemQuantity, "2");
+    await user.clear(quantity);
+    await user.type(quantity, "2");
     await user.click(addToCart);
 
     expect(onClick.mock.calls[0][1]).toBe(2);
