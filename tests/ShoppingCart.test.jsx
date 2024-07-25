@@ -84,4 +84,18 @@ describe("shopping cart items", () => {
         const titleParagraph = screen.getByText(/title/i);
         expect(titleParagraph.textContent).toMatch(/T-shirt/i);
     })
+
+    it("renders a title paragraph with 'Black pants' text", () => {
+        const mockCart = [
+            {
+                itemId: 2,
+                title: "Black pants",
+                itemQuantity: 1,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const titleParagraph = screen.getByText(/title/i);
+        expect(titleParagraph.textContent).toMatch(/Black pants/i);
+    })
 })
