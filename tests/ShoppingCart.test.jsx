@@ -4,14 +4,14 @@ import { describe, it, expect, vi } from "vitest";
 
 describe("ShoppingCart", () => {
     it("renders heading with 'Shopping Cart' text", () => {
-        render(<ShoppingCart cart={{}} removeFromCartHandler={() => {}} />)
+        render(<ShoppingCart cart={[]} removeFromCartHandler={() => {}} />)
 
         expect(screen.getByRole("heading", { name: /shopping cart/i }))
             .toBeInTheDocument();
     })
 
     it("renders paragraph with 'item count' text", () => {
-        render(<ShoppingCart cart={{}} removeFromCartHandler={() => {}} />)
+        render(<ShoppingCart cart={[]} removeFromCartHandler={() => {}} />)
         
         expect(screen.getByText(/item count/i))
             .toBeInTheDocument();
