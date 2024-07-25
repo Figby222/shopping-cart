@@ -170,7 +170,7 @@ describe("shopping cart items", () => {
             {
                 id: 1,
                 title: "T-shirt",
-                quantity: 2,
+                quantity: 1,
                 price: 20,
             }
         ]
@@ -185,7 +185,7 @@ describe("shopping cart items", () => {
             {
                 id: 2,
                 title: "Black pants",
-                quantity: 2,
+                quantity: 1,
                 price: 40,
             }
         ]
