@@ -15,9 +15,9 @@ const setValidatedUnsignedInteger = (value, setValue) => {
     setValue(parseInt(value));
 }
 
-function StoreItem({ addToCartHandler, itemId }) {
+function StoreItem({ addToCartHandler, id }) {
     const [ itemQuantity, setItemQuantity ] = useState(1);
-    const { error, isLoading, data } = useItemData(`https://fakestoreapi.com/products/${itemId}`)
+    const { error, isLoading, data } = useItemData(`https://fakestoreapi.com/products/${id}`)
 
     if (isLoading) {
         return (
@@ -60,7 +60,7 @@ function StoreItem({ addToCartHandler, itemId }) {
 
 StoreItem.propTypes = {
     addToCartHandler: PropTypes.func.isRequired,
-    itemId: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
 }
 
 export default StoreItem;

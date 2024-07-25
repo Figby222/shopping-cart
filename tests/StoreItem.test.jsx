@@ -46,7 +46,7 @@ beforeEach(() => {
 describe("Add to cart button", () => {
   it("renders button with text 'Add to cart'", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
 
     });
 
@@ -59,7 +59,7 @@ describe("Add to cart button", () => {
     const onClick = vi.fn();
 
     await act(async () => {
-      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+      render(<StoreItem addToCartHandler={onClick} id={1} />);
     });
 
     const user = userEvent.setup();
@@ -72,13 +72,13 @@ describe("Add to cart button", () => {
   })
 
   it("calls onClick function with item's id, which comes from a mocked fetch", async () => {
-    const itemId = 1;
+    const id = 1;
     const onClick = vi.fn();
     await act(async () => {
       render (
           <StoreItem 
               addToCartHandler={onClick} 
-              itemId={itemId} />
+              id={id} />
       );
     });
 
@@ -87,7 +87,7 @@ describe("Add to cart button", () => {
     const user = userEvent.setup();
     await user.click(addToCart)
     
-    expect(onClick.mock.calls[0][0].id).toEqual(itemId)
+    expect(onClick.mock.calls[0][0].id).toEqual(id)
 
   })
 
@@ -103,7 +103,7 @@ describe("Add to cart button", () => {
     const onClick = vi.fn();
 
     await act(async () => {
-      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+      render(<StoreItem addToCartHandler={onClick} id={1} />);
     });
     const user = userEvent.setup();
     const addToCart = screen.getByRole("button", { name: /Add to cart/i });
@@ -116,7 +116,7 @@ describe("Add to cart button", () => {
     const onClick = vi.fn();
     
     await act(async () => {
-      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+      render(<StoreItem addToCartHandler={onClick} id={1} />);
 
     })
 
@@ -131,7 +131,7 @@ describe("Add to cart button", () => {
   it("calls onClick function with updated item quantity", async () => {
     const onClick = vi.fn();
     await act(async () => {
-      render(<StoreItem addToCartHandler={onClick} itemId={1} />);
+      render(<StoreItem addToCartHandler={onClick} id={1} />);
     })
 
     const user = userEvent.setup();
@@ -149,7 +149,7 @@ describe("Add to cart button", () => {
 describe("Item quantity input", () => {
   it("renders input for item quantity", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
 
     })
 
@@ -160,7 +160,7 @@ describe("Item quantity input", () => {
 
   it("starts with a value of 1", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
 
     })
 
@@ -171,7 +171,7 @@ describe("Item quantity input", () => {
 
   it("sets input value correctly when user types a number", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
 
     })
 
@@ -187,7 +187,7 @@ describe("Item quantity input", () => {
 
   it("does not set input when a letter is typed in", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
 
     })
 
@@ -200,7 +200,7 @@ describe("Item quantity input", () => {
 
   it("does not set input as negative number", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     const user = userEvent.setup();
@@ -216,7 +216,7 @@ describe("Item quantity input", () => {
 
 describe("data retrieving", () => {
   it("displays 'Loading...' as data is loading", () => {
-    render(<StoreItem addToCartHandler={() => {}} itemId={1} />)
+    render(<StoreItem addToCartHandler={() => {}} id={1} />)
 
     const loadingHeading = screen.getByRole("heading", { name: /Loading.../i});
     expect(loadingHeading).toBeInTheDocument();
@@ -224,7 +224,7 @@ describe("data retrieving", () => {
 
   it("displays 'An error has occured' on error", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={-3} />);
+      render(<StoreItem addToCartHandler={() => {}} id={-3} />);
     })
 
     const errorHeading = 
@@ -236,7 +236,7 @@ describe("data retrieving", () => {
 describe("StoreItem content", () => {
   it("renders a heading", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     expect(screen.getByRole("heading")).toBeInTheDocument();
@@ -244,7 +244,7 @@ describe("StoreItem content", () => {
 
   it("renders a heading that has the textContent of the item's title", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />)
+      render(<StoreItem addToCartHandler={() => {}} id={1} />)
     })
     
     const titleHeading = screen.getByRole("heading", { name: /Oriental Fresh Shirt/i});
@@ -253,7 +253,7 @@ describe("StoreItem content", () => {
 
   it("renders a paragraph for item-price", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     expect(screen.getByText(/price/i))
@@ -262,7 +262,7 @@ describe("StoreItem content", () => {
 
   it ("renders a paragraph for item-price with the correct price", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() =>{}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() =>{}} id={1} />);
     })
 
     const itemPrice = screen.getByText(/price/i);
@@ -271,7 +271,7 @@ describe("StoreItem content", () => {
 
   it("renders a paragraph for item-description", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     expect(screen.getByText(/description/i))
@@ -280,7 +280,7 @@ describe("StoreItem content", () => {
 
   it("renders a paragraph for item-description with the accurate description", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     const itemDescription = screen.getByText(/description/i);
@@ -291,7 +291,7 @@ describe("StoreItem content", () => {
 
   it("renders an image for item-image", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     expect(screen.getByRole("img", { name: /image of Oriental fresh shirt/i }))
@@ -300,7 +300,7 @@ describe("StoreItem content", () => {
 
   it("renders an image for item-image with the correct src", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={1} />);
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
     const itemImage = screen.getByRole(
@@ -314,10 +314,10 @@ describe("StoreItem content", () => {
 
 })
 
-describe("StoreItem content with itemId: 2", () => {
+describe("StoreItem content with id: 2", () => {
   it("renders accurate title", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
     });
     const itemTitle = screen.getByRole(
       "heading", 
@@ -329,7 +329,7 @@ describe("StoreItem content with itemId: 2", () => {
 
   it("renders accurate price", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
     });
     const itemPrice = screen.getByText(/price/i);
     expect(itemPrice.textContent).toMatch(/22.3/i)
@@ -337,7 +337,7 @@ describe("StoreItem content with itemId: 2", () => {
 
   it("renders accurate description", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
     });
     const itemDescription = screen.getByText(/description/i);
     expect(itemDescription.textContent).toMatch(
@@ -347,7 +347,7 @@ describe("StoreItem content with itemId: 2", () => {
 
   it("renders accurate image src", async () => {
     await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} itemId={2} />);
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
     });
     const itemImage = screen.getByRole(
       "img", 

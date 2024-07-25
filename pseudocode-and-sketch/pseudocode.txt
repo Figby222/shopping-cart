@@ -25,7 +25,7 @@ add a paragraph that displays data.description
 add an image that displays data.imageSrc
 
 Item details:
-StoreItem could take itemId and fetch() props, and call fetch using the item id, and
+StoreItem could take id and fetch() props, and call fetch using the item id, and
 set an item state as the response from the API request,
 or I could fetch the items from the API in the parent div, and send the item as a prop to
 StoreItem
@@ -57,10 +57,10 @@ set isLoading to false after API request is resolved
 set isLoading to false after API request is rejected
 
 CartItem:
-itemId prop, itemTitle prop, quantity prop, removeFromCartHandler prop
+id prop, itemTitle prop, quantity prop, removeFromCartHandler prop
 add paragraph with itemTitle text
 add paragraph with quantity text
-add remove from cart button that calls onClick with itemId arg
+add remove from cart button that calls onClick with id arg
 add "X" text to remove from cart button
 
 ShoppingCart:

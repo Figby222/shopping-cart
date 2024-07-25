@@ -1,6 +1,6 @@
 import './CartItem.css';
 import PropTypes from 'prop-types';
-function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
+function CartItem({ id, itemTitle, itemQuantity, removeFromCartHandler }) {
     return (
         <> 
             <p className="item-quantity">Quantity: {itemQuantity}</p>
@@ -9,7 +9,7 @@ function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
                 type="button" 
                 className="remove-from-cart" 
                 aria-label="remove item from cart"
-                onClick={() => removeFromCartHandler(itemId)}
+                onClick={() => removeFromCartHandler(id)}
             >
             X
             </button>
@@ -18,7 +18,7 @@ function CartItem({ itemId, itemTitle, itemQuantity, removeFromCartHandler }) {
 }
 
 CartItem.propTypes = {
-    itemId: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
     itemTitle: PropTypes.string.isRequired,
     itemQuantity: PropTypes.number.isRequired,
     removeFromCartHandler: PropTypes.func.isRequired

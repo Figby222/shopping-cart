@@ -20,7 +20,7 @@ describe("ShoppingCart", () => {
     it("renders item count paragraph with correct item count", () => {
         const mockCart = [
             {
-                itemId: 1,
+                id: 1,
                 title: "T-shirt",
                 quantity: 1,
             }
@@ -36,12 +36,12 @@ describe("ShoppingCart", () => {
     it("renders item count paragraph with correct item count", () => {
         const mockCart = [
             {
-                itemId: 1,
+                id: 1,
                 title: "T-shirt",
                 quantity: 1,
             },
             {
-                itemId: 2,
+                id: 2,
                 title: "T-shirt",
                 quantity: 1,
             }
@@ -59,7 +59,7 @@ describe("shopping cart items", () => {
     it("renders a title paragraph", () => {
         const mockCart = [
             {
-                itemId: 1,
+                id: 1,
                 title: "T-shirt",
                 quantity: 1,
             }
@@ -74,7 +74,7 @@ describe("shopping cart items", () => {
     it("renders a title paragraph with 'T-shirt' text", () => {
         const mockCart = [
             {
-                itemId: 1,
+                id: 1,
                 title: "T-shirt",
                 quantity: 1,
             }
@@ -88,7 +88,7 @@ describe("shopping cart items", () => {
     it("renders a title paragraph with 'Black pants' text", () => {
         const mockCart = [
             {
-                itemId: 2,
+                id: 2,
                 title: "Black pants",
                 quantity: 1,
             }
@@ -102,7 +102,7 @@ describe("shopping cart items", () => {
     it("renders a quantity paragraph", () => {
         const mockCart = [
             {
-                itemId: 1,
+                id: 1,
                 title: "T-shirt",
                 quantity: 1,
             }
@@ -116,7 +116,7 @@ describe("shopping cart items", () => {
     it("renders a quantity paragraph with correct quantity", () => {
         const mockCart = [
             {
-                itemId: 1,
+                id: 1,
                 title: "T-shirt",
                 quantity: 1,
             }

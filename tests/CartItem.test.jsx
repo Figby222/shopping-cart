@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 describe("CartItem", () => {
     it("renders itemTitle paragraph", () => {
         render(<CartItem 
-            itemId={1} 
+            id={1} 
             itemTitle={""} 
             quantity={1} 
             removeFromCartHandler={() => {}}/>);
@@ -16,7 +16,7 @@ describe("CartItem", () => {
 
     it("renders itemTitle paragraph with prop-given text", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"T-shirt"}
             quantity={1}
             removeFromCartHandler={() => {}} />
@@ -28,7 +28,7 @@ describe("CartItem", () => {
 
     it("renders itemTitle paragraph with different prop-given text", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={1}
             removeFromCartHandler={() => {}} />
@@ -40,7 +40,7 @@ describe("CartItem", () => {
 
     it("renders quantity paragraph", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={1}
             removeFromCartHandler={() => {}} />
@@ -51,7 +51,7 @@ describe("CartItem", () => {
 
     it("renders quantity paragraph with prop-given value", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={1}
             removeFromCartHandler={() => {}} />
@@ -63,7 +63,7 @@ describe("CartItem", () => {
 
     it("renders quantity paragraph with different prop-given value", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={2}
             removeFromCartHandler={() => {}} />
@@ -77,7 +77,7 @@ describe("CartItem", () => {
 describe("remove from cart button", () => {
     it("renders a button to remove from cart", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={2}
             removeFromCartHandler={() => {}} />
@@ -89,7 +89,7 @@ describe("remove from cart button", () => {
 
     it("renders remove from cart button with 'X' textContent", () => {
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={2}
             removeFromCartHandler={() => {}} />
@@ -102,7 +102,7 @@ describe("remove from cart button", () => {
     it("calls removeFromCartHandler function on click", async () => {
         const onClick = vi.fn();
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={2}
             removeFromCartHandler={onClick} />
@@ -114,10 +114,10 @@ describe("remove from cart button", () => {
         expect(onClick).toHaveBeenCalled();
     })
 
-    it("calls removeFromCartHandler function with itemId arg", async () => {
+    it("calls removeFromCartHandler function with id arg", async () => {
         const onClick = vi.fn();
         render(<CartItem
-            itemId={1}
+            id={1}
             itemTitle={"black pants"}
             quantity={2}
             removeFromCartHandler={onClick} />
@@ -129,10 +129,10 @@ describe("remove from cart button", () => {
         expect(onClick.mock.calls[0][0]).toBe(1);
     })
 
-    it("calls removeFromCartHandler function with different itemId arg", async () => {
+    it("calls removeFromCartHandler function with different id arg", async () => {
         const onClick = vi.fn();
         render(<CartItem
-            itemId={2}
+            id={2}
             itemTitle={"black pants"}
             quantity={2}
             removeFromCartHandler={onClick} />
