@@ -10,7 +10,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
             </p>
             <p className="item-title">title: {cart[0] && cart[0].title}</p>
             <p className="item-quantity">Quantity: {cart[0] && cart[0].quantity}</p>
-            <p className="price">Price: {cart[0] && cart[0].price}</p>
+            <p className="price">Price: {cart[0] && cart[0].price * cart[0].quantity}</p>
         </>
     );
 }

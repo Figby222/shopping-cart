@@ -194,4 +194,19 @@ describe("shopping cart items", () => {
         const priceParagraph = screen.getByText(/price/i);
         expect(priceParagraph.textContent).toMatch(/40/i);
     })
+
+    it("renders price that is multiplied by quantity", () => {
+        const mockCart = [
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const priceParagraph = screen.getByText(/price/i);
+        expect(priceParagraph.textContent).toMatch(/80/i);
+    })
 })
