@@ -179,4 +179,19 @@ describe("shopping cart items", () => {
         const priceParagraph = screen.getByText(/price/i);
         expect(priceParagraph.textContent).toMatch(/20/i);
     })
+
+    it("renders price with a different price", () => {
+        const mockCart = [
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const priceParagraph = screen.getByText(/price/i);
+        expect(priceParagraph.textContent).toMatch(/40/i);
+    })
 })
