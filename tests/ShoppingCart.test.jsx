@@ -149,4 +149,19 @@ describe("shopping cart items", () => {
         const quantityParagraph = screen.getByText(/quantity/i);
         expect(quantityParagraph.textContent).toMatch(/2/i);
     })
+
+    it("renders a price paragraph", () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 2,
+                price: 20,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const priceParagraph = screen.getByText(/price/i);
+        expect(priceParagraph).toBeInTheDocument();
+    })
 })
