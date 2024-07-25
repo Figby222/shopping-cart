@@ -23,6 +23,7 @@ describe("ShoppingCart", () => {
                 id: 1,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
@@ -39,11 +40,13 @@ describe("ShoppingCart", () => {
                 id: 1,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             },
             {
                 id: 2,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
@@ -62,6 +65,7 @@ describe("shopping cart items", () => {
                 id: 1,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
@@ -77,6 +81,7 @@ describe("shopping cart items", () => {
                 id: 1,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
@@ -91,6 +96,7 @@ describe("shopping cart items", () => {
                 id: 2,
                 title: "Black pants",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
@@ -105,6 +111,7 @@ describe("shopping cart items", () => {
                 id: 1,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
@@ -119,6 +126,7 @@ describe("shopping cart items", () => {
                 id: 1,
                 title: "T-shirt",
                 quantity: 1,
+                price: 20,
             }
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)

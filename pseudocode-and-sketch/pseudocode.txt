@@ -68,3 +68,5 @@ add cart prop, add removeFromCartHandler prop
 add heading with "Shopping Cart" text
 add paragraph with item count
 render cart items
+render cart items with title, quantity, & price
+add accumulative price at the bottom of cart
