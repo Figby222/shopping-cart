@@ -98,4 +98,18 @@ describe("shopping cart items", () => {
         const titleParagraph = screen.getByText(/title/i);
         expect(titleParagraph.textContent).toMatch(/Black pants/i);
     })
+
+    it("renders a quantity paragraph", () => {
+        const mockCart = [
+            {
+                itemId: 1,
+                title: "T-shirt",
+                itemQuantity: 1,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const quantityParagraph = screen.getByText(/quantity/i);
+        expect(quantityParagraph).toBeInTheDocument();
+    })
 })
