@@ -164,4 +164,19 @@ describe("shopping cart items", () => {
         const priceParagraph = screen.getByText(/price/i);
         expect(priceParagraph).toBeInTheDocument();
     })
+    
+    it("renders a price paragraph with accurate price", () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 2,
+                price: 20,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const priceParagraph = screen.getByText(/price/i);
+        expect(priceParagraph.textContent).toMatch(/20/i);
+    })
 })
