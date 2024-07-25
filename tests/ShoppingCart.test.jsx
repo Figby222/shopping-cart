@@ -70,4 +70,18 @@ describe("shopping cart items", () => {
         expect(itemTitleParagraph).toBeInTheDocument();
 
     })
+
+    it("renders a title paragraph with 'T-shirt' text", () => {
+        const mockCart = [
+            {
+                itemId: 1,
+                title: "T-shirt",
+                itemQuantity: 1,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const titleParagraph = screen.getByText(/title/i);
+        expect(titleParagraph.textContent).toMatch(/T-shirt/i);
+    })
 })
