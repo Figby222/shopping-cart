@@ -134,4 +134,19 @@ describe("shopping cart items", () => {
         const quantityParagraph = screen.getByText(/quantity/i);
         expect(quantityParagraph.textContent).toMatch(/1/i);
     })
+
+    it("renders a quantity paragraph with different quantity", () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 2,
+                price: 20,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const quantityParagraph = screen.getByText(/quantity/i);
+        expect(quantityParagraph.textContent).toMatch(/2/i);
+    })
 })
