@@ -18,7 +18,7 @@ function Store({ cart, setCart }) {
 }
 
 Store.propTypes = {
-    cart: PropTypes.object.isRequired,
+    cart: PropTypes.array.isRequired,
     setCart: PropTypes.func.isRequired,
 }
 

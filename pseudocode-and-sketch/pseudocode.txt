@@ -3,6 +3,7 @@ render heading with text "Ryan's totally real Jewelry"
 render navbar with links to Store and Shopping cart
 
 Store:
+takes props: cart, setCart
 render heading with text "Store"
 render shopping cart item count
 addToCartHandler(item):
