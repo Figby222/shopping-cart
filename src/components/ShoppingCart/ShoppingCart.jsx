@@ -8,9 +8,15 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
             <p className="shopping-cart-item-count">
                 Item count: {cart.length}
             </p>
-            <p className="item-title">title: {cart[0] && cart[0].title}</p>
-            <p className="item-quantity">Quantity: {cart[0] && cart[0].quantity}</p>
-            <p className="price">Price: {cart[0] && cart[0].price * cart[0].quantity}</p>
+            {cart.map((item) => {
+                return (
+                    <div className="cart-item" aria-label="cart item" key={item.id}>
+                        <p className="item-title">Title: {item.title}</p>
+                        <p className="item-quantity">Quantity: {item.quantity}</p>
+                        <p className="price">Price: {item.price * item.quantity}</p>
+                    </div>
+                )
+            })}
         </>
     );
 }

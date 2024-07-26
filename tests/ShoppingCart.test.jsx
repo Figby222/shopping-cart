@@ -209,4 +209,33 @@ describe("shopping cart items", () => {
         const priceParagraph = screen.getByText(/price/i);
         expect(priceParagraph.textContent).toMatch(/80/i);
     })
+
+    it("renders multiple items", () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 1,
+                price: 20,
+            },
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const titleParagraphs = screen.queryAllByText(/title/i);
+        expect(titleParagraphs).toHaveLength(2);
+    })
+
+    it("doesn't render anything when no items are given", () => {
+        const mockCart = [];
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const titleParagraphs = screen.queryAllByText(/title/i);
+        expect(titleParagraphs).toHaveLength(0);
+    })
 })
