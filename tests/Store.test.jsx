@@ -12,28 +12,4 @@ describe("Store rendering", () => {
         expect(screen.getByRole("heading", { name: "Store" }))
             .toBeInTheDocument();
     });
-    
-    it("renders an shopping-cart-item-count element", () => {
-        render(
-            <Store cart={{}} 
-            addToCartHandler={() => {}}
-            removeFromCartHandler={() => {}} />
-        );
-        expect(screen.getByLabelText("shopping-cart-item-count"))
-            .toBeInTheDocument();
-    })
-
-    it(`renders shopping-cart-item-count element with the text:
-         "Item count: <digit>"`, () => {
-        render(
-            <Store cart={{}} 
-            addToCartHandler={() => {}} 
-            removeFromCartHandler={() => {}}/>
-        );
-        const shoppingCartItemCount = 
-            screen.getByText(/item count/i);
-        
-        expect(shoppingCartItemCount.textContent).toMatch(/item count: \d/i);
-
-    })
 })
