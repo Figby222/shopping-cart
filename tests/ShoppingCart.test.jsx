@@ -239,3 +239,13 @@ describe("shopping cart items", () => {
         expect(titleParagraphs).toHaveLength(0);
     })
 })
+
+describe("total price", () => {
+    it("renders a paragraph for total", () => {
+        const mockCart = []
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const totalParagraph = screen.getByText(/total/i);
+        expect(totalParagraph).toBeInTheDocument();
+    })
+})
