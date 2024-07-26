@@ -1,5 +1,6 @@
 import "./ShoppingCart.css";
 import PropTypes from 'prop-types';
+import CartItem from "../utilities/CartItem/CartItem";
 
 function ShoppingCart({ cart, removeFromCartHandler }) {
     return (
@@ -12,9 +13,12 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                 {cart.map((item) => {
                     return (
                         <li className="cart-item" aria-label="cart item" key={item.id}>
-                            <p className="item-title">Title: {item.title}</p>
-                            <p className="item-quantity">Quantity: {item.quantity}</p>
-                            <p className="price">Price: {item.price * item.quantity}</p>
+                            <CartItem
+                                id={item.id}
+                                itemTitle={item.title}
+                                itemQuantity={item.quantity}
+                                removeFromCartHandler={removeFromCartHandler}
+                            />
                         </li>
                     )
                 })}
