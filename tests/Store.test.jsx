@@ -5,7 +5,7 @@ import { describe, it, expect } from "vitest";
 describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
         render(
-            <Store cart={{}} 
+            <Store cart={[]} 
             addToCartHandler={() => {}} 
             removeFromCartHandler={() => {}} />
         );
