@@ -3,7 +3,8 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart.jsx";
 import PropTypes from "prop-types";
 
 
-function Store({ cart, addToCartHandler }) {
+function Store({ cart }) {
+    const addToCartHandler = () => {}
     const removeFromCartHandler = () => {}
 
     return (
@@ -18,7 +19,6 @@ function Store({ cart, addToCartHandler }) {
 
 Store.propTypes = {
     cart: PropTypes.object.isRequired,
-    addToCartHandler: PropTypes.func.isRequired,
 }
 
 export default Store;

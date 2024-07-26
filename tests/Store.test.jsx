@@ -6,8 +6,7 @@ import userEvent from '@testing-library/user-event';
 describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
         render(
-            <Store cart={[]} 
-            addToCartHandler={() => {}} />
+            <Store cart={[]} />
         );
         expect(screen.getByRole("heading", { name: "Store" }))
             .toBeInTheDocument();
@@ -23,8 +22,7 @@ describe("Store rendering", () => {
             }
         ]
         render(
-            <Store cart={mockCart} 
-            addToCartHandler={() => {}} />
+            <Store cart={mockCart} />
         );
         const title = screen.getByText(/Black pants/i);
         expect(title)
@@ -43,9 +41,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const itemTitleParagraph = screen.getByText(/title/i);
@@ -63,9 +59,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const titleParagraph = screen.getByText(/title/i);
@@ -82,9 +76,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const titleParagraph = screen.getByText(/title/i);
@@ -101,9 +93,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -120,9 +110,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -139,9 +127,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -158,9 +144,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -177,9 +161,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -196,9 +178,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -215,9 +195,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -240,9 +218,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const titleParagraphs = screen.queryAllByText(/title/i);
@@ -252,9 +228,7 @@ describe("shopping cart items", () => {
     it("doesn't render anything when no items are given", () => {
         const mockCart = [];
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const titleParagraphs = screen.queryAllByText(/title/i);
@@ -266,9 +240,7 @@ describe("total price", () => {
     it("renders a paragraph for total", () => {
         const mockCart = []
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -278,9 +250,7 @@ describe("total price", () => {
     it("starts with value of 0", () => {
         const mockCart = []
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -297,9 +267,7 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -322,9 +290,7 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
 
         const totalParagraph = screen.getByText(/total/i);
@@ -347,9 +313,7 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store 
-                cart={mockCart}  
-                addToCartHandler={() => {}}/>
+            <Store cart={mockCart} />
         )
 
         const totalParagraph = screen.getByText(/total/i);
@@ -367,9 +331,7 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         expect(screen.getByText(/title/i)).toBeInTheDocument();
     })
@@ -383,9 +345,7 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/t-shirt/i);
@@ -400,9 +360,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/black pants/i);
@@ -417,9 +375,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         expect(screen.getByText(/quantity/i)).toBeInTheDocument();
     })
@@ -433,9 +389,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         const quantity = screen.getByText(/quantity/i); 
         expect(quantity.textContent).toMatch(/1/i);
@@ -450,9 +404,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         const quantity = screen.getByText(/quantity/i); 
         expect(quantity.textContent).toMatch(/2/i);
@@ -469,9 +421,7 @@ describe("remove from cart button", () => {
                 price: 40,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         expect(screen.getByRole("button", { name: /remove item from cart/i }))
             .toBeInTheDocument();
@@ -486,9 +436,7 @@ describe("remove from cart button", () => {
                 price: 40,
             }
         ]
-        render(<Store 
-            cart={mockCart} 
-            addToCartHandler={() => {}} />);
+        render(<Store cart={mockCart} />);
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         expect(removeFromCart.textContent).toMatch(/X/i);
