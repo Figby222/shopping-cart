@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
         render(
-            <Store cart={[]} />
+            <Store cart={[]} setCart={() => {}} />
         );
         expect(screen.getByRole("heading", { name: "Store" }))
             .toBeInTheDocument();
@@ -22,7 +22,7 @@ describe("Store rendering", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         );
         const title = screen.getByText(/Black pants/i);
         expect(title)
@@ -41,7 +41,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const itemTitleParagraph = screen.getByText(/title/i);
@@ -59,7 +59,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const titleParagraph = screen.getByText(/title/i);
@@ -76,7 +76,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const titleParagraph = screen.getByText(/title/i);
@@ -93,7 +93,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -110,7 +110,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -127,7 +127,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -144,7 +144,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -161,7 +161,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -178,7 +178,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -195,7 +195,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -218,7 +218,7 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const titleParagraphs = screen.queryAllByText(/title/i);
@@ -228,7 +228,7 @@ describe("shopping cart items", () => {
     it("doesn't render anything when no items are given", () => {
         const mockCart = [];
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const titleParagraphs = screen.queryAllByText(/title/i);
@@ -240,7 +240,7 @@ describe("total price", () => {
     it("renders a paragraph for total", () => {
         const mockCart = []
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -250,7 +250,7 @@ describe("total price", () => {
     it("starts with value of 0", () => {
         const mockCart = []
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -267,7 +267,7 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -290,7 +290,7 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
 
         const totalParagraph = screen.getByText(/total/i);
@@ -313,7 +313,7 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store cart={mockCart} />
+            <Store cart={mockCart} setCart={() => {}} />
         )
 
         const totalParagraph = screen.getByText(/total/i);
@@ -331,7 +331,7 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         expect(screen.getByText(/title/i)).toBeInTheDocument();
     })
@@ -345,7 +345,7 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/t-shirt/i);
@@ -360,7 +360,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/black pants/i);
@@ -375,7 +375,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         expect(screen.getByText(/quantity/i)).toBeInTheDocument();
     })
@@ -389,7 +389,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         const quantity = screen.getByText(/quantity/i); 
         expect(quantity.textContent).toMatch(/1/i);
@@ -404,7 +404,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         const quantity = screen.getByText(/quantity/i); 
         expect(quantity.textContent).toMatch(/2/i);
@@ -421,7 +421,7 @@ describe("remove from cart button", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         expect(screen.getByRole("button", { name: /remove item from cart/i }))
             .toBeInTheDocument();
@@ -436,7 +436,7 @@ describe("remove from cart button", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} />);
+        render(<Store cart={mockCart} setCart={() => {}} />);
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         expect(removeFromCart.textContent).toMatch(/X/i);
