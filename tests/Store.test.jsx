@@ -546,10 +546,10 @@ describe("remove from cart button", () => {
         const onClick = vi.fn();
         const mockCart = [
             {
-                id: 2,
-                title: "Black pants",
+                id: 1,
+                title: "T-shirt",
                 quantity: 2,
-                price: 40,
+                price: 20,
             }
         ]
         render(<Store 
