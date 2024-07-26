@@ -14,10 +14,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                     return (
                         <li className="cart-item" aria-label="cart item" key={item.id}>
                             <CartItem
-                                id={item.id}
-                                itemTitle={item.title}
-                                itemQuantity={item.quantity}
-                                itemPrice={item.price}
+                                item={item}
                                 removeFromCartHandler={removeFromCartHandler}
                             />
                         </li>
