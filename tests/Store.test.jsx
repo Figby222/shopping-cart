@@ -7,8 +7,7 @@ describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
         render(
             <Store cart={[]} 
-            addToCartHandler={() => {}} 
-            removeFromCartHandler={() => {}} />
+            addToCartHandler={() => {}} />
         );
         expect(screen.getByRole("heading", { name: "Store" }))
             .toBeInTheDocument();
@@ -25,8 +24,7 @@ describe("Store rendering", () => {
         ]
         render(
             <Store cart={mockCart} 
-            addToCartHandler={() => {}} 
-            removeFromCartHandler={() => {}} />
+            addToCartHandler={() => {}} />
         );
         const title = screen.getByText(/Black pants/i);
         expect(title)
@@ -46,8 +44,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -67,8 +64,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -87,8 +83,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -107,8 +102,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -127,8 +121,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -147,8 +140,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -167,8 +159,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -187,8 +178,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -207,8 +197,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -227,8 +216,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -253,8 +241,7 @@ describe("shopping cart items", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -266,8 +253,7 @@ describe("shopping cart items", () => {
         const mockCart = [];
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -281,8 +267,7 @@ describe("total price", () => {
         const mockCart = []
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -294,8 +279,7 @@ describe("total price", () => {
         const mockCart = []
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -314,8 +298,7 @@ describe("total price", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
         
@@ -340,8 +323,7 @@ describe("total price", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
 
@@ -366,8 +348,7 @@ describe("total price", () => {
         ]
         render(
             <Store 
-                cart={mockCart} 
-                removeFromCartHandler={() => {}} 
+                cart={mockCart}  
                 addToCartHandler={() => {}}/>
         )
 
@@ -388,7 +369,6 @@ describe("CartItem", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         expect(screen.getByText(/title/i)).toBeInTheDocument();
@@ -405,7 +385,6 @@ describe("CartItem", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         const itemTitle = screen.getByText(/title/i);
@@ -423,7 +402,6 @@ describe("CartItem", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         const itemTitle = screen.getByText(/title/i);
@@ -441,7 +419,6 @@ describe("CartItem", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         expect(screen.getByText(/quantity/i)).toBeInTheDocument();
@@ -458,7 +435,6 @@ describe("CartItem", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         const quantity = screen.getByText(/quantity/i); 
@@ -476,7 +452,6 @@ describe("CartItem", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         const quantity = screen.getByText(/quantity/i); 
@@ -496,7 +471,6 @@ describe("remove from cart button", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         expect(screen.getByRole("button", { name: /remove item from cart/i }))
@@ -514,7 +488,6 @@ describe("remove from cart button", () => {
         ]
         render(<Store 
             cart={mockCart} 
-            removeFromCartHandler={() => {}}
             addToCartHandler={() => {}} />);
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
