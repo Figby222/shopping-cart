@@ -20,7 +20,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                 })}
 
             </ul>
-            <p className="total-price">Total: </p>
+            <p className="total-price">Total: 0</p>
         </>
     );
 }

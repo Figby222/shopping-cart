@@ -248,4 +248,12 @@ describe("total price", () => {
         const totalParagraph = screen.getByText(/total/i);
         expect(totalParagraph).toBeInTheDocument();
     })
+
+    it("starts with value of 0", () => {
+        const mockCart = []
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+        
+        const totalParagraph = screen.getByText(/total/i);
+        expect(totalParagraph.textContent).toMatch(/0/i);
+    })
 })
