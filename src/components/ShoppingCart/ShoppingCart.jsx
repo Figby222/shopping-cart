@@ -17,6 +17,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                                 id={item.id}
                                 itemTitle={item.title}
                                 itemQuantity={item.quantity}
+                                itemPrice={item.price}
                                 removeFromCartHandler={removeFromCartHandler}
                             />
                         </li>
