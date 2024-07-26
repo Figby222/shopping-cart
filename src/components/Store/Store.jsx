@@ -7,7 +7,7 @@ function Store({ cart, addToCartHandler, removeFromCartHandler }) {
         <>
             <h2>Store</h2>
             <aside>
-                <ShoppingCart cart={[ {title: "black pants"}]}/>
+                <ShoppingCart cart={cart}/>
             </aside>
         </>
     );
