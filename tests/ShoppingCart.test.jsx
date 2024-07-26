@@ -292,4 +292,25 @@ describe("total price", () => {
         const totalParagraph = screen.getByText(/total/i);
         expect(totalParagraph.textContent).toMatch(/60/i);
     })
+
+    it("has accurate price when there are 2 cart items with different quantities", () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 1,
+                price: 20,
+            },
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+        render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
+
+        const totalParagraph = screen.getByText(/total/i);
+        expect(totalParagraph.textContent).toMatch(/100/i);
+    })
 })

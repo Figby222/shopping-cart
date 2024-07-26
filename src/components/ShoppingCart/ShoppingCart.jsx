@@ -25,7 +25,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                   cart.length === 0 ?
                   0 :
                   cart.reduce((acc, item) => {
-                    return acc + item.price;
+                    return acc + item.price * item.quantity;
                   }, 0)
                 }
             </p>
