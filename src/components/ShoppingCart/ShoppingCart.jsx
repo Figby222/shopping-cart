@@ -20,7 +20,15 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                 })}
 
             </ul>
-            <p className="total-price">Total: {cart[0] ? cart[0].price : 0}</p>
+            <p className="total-price">
+                Total: {
+                  cart.length === 0 ?
+                  0 :
+                  cart.reduce((acc, item) => {
+                    return acc + item.price;
+                  }, 0)
+                }
+            </p>
         </>
     );
 }
