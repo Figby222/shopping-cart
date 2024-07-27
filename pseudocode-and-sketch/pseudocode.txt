@@ -10,6 +10,9 @@ addToCartHandler(item):
     check if item is already in cart
         if so, combine the quanitity of items,
         if not, add a new item with the quanitity listed
+removeFromCartHandler(id):
+    find the index of the item in the cart using the id
+    remove the item from the cart at that index
 
 StoreItem:
 takes props: addToCartHandler(), itemDetails{}

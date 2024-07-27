@@ -5,7 +5,9 @@ import PropTypes from "prop-types";
 
 function Store({ cart, setCart }) {
     const addToCartHandler = () => {}
-    const removeFromCartHandler = () => {}
+    const removeFromCartHandler = (id) => {
+        setCart([])
+    }
 
     return (
         <>

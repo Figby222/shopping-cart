@@ -2,6 +2,7 @@ import Store from "../src/components/Store/Store.jsx";
 import { screen, render } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import userEvent from '@testing-library/user-event';
+import { useState } from "react";
 
 describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
@@ -440,5 +441,29 @@ describe("remove from cart button", () => {
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         expect(removeFromCart.textContent).toMatch(/X/i);
+    })
+
+    it("removes item from cart when there's one item", async () => {
+        let mockCart = [
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+
+        const MockParent = ({ initialMockCart }) => {
+            const [ cart, setCart ] = useState(initialMockCart);
+
+            return <Store cart={cart} setCart={setCart} />
+        }
+
+        render(<MockParent initialMockCart={mockCart}/>);
+
+        const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
+        const user = userEvent.setup();
+        await user.click(removeFromCart);
+        expect(screen.queryByText(/title/i)).not.toBeInTheDocument();
     })
 })
