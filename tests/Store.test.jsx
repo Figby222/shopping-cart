@@ -466,4 +466,33 @@ describe("remove from cart button", () => {
         await user.click(removeFromCart);
         expect(screen.queryByText(/title/i)).not.toBeInTheDocument();
     })
+
+    it("renders 2 removeFromCart buttons with 2 cart items", () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 1,
+                price: 20,
+            },
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+
+        const MockParent = ({ initialMockCart }) => {
+            const [ cart, setCart ] = useState(initialMockCart);
+
+            return <Store cart={cart} setCart={setCart} />
+        }
+
+        render(<MockParent initialMockCart={mockCart}/>);
+
+        const removeFromCartBtns = 
+            screen.getAllByRole("button", { name: /remove item from cart/i });
+        expect(removeFromCartBtns).toHaveLength(2);
+    })
 })
