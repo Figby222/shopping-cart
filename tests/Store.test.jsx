@@ -495,4 +495,39 @@ describe("remove from cart button", () => {
             screen.getAllByRole("button", { name: /remove item from cart/i });
         expect(removeFromCartBtns).toHaveLength(2);
     })
+
+    it("removes only 1 item from the cart", async () => {
+        const mockCart = [
+            {
+                id: 1,
+                title: "T-shirt",
+                quantity: 1,
+                price: 20,
+            },
+            {
+                id: 2,
+                title: "Black pants",
+                quantity: 2,
+                price: 40,
+            }
+        ]
+
+        const MockParent = ({ initialMockCart }) => {
+            const [ cart, setCart ] = useState(initialMockCart);
+
+            return <Store cart={cart} setCart={setCart} />
+        }
+
+        render(<MockParent initialMockCart={mockCart}/>);
+
+        const removeFromCartBtns = 
+            screen.getAllByRole("button", { name: /remove item from cart/i });
+
+        const removeFirstItemFromCart = removeFromCartBtns[1];
+        const user = userEvent.setup();
+        await user.click(removeFirstItemFromCart);
+
+        expect(screen.queryByText(/T-shirt/i)).toBeInTheDocument();
+        expect(screen.queryByText(/Black pants/i)).not.toBeInTheDocument();
+    })
 })

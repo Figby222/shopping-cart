@@ -6,7 +6,12 @@ import PropTypes from "prop-types";
 function Store({ cart, setCart }) {
     const addToCartHandler = () => {}
     const removeFromCartHandler = (id) => {
-        setCart([])
+        const index = cart.findIndex((item) => item.id === id);
+
+        const newCart = cart.slice(0, index)
+            .concat(cart.slice(index + 1));
+
+        setCart(newCart);
     }
 
     return (
