@@ -544,7 +544,7 @@ describe("remove from cart button", () => {
         const mockCart = [
             {
                 id: 1,
-                title: "T-shirt",
+                title: "Blue T-shirt",
                 quantity: 1,
                 price: 20,
             },
@@ -571,7 +571,7 @@ describe("remove from cart button", () => {
         const user = userEvent.setup();
         await user.click(removeFirstItemFromCart);
 
-        expect(screen.queryByText(/T-shirt/i)).toBeInTheDocument();
+        expect(screen.queryByText(/Blue T-shirt/i)).toBeInTheDocument();
         expect(screen.queryByText(/Black pants/i)).not.toBeInTheDocument();
     })
 })
