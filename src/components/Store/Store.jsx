@@ -1,6 +1,7 @@
 import "./Store.css";
 import ShoppingCart from "../ShoppingCart/ShoppingCart.jsx";
 import PropTypes from "prop-types";
+import StoreItem from "../utilities/StoreItem/StoreItem.jsx";
 
 
 function Store({ cart, setCart }) {
@@ -21,6 +22,7 @@ function Store({ cart, setCart }) {
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>
             <h3>Oriental fresh shirt</h3>
+            <StoreItem id={"2"} addToCartHandler={() => {}} />
         </>
     );
 }

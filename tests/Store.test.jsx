@@ -585,4 +585,20 @@ describe("rendering store items", () => {
         const titleHeading = screen.queryByRole("heading", { name: /Oriental fresh shirt/i });
         expect(titleHeading).toBeInTheDocument();
     })
+      
+    it("renders the details for a different item", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />);
+        })
+
+        const titleHeading = screen.queryByRole("heading", { name: /Premium Slim Fit T-Shirts/i });
+        const priceParagraph = screen.queryByText(/22.3/i);
+        const descriptionParagraph = screen.queryByText(/Slim-fitting style/i);
+        const image = screen.queryByAltText(/Premium slim fit T-Shirts/i);
+
+        expect(titleHeading).toBeInTheDocument();
+        expect(priceParagraph).toBeInTheDocument();
+        expect(descriptionParagraph).toBeInTheDocument();
+        expect(image).toBeInTheDocument();
+    })
 })
