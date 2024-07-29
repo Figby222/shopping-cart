@@ -20,6 +20,7 @@ function Store({ cart, setCart }) {
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>
+            <h3>Oriental fresh shirt</h3>
         </>
     );
 }

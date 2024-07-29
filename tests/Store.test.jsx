@@ -3,6 +3,50 @@ import { screen, render } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import userEvent from '@testing-library/user-event';
 import { useState } from "react";
+import { act } from "@testing-library/react";
+
+globalThis.fetch = vi.fn((URL) => {
+    if (URL === "https://fakestoreapi.com/products/1") {
+        return Promise.resolve({
+            json: () => Promise.resolve({
+                id: 1,
+                title: "Oriental Fresh Shirt",
+                price: 124,
+                description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                image: "https://loremflickr.com/640/480"
+            })
+        })
+    }
+
+    if (URL === "https://fakestoreapi.com/products/2") {
+        return Promise.resolve({
+            json: () => Promise.resolve({
+                id: 2,
+                title: "Mens Casual Premium Slim Fit T-Shirts",
+                price: 22.3,
+                description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+                image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+            })
+        })
+
+    }
+
+    if (URL === "https://fakestoreapi.com/products/4") {
+        return Promise.resolve({
+            json: () => Promise.resolve({
+                id: 4,
+                title: "red shirt",
+                price: 124,
+                description: "A super cool red shirt",
+                image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+            })
+        })
+    }
+
+    return Promise.resolve({
+        status: 404,
+    })
+})
 
 describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
@@ -529,5 +573,16 @@ describe("remove from cart button", () => {
 
         expect(screen.queryByText(/T-shirt/i)).toBeInTheDocument();
         expect(screen.queryByText(/Black pants/i)).not.toBeInTheDocument();
+    })
+})
+
+describe("rendering store items", () => {
+    it("renders the correct title heading for the item", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />)
+        })
+    
+        const titleHeading = screen.queryByRole("heading", { name: /Oriental fresh shirt/i });
+        expect(titleHeading).toBeInTheDocument();
     })
 })

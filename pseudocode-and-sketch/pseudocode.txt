@@ -13,6 +13,7 @@ addToCartHandler(item):
 removeFromCartHandler(id):
     find the index of the item in the cart using the id
     remove the item from the cart at that index
+Render store items
 
 StoreItem:
 takes props: addToCartHandler(), itemDetails{}
