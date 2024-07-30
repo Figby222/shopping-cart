@@ -23,6 +23,7 @@ function Store({ cart, setCart }) {
             </aside>
             <h3>Oriental fresh shirt</h3>
             <StoreItem id={"2"} addToCartHandler={() => {}} />
+            <StoreItem id={3} addToCartHandler={() => {}} />
         </>
     );
 }

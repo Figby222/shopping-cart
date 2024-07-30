@@ -31,6 +31,20 @@ globalThis.fetch = vi.fn((URL) => {
 
     }
 
+    if (URL === "https://fakestoreapi.com/products/3") {
+        return Promise.resolve({
+            json: () => Promise.resolve({
+                id: 3,
+                title: "Mens Cotton Jacket",
+                price: 55.99,
+                description: "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+                    "category": "men's clothing",
+                image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+                
+            })
+        })
+    }
+
     if (URL === "https://fakestoreapi.com/products/4") {
         return Promise.resolve({
             json: () => Promise.resolve({
@@ -595,6 +609,22 @@ describe("rendering store items", () => {
         const priceParagraph = screen.queryByText(/22.3/i);
         const descriptionParagraph = screen.queryByText(/Slim-fitting style/i);
         const image = screen.queryByAltText(/Premium slim fit T-Shirts/i);
+
+        expect(titleHeading).toBeInTheDocument();
+        expect(priceParagraph).toBeInTheDocument();
+        expect(descriptionParagraph).toBeInTheDocument();
+        expect(image).toBeInTheDocument();
+    })
+
+    it("renders the details for the item with id: 3", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />);
+        })
+
+        const titleHeading = screen.queryByRole("heading", { name: /Mens Cotton Jacket/i });
+        const priceParagraph = screen.getByText(/55.99/i);
+        const descriptionParagraph = screen.queryByText(/great outerwear jackets for Spring\/Autumn\/Winter/i);
+        const image = screen.queryByAltText(/Mens Cotton Jacket/i);
 
         expect(titleHeading).toBeInTheDocument();
         expect(priceParagraph).toBeInTheDocument();
