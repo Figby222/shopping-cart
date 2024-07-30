@@ -50,7 +50,7 @@ globalThis.fetch = vi.fn((URL) => {
             json: () => Promise.resolve({
                 id: 4,
                 title: "red shirt",
-                price: 124,
+                price: 128,
                 description: "A super cool red shirt",
                 image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
             })
@@ -625,6 +625,22 @@ describe("rendering store items", () => {
         const priceParagraph = screen.getByText(/55.99/i);
         const descriptionParagraph = screen.queryByText(/great outerwear jackets for Spring\/Autumn\/Winter/i);
         const image = screen.queryByAltText(/Mens Cotton Jacket/i);
+
+        expect(titleHeading).toBeInTheDocument();
+        expect(priceParagraph).toBeInTheDocument();
+        expect(descriptionParagraph).toBeInTheDocument();
+        expect(image).toBeInTheDocument();
+    })
+
+    it("renders the details for the item with id: 4", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />);   
+        })
+
+        const titleHeading = screen.queryByRole("heading", { name: /Red shirt/i });
+        const priceParagraph = screen.queryByText(/128/i);
+        const descriptionParagraph = screen.queryByText(/A super cool red shirt/i);
+        const image = screen.queryByAltText(/Red shirt/i);
 
         expect(titleHeading).toBeInTheDocument();
         expect(priceParagraph).toBeInTheDocument();

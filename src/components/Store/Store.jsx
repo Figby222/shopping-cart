@@ -2,6 +2,7 @@ import "./Store.css";
 import ShoppingCart from "../ShoppingCart/ShoppingCart.jsx";
 import PropTypes from "prop-types";
 import StoreItem from "../utilities/StoreItem/StoreItem.jsx";
+import { act } from "react";
 
 
 function Store({ cart, setCart }) {
@@ -15,15 +16,26 @@ function Store({ cart, setCart }) {
         setCart(newCart);
     }
 
+    const getStoreItems = () => {
+        const componentsArray = [];
+        for (let i = 0; i < 5; i++) {
+            componentsArray.push(
+                <StoreItem key={i} id={i} addToCartHandler={() => {}} />
+            )
+        }
+
+        return componentsArray;
+    }
+
+
+
     return (
         <>
             <h2>Store</h2>
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>
-            <h3>Oriental fresh shirt</h3>
-            <StoreItem id={"2"} addToCartHandler={() => {}} />
-            <StoreItem id={3} addToCartHandler={() => {}} />
+            {getStoreItems()}
         </>
     );
 }
