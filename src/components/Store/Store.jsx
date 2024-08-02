@@ -18,7 +18,7 @@ function Store({ cart, setCart }) {
 
     const getStoreItems = () => {
         const componentsArray = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 1; i < 5; i++) {
             componentsArray.push(
                 <StoreItem key={i} id={i} addToCartHandler={() => {}} />
             )
