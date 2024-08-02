@@ -35,7 +35,12 @@ function Store({ cart, setCart }) {
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>
-            {getStoreItems()}
+            <main>
+                <h3 className="catalog-heading">Catalog</h3>
+                <div className="store-items">
+                    {getStoreItems()}
+                </div>
+            </main>
         </>
     );
 }

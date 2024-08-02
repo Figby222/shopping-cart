@@ -648,3 +648,15 @@ describe("rendering store items", () => {
         expect(image).toBeInTheDocument();
     })
 })
+
+describe("store accessibility", () => {
+    it("renders heading for catalog", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />);
+        })
+
+        const catalogHeading = screen.getByRole("heading", { name: /catalog/i });
+
+        expect(catalogHeading).toBeInTheDocument();
+    })
+})
