@@ -6,12 +6,12 @@ import { act } from "react";
 
 
 function Store({ cart, setCart }) {
-    const addToCartHandler = () => {
+    const addToCartHandler = (item, itemQuantity) => {
         setCart([
             {
-                title: "Oriental fresh shirt",
-                price: 124,
-                quantity: 1,
+                title: item.title,
+                price: item.price,
+                quantity: itemQuantity,
             }
         ])
     }
