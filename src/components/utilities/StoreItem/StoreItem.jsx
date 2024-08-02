@@ -38,7 +38,7 @@ function StoreItem({ addToCartHandler, id }) {
     return (
         <>
         <div className="content">
-            <h3 className="item-title">{data.title}</h3>
+            <h4 className="item-title">{data.title}</h4>
             <p className="item-price">Price: ${data.price}</p>
             <p className="item-description">
                 Description: {data.description}
