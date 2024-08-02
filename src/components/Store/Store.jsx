@@ -7,9 +7,19 @@ import { act } from "react";
 
 function Store({ cart, setCart }) {
     const addToCartHandler = (item, itemQuantity) => {
+        const itemIndex = cart.findIndex((cartItem) => item.id === cartItem.id);
+
+        if (itemIndex >= 0) {
+            const newCart = [ ...cart ];
+            newCart[itemIndex].quantity += 1;
+            setCart(newCart);
+            return;
+        }
+        
         setCart([
             ...cart,
             {
+                id: item.id,
                 title: item.title,
                 price: item.price,
                 quantity: itemQuantity,

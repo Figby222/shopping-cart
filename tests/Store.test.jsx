@@ -883,4 +883,53 @@ describe("add to cart button", () => {
         expect(cartItem2Price.textContent).toMatch(/22.3/i);
         expect(cartItem2Quantity.textContent).toMatch(/1/i);
     })
+
+    it("combines quantities when adding the same item twice", async () => {
+        const CartItem = await import('../src/components/utilities/CartItem/CartItem.jsx');
+
+        CartItem.default = vi.fn(({ item, removeFromCartHandler }) => {
+            return(
+                <>
+                    <p data-testid="cart-item-title">Title: {item.title}</p>
+                    <p data-testid="cart-item-price">Price: {item.price}</p>
+                    <p data-testid="cart-item-quantity">Quantity: {item.quantity}</p>
+                </>
+            )
+        })
+
+        const MockParent = ({ initialMockCart }) => {
+            const [ cart, setCart ] = useState(initialMockCart);
+            
+            return (
+                <>
+                    <Store cart={cart} setCart={setCart} />
+                </>
+            )
+        }
+
+        await act(async () => {
+            render(<MockParent initialMockCart={[]} />);
+        })
+
+        const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
+        const item1Button = itemButtons[0];
+
+        const user = userEvent.setup();
+        await user.click(item1Button);
+        await user.click(item1Button);
+        
+        const cartItemTitles = screen.queryAllByTestId("cart-item-title");
+        const cartItem1Title = cartItemTitles[0];
+
+        const cartItemPrices = screen.queryAllByTestId("cart-item-price");
+        const cartItem1Price = cartItemPrices[0];
+
+        const cartItemQuantities = screen.queryAllByTestId("cart-item-quantity");
+        const cartItem1Quantity = cartItemQuantities[0];
+
+
+        expect(cartItem1Title.textContent).toMatch(/Oriental fresh shirt/i)
+        expect(cartItem1Price.textContent).toMatch(/124/i);
+        expect(cartItem1Quantity.textContent).toMatch(/2/i);
+    })
 })
