@@ -671,4 +671,62 @@ describe("add to cart button", () => {
         
         expect(addToCartButtons.length).toBeGreaterThan(0);
     })
+
+    it("adds an item to cart on Click", async () => {
+        // const StoreItem = await import('../src/components/utilities/StoreItem/StoreItem.jsx');
+
+        // StoreItem.default = vi.fn(({ addToCartHandler, id }) => {
+        //     if (!(id === 1)) {
+        //         return (<></>)
+        //     }
+
+        //     return (
+        //         <>
+        //             <h3 data-testid="StoreItem-title">Red Shirt</h3>
+        //             <button></button>
+        //         </>
+        //     )
+        // })
+        
+        const CartItem = await import('../src/components/utilities/CartItem/CartItem.jsx');
+
+        CartItem.default = vi.fn(({ item, removeFromCartHandler }) => {
+            return(
+                <>
+                    <p data-testid="cart-item-title">Title: {item.title}</p>
+                    <p data-testid="cart-item-price">Price: {item.price}</p>
+                    <p data-testid="cart-item-quantity">Quantity: {item.quantity}</p>
+                </>
+            )
+        })
+
+        const MockParent = ({ initialMockCart }) => {
+            const [ cart, setCart ] = useState(initialMockCart);
+            
+            return (
+                <>
+                    <Store cart={cart} setCart={setCart} />
+                </>
+            )
+        }
+
+        await act(async () => {
+            render(<MockParent initialMockCart={[]} />);
+        })
+
+        const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
+        const item1Button = itemButtons[0];
+
+        const user = userEvent.setup();
+        await user.click(item1Button);
+        
+        const cartItemTitles = screen.queryAllByTestId("cart-item-title");
+        const cartItem1Title = cartItemTitles[0];
+
+        expect(cartItem1Title).toBeInTheDocument();
+
+        // expect(screen.queryAllByTestId("test-heading")[0]).toBeInTheDocument()
+
+
+    })
 })

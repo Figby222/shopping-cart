@@ -6,7 +6,13 @@ import { act } from "react";
 
 
 function Store({ cart, setCart }) {
-    const addToCartHandler = () => {}
+    const addToCartHandler = () => {
+        setCart([
+            {
+                title: "",
+            }
+        ])
+    }
     const removeFromCartHandler = (id) => {
         const index = cart.findIndex((item) => item.id === id);
 
@@ -20,7 +26,7 @@ function Store({ cart, setCart }) {
         const componentsArray = [];
         for (let i = 1; i < 5; i++) {
             componentsArray.push(
-                <StoreItem key={i} id={i} addToCartHandler={() => {}} />
+                <StoreItem key={i} id={i} addToCartHandler={addToCartHandler} />
             )
         }
 
