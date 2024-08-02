@@ -11,7 +11,7 @@ function Store({ cart, setCart }) {
 
         if (itemIndex >= 0) {
             const newCart = [ ...cart ];
-            newCart[itemIndex].quantity += 1;
+            newCart[itemIndex].quantity += itemQuantity;
             setCart(newCart);
             return;
         }
