@@ -9,7 +9,9 @@ function Store({ cart, setCart }) {
     const addToCartHandler = () => {
         setCart([
             {
-                title: "",
+                title: "Oriental fresh shirt",
+                price: 124,
+                quantity: 1,
             }
         ])
     }
