@@ -8,6 +8,7 @@ import { act } from "react";
 function Store({ cart, setCart }) {
     const addToCartHandler = (item, itemQuantity) => {
         setCart([
+            ...cart,
             {
                 title: item.title,
                 price: item.price,
