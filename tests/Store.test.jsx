@@ -660,3 +660,15 @@ describe("store accessibility", () => {
         expect(catalogHeading).toBeInTheDocument();
     })
 })
+
+describe("add to cart button", () => {
+    it("renders an add to cart button", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />);
+        })
+
+        const addToCartButtons = screen.queryAllByRole("button", { name: /Add to cart/i });
+        
+        expect(addToCartButtons.length).toBeGreaterThan(0);
+    })
+})
