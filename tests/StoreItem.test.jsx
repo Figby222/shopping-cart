@@ -360,15 +360,15 @@ describe("StoreItem content with id: 2", () => {
   })
 })
 
-describe("decrement button", () => {
-  it("renders a button to decrement quantity", async () => {
+describe("decrease quantity button", () => {
+  it("renders a button to decrease quantity", async () => {
     await act(async () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     })
 
-    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    const decreaseQuantityButton = screen.queryByRole("button", { name: /decrease quantity/i });
 
-    expect(decrementButton).toBeInTheDocument();
+    expect(decreaseQuantityButton).toBeInTheDocument();
 
   })
 
@@ -377,9 +377,9 @@ describe("decrement button", () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     })
     
-    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    const decreaseQuantityButton = screen.queryByRole("button", { name: /decrease quantity/i });
 
-    expect(decrementButton.textContent).toMatch(/\u2193/i);
+    expect(decreaseQuantityButton.textContent).toMatch(/\u2193/i);
   })
 
   it("decreases the item quantity value", async () => {
@@ -387,14 +387,14 @@ describe("decrement button", () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     })
 
-    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    const decreaseQuantityButton = screen.queryByRole("button", { name: /decrease quantity/i });
     
     const itemQuantityInput = screen.getByLabelText(/item quantity/i);
     const user = userEvent.setup();
     await user.clear(itemQuantityInput);
     await user.type(itemQuantityInput, "5");
 
-    await user.click(decrementButton);
+    await user.click(decreaseQuantityButton);
 
     expect(itemQuantityInput.value).toMatch(/4/i);
   })
@@ -404,14 +404,14 @@ describe("decrement button", () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     })
 
-    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    const decreaseQuantityButton = screen.queryByRole("button", { name: /decrease quantity/i });
     
     const itemQuantityInput = screen.getByLabelText(/item quantity/i);
     const user = userEvent.setup();
     await user.clear(itemQuantityInput);
     await user.type(itemQuantityInput, "11");
 
-    await user.click(decrementButton);
+    await user.click(decreaseQuantityButton);
 
     expect(itemQuantityInput.value).toMatch(/10/i);
   })
@@ -421,14 +421,14 @@ describe("decrement button", () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     })
 
-    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    const decreaseQuantityButton = screen.queryByRole("button", { name: /decrease quantity/i });
     
     const itemQuantityInput = screen.getByLabelText(/item quantity/i);
     const user = userEvent.setup();
     await user.clear(itemQuantityInput);
     await user.type(itemQuantityInput, "0");
 
-    await user.click(decrementButton);
+    await user.click(decreaseQuantityButton);
 
     expect(parseInt(itemQuantityInput.value)).not.toBeLessThan(0);
   })
