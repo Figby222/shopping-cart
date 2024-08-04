@@ -28,6 +28,7 @@ add a heading that displays data.title
 add a paragraph thaat displays data.price
 add a paragraph that displays data.description
 add an image that displays data.imageSrc
+add a button to decrement quantity
 
 Item details:
 StoreItem could take id and fetch() props, and call fetch using the item id, and

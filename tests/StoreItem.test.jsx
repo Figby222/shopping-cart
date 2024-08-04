@@ -359,3 +359,16 @@ describe("StoreItem content with id: 2", () => {
 
   })
 })
+
+describe("decrement button", () => {
+  it("renders a button to decrement quantity", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
+    })
+
+    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+
+    expect(decrementButton).toBeInTheDocument();
+
+  })
+})

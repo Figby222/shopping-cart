@@ -52,7 +52,10 @@ function StoreItem({ addToCartHandler, id }) {
             step="1" 
             name="item-quantity" 
             value={itemQuantity}
-            onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity)} /> 
+            onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity)} />
+        <span className="quantity-buttons">
+            <button className="decrement-button" aria-label="decrease quantity"></button>
+        </span> 
         <button onClick={() => addToCartHandler(data, parseInt(itemQuantity))}>Add to cart</button>
         </>
     );
