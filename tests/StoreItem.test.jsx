@@ -444,4 +444,14 @@ describe("increase quantity button", () => {
     
     expect(increaseButton).toBeInTheDocument();
   })
+
+  it("has textContent containing an up arrow", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
+    })
+
+    const increaseButton = screen.queryByRole("button", { name: /increase quantity/i });
+
+    expect(increaseButton.textContent).toMatch(/\u2191/i);
+  })
 })
