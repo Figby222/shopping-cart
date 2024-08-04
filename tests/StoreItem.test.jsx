@@ -433,3 +433,15 @@ describe("decrease quantity button", () => {
     expect(parseInt(itemQuantityInput.value)).not.toBeLessThan(0);
   })
 })
+
+describe("increase quantity button", () => {
+  it("renders a button to increase quantity", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
+    })
+
+    const increaseButton = screen.queryByRole("button", { name: /increase quantity/i });
+    
+    expect(increaseButton).toBeInTheDocument();
+  })
+})
