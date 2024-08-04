@@ -371,4 +371,14 @@ describe("decrement button", () => {
     expect(decrementButton).toBeInTheDocument();
 
   })
+
+  it("has text content containing up arrow", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
+    })
+    
+    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+
+    expect(decrementButton.textContent).toMatch(/\u2193/i);
+  })
 })
