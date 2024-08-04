@@ -398,4 +398,21 @@ describe("decrement button", () => {
 
     expect(itemQuantityInput.value).toMatch(/4/i);
   })
+
+  it("decreases the item quantity value from a different starting value", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
+    })
+
+    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    
+    const itemQuantityInput = screen.getByLabelText(/item quantity/i);
+    const user = userEvent.setup();
+    await user.clear(itemQuantityInput);
+    await user.type(itemQuantityInput, "11");
+
+    await user.click(decrementButton);
+
+    expect(itemQuantityInput.value).toMatch(/10/i);
+  })
 })
