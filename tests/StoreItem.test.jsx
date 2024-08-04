@@ -415,4 +415,21 @@ describe("decrement button", () => {
 
     expect(itemQuantityInput.value).toMatch(/10/i);
   })
+
+  it("doesn't decrease the item quantity value to negative", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={2} />);
+    })
+
+    const decrementButton = screen.queryByRole("button", { name: /decrease quantity/i });
+    
+    const itemQuantityInput = screen.getByLabelText(/item quantity/i);
+    const user = userEvent.setup();
+    await user.clear(itemQuantityInput);
+    await user.type(itemQuantityInput, "0");
+
+    await user.click(decrementButton);
+
+    expect(parseInt(itemQuantityInput.value)).not.toBeLessThan(0);
+  })
 })
