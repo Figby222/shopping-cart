@@ -3,6 +3,7 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart.jsx";
 import PropTypes from "prop-types";
 import StoreItem from "../utilities/StoreItem/StoreItem.jsx";
 import { act } from "react";
+import { Link } from "react-router-dom";
 
 
 function Store({ cart, setCart }) {
@@ -51,6 +52,9 @@ function Store({ cart, setCart }) {
     return (
         <>
             <h2>Store</h2>
+            <nav>
+                <Link to="/home">Home</Link>
+            </nav>
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>

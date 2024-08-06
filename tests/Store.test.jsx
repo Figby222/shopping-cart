@@ -990,3 +990,15 @@ describe("add to cart button", () => {
         expect(cartItem1Quantity.textContent).toMatch(/6/i);
     })
 })
+
+describe("navigation", () => {
+    it("Renders a link for Homepage", async () => {
+        await act(async () => {
+            render(<Store cart={[]} setCart={() => {}} />);
+        })
+
+        const homeLink = screen.queryByText(/Home/i);
+
+        expect(homeLink).toBeInTheDocument();
+    })
+})
