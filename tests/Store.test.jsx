@@ -4,6 +4,8 @@ import { describe, it, expect, vi } from "vitest";
 import userEvent from '@testing-library/user-event';
 import { useState } from "react";
 import { act } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import routes from "../src/routes.jsx";
 
 globalThis.fetch = vi.fn((URL) => {
     if (URL === "https://fakestoreapi.com/products/1") {
@@ -65,7 +67,8 @@ globalThis.fetch = vi.fn((URL) => {
 describe("Store rendering", () => {
     it("renders heading with text \"Store\"", () => {
         render(
-            <Store cart={[]} setCart={() => {}} />
+            <Store cart={[]} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         );
         expect(screen.getByRole("heading", { name: "Store" }))
             .toBeInTheDocument();
@@ -81,7 +84,8 @@ describe("Store rendering", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         );
         const title = screen.getByText(/Black pants/i);
         expect(title)
@@ -100,7 +104,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const itemTitleParagraph = screen.getByText(/title/i);
@@ -118,7 +123,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const titleParagraph = screen.getByText(/title/i);
@@ -135,7 +141,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const titleParagraph = screen.getByText(/title/i);
@@ -152,7 +159,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -169,7 +177,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -186,7 +195,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const quantityParagraph = screen.getByText(/quantity/i);
@@ -203,7 +213,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -220,7 +231,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -237,7 +249,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -254,7 +267,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const priceParagraph = screen.getByText(/price/i);
@@ -277,7 +291,8 @@ describe("shopping cart items", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const titleParagraphs = screen.queryAllByText(/title/i);
@@ -287,7 +302,8 @@ describe("shopping cart items", () => {
     it("doesn't render anything when no items are given", () => {
         const mockCart = [];
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const titleParagraphs = screen.queryAllByText(/title/i);
@@ -299,7 +315,8 @@ describe("total price", () => {
     it("renders a paragraph for total", () => {
         const mockCart = []
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -309,7 +326,8 @@ describe("total price", () => {
     it("starts with value of 0", () => {
         const mockCart = []
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -326,7 +344,8 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
         
         const totalParagraph = screen.getByText(/total/i);
@@ -349,7 +368,8 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
 
         const totalParagraph = screen.getByText(/total/i);
@@ -372,7 +392,8 @@ describe("total price", () => {
             }
         ]
         render(
-            <Store cart={mockCart} setCart={() => {}} />
+            <Store cart={mockCart} setCart={() => {}} />,
+            { wrapper: BrowserRouter }
         )
 
         const totalParagraph = screen.getByText(/total/i);
@@ -390,7 +411,7 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         expect(screen.getByText(/title/i)).toBeInTheDocument();
     })
@@ -404,7 +425,7 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/t-shirt/i);
@@ -419,7 +440,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         const itemTitle = screen.getByText(/title/i);
         expect(itemTitle.textContent).toMatch(/black pants/i);
@@ -434,7 +455,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         expect(screen.getByText(/quantity/i)).toBeInTheDocument();
     })
@@ -448,7 +469,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         const quantity = screen.getByText(/quantity/i); 
         expect(quantity.textContent).toMatch(/1/i);
@@ -463,7 +484,7 @@ describe("CartItem", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         const quantity = screen.getByText(/quantity/i); 
         expect(quantity.textContent).toMatch(/2/i);
@@ -480,7 +501,7 @@ describe("remove from cart button", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         expect(screen.getByRole("button", { name: /remove item from cart/i }))
             .toBeInTheDocument();
@@ -495,7 +516,7 @@ describe("remove from cart button", () => {
                 price: 40,
             }
         ]
-        render(<Store cart={mockCart} setCart={() => {}} />);
+        render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         expect(removeFromCart.textContent).toMatch(/X/i);
@@ -517,7 +538,7 @@ describe("remove from cart button", () => {
             return <Store cart={cart} setCart={setCart} />
         }
 
-        render(<MockParent initialMockCart={mockCart}/>);
+        render(<MockParent initialMockCart={mockCart}/>, { wrapper: BrowserRouter });
 
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         const user = userEvent.setup();
@@ -547,7 +568,7 @@ describe("remove from cart button", () => {
             return <Store cart={cart} setCart={setCart} />
         }
 
-        render(<MockParent initialMockCart={mockCart}/>);
+        render(<MockParent initialMockCart={mockCart}/>, { wrapper: BrowserRouter });
 
         const removeFromCartBtns = 
             screen.getAllByRole("button", { name: /remove item from cart/i });
@@ -576,7 +597,7 @@ describe("remove from cart button", () => {
             return <Store cart={cart} setCart={setCart} />
         }
 
-        render(<MockParent initialMockCart={mockCart}/>);
+        render(<MockParent initialMockCart={mockCart}/>, { wrapper: BrowserRouter });
 
         const removeFromCartBtns = 
             screen.getAllByRole("button", { name: /remove item from cart/i });
@@ -593,7 +614,7 @@ describe("remove from cart button", () => {
 describe("rendering store items", () => {
     it("renders the correct title heading for the item", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />)
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter })
         })
     
         const titleHeading = screen.queryByRole("heading", { name: /Oriental fresh shirt/i });
@@ -602,7 +623,7 @@ describe("rendering store items", () => {
       
     it("renders the details for a different item", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />);
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });
         })
 
         const titleHeading = screen.queryByRole("heading", { name: /Premium Slim Fit T-Shirts/i });
@@ -618,7 +639,7 @@ describe("rendering store items", () => {
 
     it("renders the details for the item with id: 3", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />);
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });
         })
 
         const titleHeading = screen.queryByRole("heading", { name: /Mens Cotton Jacket/i });
@@ -634,7 +655,7 @@ describe("rendering store items", () => {
 
     it("renders the details for the item with id: 4", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />);   
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });   
         })
 
         const titleHeading = screen.queryByRole("heading", { name: /Red shirt/i });
@@ -652,7 +673,7 @@ describe("rendering store items", () => {
 describe("store accessibility", () => {
     it("renders heading for catalog", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />);
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });
         })
 
         const catalogHeading = screen.getByRole("heading", { name: /catalog/i });
@@ -664,7 +685,7 @@ describe("store accessibility", () => {
 describe("add to cart button", () => {
     it("renders an add to cart button", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />);
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });
         })
 
         const addToCartButtons = screen.queryAllByRole("button", { name: /Add to cart/i });
@@ -677,7 +698,7 @@ describe("add to cart button", () => {
 
         // StoreItem.default = vi.fn(({ addToCartHandler, id }) => {
         //     if (!(id === 1)) {
-        //         return (<></>)
+        //         return (<></>, { wrapper: BrowserRouter })
         //     }
 
         //     return (
@@ -711,7 +732,7 @@ describe("add to cart button", () => {
         }
 
         await act(async () => {
-            render(<MockParent initialMockCart={[]} />);
+            render(<MockParent initialMockCart={[]} />, { wrapper: BrowserRouter });
         })
 
         const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
@@ -754,7 +775,7 @@ describe("add to cart button", () => {
         }
 
         await act(async () => {
-            render(<MockParent initialMockCart={[]} />);
+            render(<MockParent initialMockCart={[]} />, { wrapper: BrowserRouter });
         })
 
         const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
@@ -803,7 +824,7 @@ describe("add to cart button", () => {
         }
 
         await act(async () => {
-            render(<MockParent initialMockCart={[]} />);
+            render(<MockParent initialMockCart={[]} />, { wrapper: BrowserRouter });
         })
 
         const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
@@ -850,7 +871,7 @@ describe("add to cart button", () => {
         }
 
         await act(async () => {
-            render(<MockParent initialMockCart={[]} />);
+            render(<MockParent initialMockCart={[]} />, { wrapper: BrowserRouter });
         })
 
         const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
@@ -908,7 +929,7 @@ describe("add to cart button", () => {
         }
 
         await act(async () => {
-            render(<MockParent initialMockCart={[]} />);
+            render(<MockParent initialMockCart={[]} />, { wrapper: BrowserRouter });
         })
 
         const itemButtons = screen.getAllByRole("button", { name: /Add to cart/i });
@@ -957,7 +978,7 @@ describe("add to cart button", () => {
         }
         
         await act(async () => {
-            render(<MockParent initialMockCart={[]} />);
+            render(<MockParent initialMockCart={[]} />, { wrapper: BrowserRouter });
         })
 
         const itemQuantityInputs = screen.getAllByLabelText(/quantity/i);
@@ -994,7 +1015,7 @@ describe("add to cart button", () => {
 describe("navigation", () => {
     it("Renders a link for Homepage", async () => {
         await act(async () => {
-            render(<Store cart={[]} setCart={() => {}} />);
+            render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });
         })
 
         const homeLink = screen.queryByText(/Home/i);
