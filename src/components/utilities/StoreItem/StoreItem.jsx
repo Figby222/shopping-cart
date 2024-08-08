@@ -12,7 +12,7 @@ const setValidatedUnsignedInteger = (value, setValue) => {
         return;
     }
 
-    setValue(parseInt(value));
+    setValue(value);
 }
 
 function StoreItem({ addToCartHandler, id }) {
