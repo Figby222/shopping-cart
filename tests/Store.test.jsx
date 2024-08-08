@@ -683,6 +683,10 @@ describe("store accessibility", () => {
 })
 
 describe("add to cart button", () => {
+    beforeEach(() => {
+        vi.clearAllMocks();
+        vi.restoreAllMocks();
+    })
     it("renders an add to cart button", async () => {
         await act(async () => {
             render(<Store cart={[]} setCart={() => {}} />, { wrapper: BrowserRouter });
