@@ -211,6 +211,21 @@ describe("Item quantity input", () => {
     
     expect(parseInt(input.value)
   ).not.toBeLessThan(0);
+
+})
+  it("displays error feedback when decimal number is set as itemQuantity", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
+    })
+
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: /item quantity/i });
+
+    await user.clear(input);
+    await user.type(input, "1.5");
+
+    const error = screen.queryByText(/quantity must be an integer/i);
+    expect(error).toBeInTheDocument();
   })
 })
 

@@ -18,6 +18,7 @@ const setValidatedUnsignedInteger = (value, setValue) => {
 function StoreItem({ addToCartHandler, id }) {
     const [ itemQuantity, setItemQuantity ] = useState(1);
     const { error, isLoading, data } = useItemData(`https://fakestoreapi.com/products/${id}`)
+    const [ inputError, setInputError ] = useState(null);
 
     if (isLoading) {
         return (
@@ -57,6 +58,7 @@ function StoreItem({ addToCartHandler, id }) {
             <button className="increase-quantity" aria-label="increase quantity" onClick={() => setItemQuantity(parseInt(itemQuantity) + 1)}>{'\u2191'}</button>
             <button className="decrease-quantity" aria-label="decrease quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) - 1}`, setItemQuantity)}>{'\u2193'}</button>
         </span> 
+        <p className="input-error">quantity must be an integer</p>
         <button onClick={() => addToCartHandler(data, parseInt(itemQuantity))}>Add to cart</button>
         </>
     );
