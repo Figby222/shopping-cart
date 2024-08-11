@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import { useState } from 'react';
 import useItemData from "../useItemData/useItemData.jsx";
 
-const setValidatedUnsignedInteger = (value, setValue) => {
+const setValidatedUnsignedInteger = (value, setValue, setInputError) => {
     if (value.includes("-")) {
         return;
     }
 
     if (value.includes(".")) {
+        setInputError(true);
         return;
     }
 
@@ -53,12 +54,12 @@ function StoreItem({ addToCartHandler, id }) {
             step="1" 
             name="item-quantity" 
             value={itemQuantity}
-            onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity)} />
+            onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity, setInputError)} />
         <span className="quantity-buttons">
             <button className="increase-quantity" aria-label="increase quantity" onClick={() => setItemQuantity(parseInt(itemQuantity) + 1)}>{'\u2191'}</button>
-            <button className="decrease-quantity" aria-label="decrease quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) - 1}`, setItemQuantity)}>{'\u2193'}</button>
+            <button className="decrease-quantity" aria-label="decrease quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) - 1}`, setItemQuantity, setInputError)}>{'\u2193'}</button>
         </span> 
-        <p className="input-error">quantity must be an integer</p>
+        {inputError && <p className="input-error">quantity must be an integer</p>}
         <button onClick={() => addToCartHandler(data, parseInt(itemQuantity))}>Add to cart</button>
         </>
     );

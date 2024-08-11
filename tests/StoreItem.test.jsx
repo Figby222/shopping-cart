@@ -227,6 +227,21 @@ describe("Item quantity input", () => {
     const error = screen.queryByText(/quantity must be an integer/i);
     expect(error).toBeInTheDocument();
   })
+
+  it("doesn't display error when input is valid", async () => {
+    await act(async () => {
+      render(<StoreItem addToCartHandler={() => {}} id={1} />);
+    })
+
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: /item quantity/i });
+
+    await user.clear(input);
+    await user.type(input, "4");
+
+    const error = screen.queryByText(/quantity must be an integer/i);
+    expect(error).not.toBeInTheDocument();
+  })
 })
 
 describe("data retrieving", () => {
