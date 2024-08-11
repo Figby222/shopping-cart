@@ -13,6 +13,7 @@ const setValidatedUnsignedInteger = (value, setValue, setInputError) => {
         return;
     }
 
+    setInputError(false);
     setValue(value);
 }
 
