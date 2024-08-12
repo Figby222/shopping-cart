@@ -1,6 +1,10 @@
 import "./ErrorBoundary.css";
 function ErrorBoundary() {
-    return(<>blah blah blah</>);
+    return(
+        <>
+            <p className="invalid-page">Invalid page</p>
+        </>
+    );
 }
 
 export default ErrorBoundary;

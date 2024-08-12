@@ -79,3 +79,6 @@ add paragraph with item count
 render cart items
 render cart items with title, quantity, & price
 add accumulative price at the bottom of cart
+
+ErrorBoundary:
+Provide feedback that user has entered invalid page
