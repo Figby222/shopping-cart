@@ -24,6 +24,10 @@ h5 {
     font-size: 1.1rem;
 }
 
+p {
+    font-size: 0.95rem;
+}
+
 .item-title {
     text-align: center;
 }
