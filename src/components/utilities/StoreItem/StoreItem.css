@@ -16,6 +16,10 @@ body, p, h1, h2, h3, h4, h5 {
     grid-template-rows: repeat(auto-fit, minmax(var(--StoreItem-content-grid-rows-width), 1fr));
 }
 
+h5 {
+    font-size: 1.1rem;
+}
+
 .item-title {
     text-align: center;
 }
