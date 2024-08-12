@@ -63,11 +63,11 @@ function StoreItem({ addToCartHandler, id }) {
         <>
         <div className="content">
             <h4 className="item-title">{data.title}</h4>
-            <p className="item-price">Price: ${data.price}</p>
             <p className="item-description">
                 Description: {data.description}
             </p>
             <img className="item-image" src={data.imageSrc} alt={`image of ${data.title}`} />
+            <p className="item-price">Price: ${data.price}</p>
         </div>
         <label htmlFor="item-quantity">Item quantity</label>
         <input 
