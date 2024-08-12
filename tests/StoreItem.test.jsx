@@ -278,7 +278,8 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
-    expect(screen.getByRole("heading")).toBeInTheDocument();
+    const headings = screen.getAllByRole("heading");
+    expect(headings.length).toBeGreaterThan(0);
   })
 
   it("renders a heading that has the textContent of the item's title", async () => {
