@@ -9,4 +9,12 @@ describe("Homepage content", () => {
         const title = screen.getByRole("heading", { name: "Ryan's Totally Real Clothes"});
         expect(title).toBeInTheDocument();
     });
+    
+    it("renders Link to store", () => {
+        render(<Homepage />, { wrapper: BrowserRouter });
+        
+        const storeLink = screen.queryByRole("link", { name: /store/i });
+
+        expect(storeLink).toBeInTheDocument();
+    })
 });
