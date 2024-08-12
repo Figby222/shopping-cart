@@ -1,6 +1,7 @@
 :root {
     --StoreItem-content-grid-rows-width: 100px;
     --content-gap: 15px;
+    --item-attribute-gap: 5px;
 }
 
 body, p, h1, h2, h3, h4, h5 {
@@ -36,4 +37,9 @@ p {
 
 img {
     max-width: var(--StoreItem-content-grid-rows-width);
+}
+
+.item-attribute {
+    display: grid;
+    gap: var(--item-attribute-gap);
 }
