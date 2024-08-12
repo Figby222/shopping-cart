@@ -7,7 +7,7 @@ function Homepage() {
             <nav>
                 <ul>
                     <li>
-                        <Link to="homepage">Store</Link>
+                        <Link to="/store">Store</Link>
                     </li>
                 </ul>
             </nav>
