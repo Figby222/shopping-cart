@@ -44,3 +44,10 @@ img {
     display: grid;
     gap: var(--item-attribute-gap);
 }
+
+.quantity-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    text-align: center;
+}
