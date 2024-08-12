@@ -305,7 +305,7 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() =>{}} id={1} />);
     })
 
-    const itemPrice = screen.getByText(/price/i);
+    const itemPrice = screen.getByLabelText(/price/i);
     expect(itemPrice.textContent).toMatch(/124/i);
   })
 
@@ -371,7 +371,7 @@ describe("StoreItem content with id: 2", () => {
     await act(async () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     });
-    const itemPrice = screen.getByText(/price/i);
+    const itemPrice = screen.getByLabelText(/price/i);
     expect(itemPrice.textContent).toMatch(/22.3/i)
   })
 
