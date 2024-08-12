@@ -82,3 +82,4 @@ add accumulative price at the bottom of cart
 
 ErrorBoundary:
 Provide feedback that user has entered invalid page
+Provide Link to homepage

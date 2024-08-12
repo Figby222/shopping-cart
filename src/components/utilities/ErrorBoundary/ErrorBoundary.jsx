@@ -1,8 +1,14 @@
 import "./ErrorBoundary.css";
+import { Link } from "react-router-dom";
+
 function ErrorBoundary() {
     return(
         <>
             <p className="invalid-page">Invalid page</p>
+            <p className="main-text">
+                It appears you're lost,
+                <Link to="/homepage">click here to go back home!</Link>
+            </p>
         </>
     );
 }

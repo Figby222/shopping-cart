@@ -10,4 +10,11 @@ describe("render ErrorBoundary", () => {
         const invalidPage = screen.queryByText(/invalid page/i);
         expect(invalidPage).toBeInTheDocument();
     })
+
+    it("provides link to homepage", () => {
+        render(<ErrorBoundary />, { wrapper: BrowserRouter });
+
+        const homeLink = screen.queryByText(/click here to go back home/i);
+        expect(homeLink).toBeInTheDocument();
+    })
 })
