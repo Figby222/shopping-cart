@@ -6,15 +6,12 @@ import useItemData from "../useItemData/useItemData.jsx";
 const setValidatedUnsignedInteger = (value, setValue, setInputError) => {
     if (value.includes("-")) {
         setInputError(true);
-        return;
-    }
-
-    if (value.includes(".")) {
+    } else if (value.includes(".")) {
         setInputError(true);
-        return;
+    } else {
+        setInputError(false);
     }
 
-    setInputError(false);
     setValue(value);
 }
 

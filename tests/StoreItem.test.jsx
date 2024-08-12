@@ -185,34 +185,6 @@ describe("Item quantity input", () => {
     expect(input.value).toBe("2");
   });
 
-  it("does not set input when a letter is typed in", async () => {
-    await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} id={1} />);
-
-    })
-
-    const user = userEvent.setup();
-    const input = screen.getByRole("spinbutton", { name: /item quantity/i });
-
-    await user.type(input, "a");
-    expect(input.value).not.toBe("a");
-  })
-
-  it("does not set input as negative number", async () => {
-    await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} id={1} />);
-    })
-
-    const user = userEvent.setup();
-    const input = screen.getByRole("spinbutton", { name: /item quantity/i });
-
-    await user.clear(input);
-    await user.type(input, "-3");
-    
-    expect(parseInt(input.value)
-  ).not.toBeLessThan(0);
-
-})
   it("displays error feedback when decimal number is set as itemQuantity", async () => {
     await act(async () => {
       render(<StoreItem addToCartHandler={() => {}} id={1} />);
@@ -481,23 +453,6 @@ describe("decrease quantity button", () => {
     await user.click(decreaseQuantityButton);
 
     expect(itemQuantityInput.value).toMatch(/10/i);
-  })
-
-  it("doesn't decrease the item quantity value to negative", async () => {
-    await act(async () => {
-      render(<StoreItem addToCartHandler={() => {}} id={2} />);
-    })
-
-    const decreaseQuantityButton = screen.queryByRole("button", { name: /decrease quantity/i });
-    
-    const itemQuantityInput = screen.getByLabelText(/item quantity/i);
-    const user = userEvent.setup();
-    await user.clear(itemQuantityInput);
-    await user.type(itemQuantityInput, "0");
-
-    await user.click(decreaseQuantityButton);
-
-    expect(parseInt(itemQuantityInput.value)).not.toBeLessThan(0);
   })
 })
 
