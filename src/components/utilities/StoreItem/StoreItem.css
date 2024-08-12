@@ -37,6 +37,7 @@ p {
 
 img {
     max-width: var(--StoreItem-content-grid-rows-width);
+    justify-self: center;
 }
 
 .item-attribute {
