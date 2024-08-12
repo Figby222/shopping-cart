@@ -556,3 +556,26 @@ describe("increase quantity button", () => {
     expect(itemQuantityInput.value).toMatch(/10/i);
   })
 })
+
+describe("add to cart", () => {
+  it("doesn't call function when quantity is set as a letter", async () => {
+    const addToCartHandler = vi.fn();
+    await act(async () => {
+      render(<StoreItem addToCartHandler={addToCartHandler} id={1} />);
+    })
+
+    const quantityInput = screen.queryByRole("spinbutton", { name: /quantity/i });
+    const addToCartButton = screen.getByRole("button", { name: /add to cart/i });
+    
+    const user = userEvent.setup();
+    await user.clear(quantityInput);
+    await user.type(quantityInput, "W");
+    await user.click(addToCartButton);
+    
+    const error = screen.queryByText(/quantity must be an integer/i);
+    
+    expect(addToCartHandler).not.toHaveBeenCalled();
+    expect(error).toBeInTheDocument();
+    
+  })
+})

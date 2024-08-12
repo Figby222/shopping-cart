@@ -32,6 +32,7 @@ add an image that displays data.imageSrc
 add a button to decrease quantity
 add a button to increase quantity
 display error feedback when quantity input invalid
+don't call addToCartHandler when input invalid
 
 Item details:
 StoreItem could take id and fetch() props, and call fetch using the item id, and
