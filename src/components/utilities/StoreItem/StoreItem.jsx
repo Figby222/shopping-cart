@@ -88,10 +88,10 @@ function StoreItem({ addToCartHandler, id }) {
                 name="item-quantity"
                 value={itemQuantity}
                 onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity, setInputError)} />
-            <span className="quantity-buttons">
+            <div className="quantity-buttons">
                 <button className="increase-quantity" aria-label="increase quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) + 1}`, setItemQuantity, setInputError)}>{'\u2191'}</button>
                 <button className="decrease-quantity" aria-label="decrease quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) - 1}`, setItemQuantity, setInputError)}>{'\u2193'}</button>
-            </span>
+            </div>
             {inputError && <p className="input-error">quantity must be an integer</p>}
         </div>
         <button onClick={() => addToCartButtonHandler(data, itemQuantity, addToCartHandler, setInputError)}>Add to cart</button>
