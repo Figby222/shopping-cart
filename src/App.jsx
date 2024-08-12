@@ -12,7 +12,7 @@ function App() {
     <>
       {name === "store" ? 
         <Store cart={cart} setCart={setCart} /> :
-      name === "homepage" ?
+      (name === "homepage") || !name ?
         <Homepage /> :
         <ErrorBoundary />
       }
