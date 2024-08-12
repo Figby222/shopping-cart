@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ErrorBoundary() {
     return(
         <>
-            <p className="invalid-page">Invalid page</p>
+            <h1 className="invalid-page">Invalid page</h1>
             <p className="main-text">
                 It appears you're lost,
                 <Link to="/homepage">click here to go back home!</Link>
