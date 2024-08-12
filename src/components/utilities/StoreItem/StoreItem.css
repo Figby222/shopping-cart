@@ -1,0 +1,12 @@
+:root {
+    --StoreItem-content-grid-rows-width: 150px;
+}
+
+.content {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(var(--StoreItem-content-grid-rows-width), 1fr));
+}
+
+img {
+    max-width: var(--StoreItem-content-grid-rows-width);
+}
