@@ -20,6 +20,10 @@ const checkInputValidity = (value) => {
         return false;
     }
 
+    if (value < 0) {
+        return false;
+    }
+
     return true;
 }
 
