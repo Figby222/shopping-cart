@@ -12,6 +12,10 @@ body, p, h1, h2, h3, h4 {
     grid-template-rows: repeat(auto-fit, minmax(var(--StoreItem-content-grid-rows-width), 1fr));
 }
 
+.item-title {
+    text-align: center;
+}
+
 img {
     max-width: var(--StoreItem-content-grid-rows-width);
 }
