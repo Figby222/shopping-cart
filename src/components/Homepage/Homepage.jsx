@@ -4,7 +4,7 @@ function Homepage() {
     return (
         <>
             <main>
-                <h1>Ryan's Totally Real Jewelry</h1>
+                <h1>Ryan's Totally Real Clothes</h1>
             </main>
         </>
     )

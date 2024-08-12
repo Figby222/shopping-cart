@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 describe("Homepage content", () => {
     it("renders heading", () => {
         render(<Homepage />, { wrapper: BrowserRouter });
-        const title = screen.getByRole("heading", { name: "Ryan's Totally Real Jewelry"});
+        const title = screen.getByRole("heading", { name: "Ryan's Totally Real Clothes"});
         expect(title).toBeInTheDocument();
     });
 });
