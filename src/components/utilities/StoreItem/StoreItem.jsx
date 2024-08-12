@@ -79,7 +79,7 @@ function StoreItem({ addToCartHandler, id }) {
                 </p>
             </div>
         </div>
-        <div className="quantity-controls">
+        <div className="quantity-container">
             <label htmlFor="item-quantity">Item quantity</label>
             <input
                 type="number"
