@@ -53,7 +53,7 @@ function Store({ cart, setCart }) {
         <>
             <h2>Store</h2>
             <nav>
-                <Link to="/home">Home</Link>
+                <Link to="/homepage">Home</Link>
             </nav>
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
