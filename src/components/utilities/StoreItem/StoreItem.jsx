@@ -63,8 +63,9 @@ function StoreItem({ addToCartHandler, id }) {
         <>
         <div className="content">
             <h4 className="item-title">{data.title}</h4>
-            <p className="item-description">
-                Description: {data.description}
+            <h4 id="item-description">Description:</h4>
+            <p className="item-description" aria-labelledby="item-description">
+                {data.description}
             </p>
             <img className="item-image" src={data.imageSrc} alt={`image of ${data.title}`} />
             <p className="item-price">Price: ${data.price}</p>

@@ -322,7 +322,7 @@ describe("StoreItem content", () => {
       render(<StoreItem addToCartHandler={() => {}} id={1} />);
     })
 
-    const itemDescription = screen.getByText(/description/i);
+    const itemDescription = screen.getByLabelText(/description/i);
     expect(itemDescription.textContent).toMatch(
       /Carbonite web goalkeeper gloves are ergonomically designed to give easy fit/i
     )
@@ -378,7 +378,7 @@ describe("StoreItem content with id: 2", () => {
     await act(async () => {
       render(<StoreItem addToCartHandler={() => {}} id={2} />);
     });
-    const itemDescription = screen.getByText(/description/i);
+    const itemDescription = screen.getByLabelText(/description/i);
     expect(itemDescription.textContent).toMatch(
       /Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket./i
     );
