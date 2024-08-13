@@ -20,11 +20,11 @@ body, p, h1, h2, h3, h4, h5 {
     gap: var(--content-gap);
 }
 
-h4 {
+h3 {
     font-size: 1.15rem;
 }
 
-h5 {
+h4 {
     font-size: 1.05rem;
 }
 

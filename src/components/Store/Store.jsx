@@ -53,7 +53,7 @@ function Store({ cart, setCart }) {
 
     return (
         <>
-            <h2>Store</h2>
+            <h1>Store</h1>
             <nav>
                 <Link to="/homepage">Home</Link>
             </nav>
@@ -61,7 +61,7 @@ function Store({ cart, setCart }) {
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>
             <main>
-                <h3 className="catalog-heading">Catalog</h3>
+                <h2 className="catalog-heading">Catalog</h2>
                 <ul className="store-items">
                     {getStoreItems()}
                 </ul>

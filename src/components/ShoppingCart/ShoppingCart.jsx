@@ -5,7 +5,7 @@ import CartItem from "../utilities/CartItem/CartItem";
 function ShoppingCart({ cart, removeFromCartHandler }) {
     return (
         <>
-            <h3 className="shopping-cart-heading">Shopping Cart</h3>
+            <h2 className="shopping-cart-heading">Shopping Cart</h2>
             <p className="shopping-cart-item-count">
                 Item count: {cart.length}
             </p>
