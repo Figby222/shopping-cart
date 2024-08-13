@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 function CartItem({ item, removeFromCartHandler }) {
     return (
         <> 
-            <p className="item-quantity">Quantity: {item.quantity}</p>
             <p className="item-title">Title: {item.title}</p>
+            <p className="item-quantity">Quantity: {item.quantity}</p>
             <p className="item-price">Price: {item.price * item.quantity}</p>
             <button 
                 type="button" 
