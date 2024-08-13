@@ -40,7 +40,9 @@ function Store({ cart, setCart }) {
         const componentsArray = [];
         for (let i = 1; i < 5; i++) {
             componentsArray.push(
-                <StoreItem key={i} id={i} addToCartHandler={addToCartHandler} />
+                <li className="StoreItem">
+                    <StoreItem key={i} id={i} addToCartHandler={addToCartHandler} />
+                </li>
             )
         }
 
@@ -60,9 +62,9 @@ function Store({ cart, setCart }) {
             </aside>
             <main>
                 <h3 className="catalog-heading">Catalog</h3>
-                <div className="store-items">
+                <ul className="store-items">
                     {getStoreItems()}
-                </div>
+                </ul>
             </main>
         </>
     );
