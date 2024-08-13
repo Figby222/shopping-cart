@@ -1,6 +1,6 @@
 :root {
     --StoreItem-content-grid-rows-width: 100px;
-    --content-gap: 15px;
+    --content-gap: 30px;
     --item-attribute-gap: 5px;
     --quantity-controls-gap: 5px;
 }
