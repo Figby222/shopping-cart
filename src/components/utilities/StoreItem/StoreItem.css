@@ -75,3 +75,8 @@ img {
     align-items: center;
     flex-wrap: wrap;
 }
+
+.add-to-cart {
+    border-radius: 10px;
+    border: 1px solid black;
+}
