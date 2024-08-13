@@ -11,7 +11,7 @@ function CartItem({ item, removeFromCartHandler }) {
             >
             X
             </button>
-            <p className="cart-item-title cart-item-attribute">{item.title}</p>
+            <h3 className="cart-item-title cart-item-attribute">{item.title}</h3>
             <p className="cart-item-quantity cart-item-attribute">
                 <span className="cart-item-attribute-label">Quantity:</span>
                 {item.quantity}
