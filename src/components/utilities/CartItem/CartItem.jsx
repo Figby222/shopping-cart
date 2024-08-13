@@ -11,12 +11,12 @@ function CartItem({ item, removeFromCartHandler }) {
             >
             X
             </button>
-            <h3 className="cart-item-title cart-item-attribute">{item.title}</h3>
-            <p className="cart-item-quantity cart-item-attribute">
+            <h3 className="cart-item-title cart-item-attribute" data-testid="cart-item-title">{item.title}</h3>
+            <p className="cart-item-quantity cart-item-attribute" data-testid="cart-item-quantity">
                 <span className="cart-item-attribute-label">Quantity:</span>
                 {item.quantity}
             </p>
-            <p className="cart-item-price cart-item-attribute">
+            <p className="cart-item-price cart-item-attribute" data-testid="cart-item-price">
                 <span className="cart-item-attribute-label">Price:</span>
                 {item.price * item.quantity}
             </p>

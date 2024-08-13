@@ -115,7 +115,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const itemTitleParagraph = screen.getByText(/title/i);
+        const itemTitleParagraph = screen.getByText(/T-shirt/i);
         expect(itemTitleParagraph).toBeInTheDocument();
 
     })
@@ -134,7 +134,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const titleParagraph = screen.getByText(/title/i);
+        const titleParagraph = screen.getByText(/T-shirt/i);
         expect(titleParagraph.textContent).toMatch(/T-shirt/i);
     })
 
@@ -152,7 +152,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const titleParagraph = screen.getByText(/title/i);
+        const titleParagraph = screen.getByText(/Black pants/i);
         expect(titleParagraph.textContent).toMatch(/Black pants/i);
     })
 
@@ -170,7 +170,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const quantityParagraph = screen.getByText(/quantity/i);
+        const quantityParagraph = screen.getByTestId(/cart-item-quantity/i);
         expect(quantityParagraph).toBeInTheDocument();
     })
 
@@ -188,7 +188,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const quantityParagraph = screen.getByText(/quantity/i);
+        const quantityParagraph = screen.getByTestId(/cart-item-quantity/i);
         expect(quantityParagraph.textContent).toMatch(/1/i);
     })
 
@@ -206,7 +206,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const quantityParagraph = screen.getByText(/quantity/i);
+        const quantityParagraph = screen.getByTestId(/cart-item-quantity/i);
         expect(quantityParagraph.textContent).toMatch(/2/i);
     })
 
@@ -242,7 +242,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const priceParagraph = screen.getByText(/price/i);
+        const priceParagraph = screen.getByTestId(/price/i);
         expect(priceParagraph.textContent).toMatch(/20/i);
     })
 
@@ -260,7 +260,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const priceParagraph = screen.getByText(/price/i);
+        const priceParagraph = screen.getByTestId(/price/i);
         expect(priceParagraph.textContent).toMatch(/40/i);
     })
 
@@ -278,7 +278,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const priceParagraph = screen.getByText(/price/i);
+        const priceParagraph = screen.getByTestId(/cart-item-price/i);
         expect(priceParagraph.textContent).toMatch(/80/i);
     })
 
@@ -302,8 +302,11 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const titleParagraphs = screen.queryAllByText(/title/i);
-        expect(titleParagraphs).toHaveLength(2);
+        const item1 = screen.queryByRole("heading", { name: /T-shirt/i });
+        const item2 = screen.queryByRole("heading", { name: /Black pants/i });
+        
+        expect(item1).toBeInTheDocument();
+        expect(item2).toBeInTheDocument();
     })
 
     it("doesn't render anything when no items are given", () => {
@@ -313,7 +316,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const titleParagraphs = screen.queryAllByText(/title/i);
+        const titleParagraphs = screen.queryAllByTestId(/cart-item-title/i);
         expect(titleParagraphs).toHaveLength(0);
     })
 })
@@ -418,9 +421,10 @@ describe("CartItem", () => {
                 price: 20,
             }
         ]
+
         render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
-        expect(screen.getByText(/title/i)).toBeInTheDocument();
+        expect(screen.getByTestId(/cart-item-title/i)).toBeInTheDocument();
     })
 
     it("renders itemTitle paragraph with prop-given text", () => {
@@ -434,7 +438,7 @@ describe("CartItem", () => {
         ]
         render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
-        const itemTitle = screen.getByText(/title/i);
+        const itemTitle = screen.getByTestId(/cart-item-title/i);
         expect(itemTitle.textContent).toMatch(/t-shirt/i);
     })
 
@@ -449,7 +453,7 @@ describe("CartItem", () => {
         ]
         render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
-        const itemTitle = screen.getByText(/title/i);
+        const itemTitle = screen.getByTestId(/cart-item-title/i);
         expect(itemTitle.textContent).toMatch(/black pants/i);
     })
 
@@ -464,7 +468,7 @@ describe("CartItem", () => {
         ]
         render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
-        expect(screen.getByText(/quantity/i)).toBeInTheDocument();
+        expect(screen.getByTestId(/cart-item-quantity/i)).toBeInTheDocument();
     })
 
     it("renders quantity paragraph with prop-given value", () => {
@@ -478,7 +482,7 @@ describe("CartItem", () => {
         ]
         render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
-        const quantity = screen.getByText(/quantity/i); 
+        const quantity = screen.getByTestId(/cart-item-quantity/i); 
         expect(quantity.textContent).toMatch(/1/i);
     })
 
@@ -493,7 +497,7 @@ describe("CartItem", () => {
         ]
         render(<Store cart={mockCart} setCart={() => {}} />, { wrapper: BrowserRouter });
 
-        const quantity = screen.getByText(/quantity/i); 
+        const quantity = screen.getByTestId(/cart-item-quantity/i); 
         expect(quantity.textContent).toMatch(/2/i);
     })
 })
@@ -550,7 +554,7 @@ describe("remove from cart button", () => {
         const removeFromCart = screen.getByRole("button", { name: /remove item from cart/i });
         const user = userEvent.setup();
         await user.click(removeFromCart);
-        expect(screen.queryByText(/title/i)).not.toBeInTheDocument();
+        expect(screen.queryByTestId(/cart-item-title/i)).not.toBeInTheDocument();
     })
 
     it("renders 2 removeFromCart buttons with 2 cart items", () => {
