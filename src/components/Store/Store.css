@@ -15,4 +15,5 @@ ul {
 .StoreItem {
     background-color: #a8d0e656;
     padding: var(--ul-padding);
+    border-radius: 10px;
 }
