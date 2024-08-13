@@ -88,6 +88,7 @@ img {
     font-weight: bold;
     background-color: #2da0ff;
     color: white;
+    justify-self: center;
 }
 
 .add-to-cart:hover {
