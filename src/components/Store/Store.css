@@ -16,4 +16,8 @@ ul {
     background-color: #a8d0e656;
     padding: var(--ul-padding);
     border-radius: 10px;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(max-content), 1fr);
+    gap: 30px;
+    justify-content: normal;
 }
