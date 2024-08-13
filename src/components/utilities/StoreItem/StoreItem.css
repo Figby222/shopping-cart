@@ -82,3 +82,8 @@ img {
     border: 1px solid black;
     font-weight: bold;
 }
+
+.add-to-cart:hover {
+    background-color: rgb(72, 255, 0);
+    color: white;
+}
