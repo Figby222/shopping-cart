@@ -62,22 +62,16 @@ function StoreItem({ addToCartHandler, id }) {
     return (
         <>
         <div className="content">
-            <div className="item-attribute">
-                <h3 className="item-title">{data.title}</h3>
-            </div>
-            <div className="item-attribute">
-                <h4 id="item-description">Description:</h4>
-                <p className="item-description">
-                    {data.description}
-                </p>
-            </div>
-            <div className="item-attribute"><img className="item-image" src={data.imageSrc} alt={`image of ${data.title}`} /></div>
-            <div className="item-attribute">
-                <h4 id="item-price">Price:</h4>
-                <p className="item-price">
-                    ${data.price}
-                </p>
-            </div>
+            <h3 className="item-title item-attribute">{data.title}</h3>
+            <p className="item-description item-attribute">
+                <span className="item-attribute-label">Description:</span>
+                {data.description}
+            </p>
+            <img className="item-image" src={data.imageSrc} alt={`image of ${data.title}`} />
+            <p className="item-price item-attribute">
+                <span className="item-attribute-label">Price:</span>
+                ${data.price}
+            </p>
         </div>
         <div className="quantity-container">
             <label htmlFor="item-quantity">Item quantity</label>
