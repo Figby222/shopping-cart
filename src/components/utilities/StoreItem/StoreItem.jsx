@@ -96,7 +96,7 @@ function StoreItem({ addToCartHandler, id }) {
             </div>
             {inputError && <p className="input-error">quantity must be an integer</p>}
         </div>
-        <button onClick={() => addToCartButtonHandler(data, itemQuantity, addToCartHandler, setInputError)}>Add to cart</button>
+        <button onClick={() => addToCartButtonHandler(data, itemQuantity, addToCartHandler, setInputError)} className="add-to-cart">Add to cart</button>
         </>
     );
 };
