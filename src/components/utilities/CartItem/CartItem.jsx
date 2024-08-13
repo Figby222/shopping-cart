@@ -16,7 +16,7 @@ function CartItem({ item, removeFromCartHandler }) {
                 <span className="cart-item-attribute-label">Quantity:</span>
                 {item.quantity}
             </p>
-            <p className="cart-item-price cart-item-attribute" aria-labelledby="cart-item-price">
+            <p className="cart-item-price cart-item-attribute">
                 <span className="cart-item-attribute-label">Price:</span>
                 {item.price * item.quantity}
             </p>
