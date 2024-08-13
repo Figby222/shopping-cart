@@ -2,6 +2,7 @@
     --StoreItem-content-grid-rows-width: 100px;
     --content-gap: 15px;
     --item-attribute-gap: 5px;
+    --quantity-controls-gap: 5px;
 }
 
 body, p, h1, h2, h3, h4, h5 {
@@ -58,7 +59,11 @@ img {
     display: grid;
     align-items: center;
     grid-template-columns: 1fr auto;
-    gap: 5px;
+    gap: var(--quantity-controls-gap);
+}
+
+#item-quantity {
+    margin-right: var(--quantity-controls-gap);
 }
 
 .item-quantity {
