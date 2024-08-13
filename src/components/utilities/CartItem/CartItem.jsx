@@ -11,9 +11,15 @@ function CartItem({ item, removeFromCartHandler }) {
             >
             X
             </button>
-            <p className="cart-item-title">Title: {item.title}</p>
-            <p className="cart-item-quantity">Quantity: {item.quantity}</p>
-            <p className="cart-item-price">Price: {item.price * item.quantity}</p>
+            <p className="cart-item-title cart-item-attribute">{item.title}</p>
+            <p className="cart-item-quantity cart-item-attribute">
+                <span className="cart-item-attribute-label">Quantity:</span>
+                {item.quantity}
+            </p>
+            <p className="cart-item-price cart-item-attribute" aria-labelledby="cart-item-price">
+                <span className="cart-item-attribute-label">Price:</span>
+                {item.price * item.quantity}
+            </p>
         </>
     );
 }
