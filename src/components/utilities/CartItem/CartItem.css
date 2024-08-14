@@ -1,0 +1,28 @@
+.cart-item-attribute-label {
+    font-weight: bolder;
+}
+
+.cart-item-title {
+    font-size: 1rem;
+}
+
+.remove-from-cart {
+    grid-column: 2 / -1;
+}
+
+.cart-item-title,
+.cart-item-quantity,
+.cart-item-price {
+    grid-column: 1 / -1;
+}
+
+.cart-item-quantity,
+.cart-item-price {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 5px;
+}
+
+.remove-from-cart:hover {
+    background-color: red;
+}

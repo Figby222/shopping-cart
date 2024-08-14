@@ -1,0 +1,95 @@
+:root {
+    --StoreItem-gap: 30px;
+    --main-padding: 10px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+ul {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    grid-template-rows: repeat(auto, 1fr);
+    gap: var(--StoreItem-gap);
+    padding: 0;
+}
+
+aside, main {
+    padding: var(--main-padding);
+}
+
+main {
+    display: grid;
+    grid-template-rows: repeat(auto, minmax(max-content, 1fr));
+    gap: 10px;
+}
+
+.StoreItem {
+    background-color: #a8d0e656;
+    padding: var(--main-padding);
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(max-content), 1fr);
+    gap: 30px;
+    justify-content: normal;
+}
+
+a {
+    text-decoration: none;
+    background-color: #a8d0e656;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+nav {
+    display: grid;
+    justify-items: center;
+}
+
+.store {
+    display: grid;
+    gap: 10px;
+}
+
+.ShoppingCart {
+    display: grid;
+    grid-template-rows: repeat(auto, minmax(max-content, 1fr));
+    gap: 10px;
+}
+
+@media (min-width: 600px) {
+    aside,
+    main {
+        padding: var(--main-padding) 40px;
+    }
+    
+    .store {
+        padding: 20px 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    :root {
+        font-size: 20px;
+    }
+    aside,
+    main {
+        padding: var(--main-padding) 80px;
+    }
+
+    .StoreItem {
+        padding: 40px;
+    }
+
+    ul {
+        gap: 64px;
+    }
+
+    main,
+    .store,
+    .ShoppingCart {
+        gap: 20px;
+    }
+}

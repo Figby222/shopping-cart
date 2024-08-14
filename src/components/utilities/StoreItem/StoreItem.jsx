@@ -62,31 +62,35 @@ function StoreItem({ addToCartHandler, id }) {
     return (
         <>
         <div className="content">
-            <h4 className="item-title">{data.title}</h4>
-            <h4 id="item-description">Description:</h4>
-            <p className="item-description" aria-labelledby="item-description">
+            <h3 className="item-title item-attribute">{data.title}</h3>
+            <p className="item-description item-attribute" data-testid="item-description">
+                <span className="item-attribute-label">Description:</span>
                 {data.description}
             </p>
             <img className="item-image" src={data.imageSrc} alt={`image of ${data.title}`} />
-            <h4 id="item-price">Price:</h4>
-            <p className="item-price" aria-labelledby="item-price">
+            <p className="item-price item-attribute" data-testid="item-price">
+                <span className="item-attribute-label">Price:</span>
                 ${data.price}
             </p>
         </div>
-        <label htmlFor="item-quantity">Item quantity</label>
-        <input 
-            type="number" 
-            id="item-quantity" 
-            step="1" 
-            name="item-quantity" 
-            value={itemQuantity}
-            onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity, setInputError)} />
-        <span className="quantity-buttons">
-            <button className="increase-quantity" aria-label="increase quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) + 1}`, setItemQuantity, setInputError)}>{'\u2191'}</button>
-            <button className="decrease-quantity" aria-label="decrease quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) - 1}`, setItemQuantity, setInputError)}>{'\u2193'}</button>
-        </span> 
-        {inputError && <p className="input-error">quantity must be an integer</p>}
-        <button onClick={() => addToCartButtonHandler(data, itemQuantity, addToCartHandler, setInputError)}>Add to cart</button>
+        <div className="quantity-container">
+            <label htmlFor="item-quantity">Item quantity</label>
+            <div className="quantity-controls">
+                <input
+                    type="number"
+                    id="item-quantity"
+                    step="1"
+                    name="item-quantity"
+                    value={itemQuantity}
+                    onChange={(e) => setValidatedUnsignedInteger(e.target.value, setItemQuantity, setInputError)} />
+                <div className="quantity-buttons">
+                    <button className="increase-quantity" aria-label="increase quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) + 1}`, setItemQuantity, setInputError)}>{'\u2191'}</button>
+                    <button className="decrease-quantity" aria-label="decrease quantity" onClick={() => setValidatedUnsignedInteger(`${parseInt(itemQuantity) - 1}`, setItemQuantity, setInputError)}>{'\u2193'}</button>
+                </div>
+            </div>
+            {inputError && <p className="input-error">quantity must be an integer</p>}
+        </div>
+        <button onClick={() => addToCartButtonHandler(data, itemQuantity, addToCartHandler, setInputError)} className="add-to-cart">Add to cart</button>
         </>
     );
 };

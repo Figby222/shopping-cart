@@ -4,10 +4,13 @@ import CartItem from "../utilities/CartItem/CartItem";
 
 function ShoppingCart({ cart, removeFromCartHandler }) {
     return (
-        <>
-            <h3 className="shopping-cart-heading">Shopping Cart</h3>
-            <p className="shopping-cart-item-count">
-                Item count: {cart.length}
+        <div className="ShoppingCart">
+            <h2 className="shopping-cart-heading">Shopping Cart</h2>
+            <p className="shopping-cart-item-count" data-testid="shopping-cart-item-count">
+                <span className="item-count-label">
+                    Item count:
+                </span>
+                {cart.length}
             </p>
             <ul className="cart-items">
                 {cart.map((item) => {
@@ -22,8 +25,9 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                 })}
 
             </ul>
-            <p className="total-price">
-                Total: {
+            <p className="total-price" data-testid="total-price-paragraph">
+                <span className="total-price-label">Total:</span>
+                {
                   cart.length === 0 ?
                   0 :
                   cart.reduce((acc, item) => {
@@ -31,7 +35,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                   }, 0)
                 }
             </p>
-        </>
+        </div>
     );
 }
 

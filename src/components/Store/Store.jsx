@@ -40,7 +40,9 @@ function Store({ cart, setCart }) {
         const componentsArray = [];
         for (let i = 1; i < 5; i++) {
             componentsArray.push(
-                <StoreItem key={i} id={i} addToCartHandler={addToCartHandler} />
+                <li className="StoreItem">
+                    <StoreItem key={i} id={i} addToCartHandler={addToCartHandler} />
+                </li>
             )
         }
 
@@ -50,21 +52,21 @@ function Store({ cart, setCart }) {
 
 
     return (
-        <>
-            <h2>Store</h2>
+        <div className="store">
+            <h1>Store</h1>
             <nav>
-                <Link to="/homepage">Home</Link>
+                <Link to="/homepage" className="home">Home</Link>
             </nav>
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
             </aside>
             <main>
-                <h3 className="catalog-heading">Catalog</h3>
-                <div className="store-items">
+                <h2 className="catalog-heading">Catalog</h2>
+                <ul className="store-items">
                     {getStoreItems()}
-                </div>
+                </ul>
             </main>
-        </>
+        </div>
     );
 }
 
