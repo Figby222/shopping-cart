@@ -7,7 +7,10 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
         <>
             <h2 className="shopping-cart-heading">Shopping Cart</h2>
             <p className="shopping-cart-item-count">
-                Item count: {cart.length}
+                <span className="item-count-label">
+                    Item count:
+                </span>
+                {cart.length}
             </p>
             <ul className="cart-items">
                 {cart.map((item) => {
@@ -23,7 +26,8 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
 
             </ul>
             <p className="total-price">
-                Total: {
+                <span className="total-price-label">Total:</span>
+                {
                   cart.length === 0 ?
                   0 :
                   cart.reduce((acc, item) => {
