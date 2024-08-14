@@ -47,3 +47,8 @@ nav {
     display: grid;
     justify-items: center;
 }
+
+.store {
+    display: grid;
+    gap: 10px;
+}
