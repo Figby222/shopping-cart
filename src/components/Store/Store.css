@@ -71,6 +71,9 @@ nav {
 }
 
 @media (min-width: 1000px) {
+    :root {
+        font-size: 20px;
+    }
     aside,
     main {
         padding: var(--main-padding) 80px;
