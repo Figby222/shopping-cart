@@ -29,7 +29,7 @@ describe("ShoppingCart", () => {
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
         
-        const itemCountParagraph = screen.getByText(/item count/i);
+        const itemCountParagraph = screen.getByTestId(/shopping-cart-item-count/i);
 
         expect(itemCountParagraph.textContent)
             .toMatch(/1/i);
@@ -52,7 +52,7 @@ describe("ShoppingCart", () => {
         ]
         render(<ShoppingCart cart={mockCart} removeFromCartHandler={() => {}} />)
         
-        const itemCountParagraph = screen.getByText(/item count/i);
+        const itemCountParagraph = screen.getByTestId(/shopping-cart-item-count/i);
 
         expect(itemCountParagraph.textContent)
             .toMatch(/2/i);

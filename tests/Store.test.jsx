@@ -242,7 +242,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const priceParagraph = screen.getByTestId(/price/i);
+        const priceParagraph = screen.getByTestId(/cart-item-price/i);
         expect(priceParagraph.textContent).toMatch(/20/i);
     })
 
@@ -260,7 +260,7 @@ describe("shopping cart items", () => {
             { wrapper: BrowserRouter }
         )
         
-        const priceParagraph = screen.getByTestId(/price/i);
+        const priceParagraph = screen.getByTestId(/cart-item-price/i);
         expect(priceParagraph.textContent).toMatch(/40/i);
     })
 
@@ -340,7 +340,7 @@ describe("total price", () => {
             { wrapper: BrowserRouter }
         )
         
-        const totalParagraph = screen.getByText(/total/i);
+        const totalParagraph = screen.getByTestId(/total-price-paragraph/i);
         expect(totalParagraph.textContent).toMatch(/0/i);
     })
 
@@ -358,7 +358,7 @@ describe("total price", () => {
             { wrapper: BrowserRouter }
         )
         
-        const totalParagraph = screen.getByText(/total/i);
+        const totalParagraph = screen.getByTestId(/total-price-paragraph/i);
         expect(totalParagraph.textContent).toMatch(/40/i);
     })
 
@@ -382,7 +382,7 @@ describe("total price", () => {
             { wrapper: BrowserRouter }
         )
 
-        const totalParagraph = screen.getByText(/total/i);
+        const totalParagraph = screen.getByTestId(/total-price-paragraph/i);
         expect(totalParagraph.textContent).toMatch(/60/i);
     })
 
@@ -406,7 +406,7 @@ describe("total price", () => {
             { wrapper: BrowserRouter }
         )
 
-        const totalParagraph = screen.getByText(/total/i);
+        const totalParagraph = screen.getByTestId(/total-price-paragraph/i);
         expect(totalParagraph.textContent).toMatch(/100/i);
     })
 })
