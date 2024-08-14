@@ -15,6 +15,7 @@ function Homepage() {
                 </ul>
             </nav>
             <main>
+                <h2 className="story-heading">My Story</h2>
             </main>
         </>
     )
