@@ -4,6 +4,10 @@
     gap: 10px;
 }
 
+main {
+    justify-content: center;
+}
+
 @media (min-width: 600px) {
     .Homepage {
         gap: 20px;
