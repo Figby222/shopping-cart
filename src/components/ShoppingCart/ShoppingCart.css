@@ -6,4 +6,5 @@
     display: grid;
     grid-template-columns: 1fr max-content;
     gap: var(--cart-item-gap);
+    background-color: #a8D0e656;
 }
