@@ -1,3 +1,10 @@
 .cart-item-attribute-label {
     font-weight: bolder;
 }
+
+.cart-item-quantity,
+.cart-item-price {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 5px;
+}
