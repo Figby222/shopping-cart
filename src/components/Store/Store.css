@@ -69,3 +69,10 @@ nav {
         padding: 20px 0;
     }
 }
+
+@media (min-width: 1000px) {
+    aside,
+    main {
+        padding: var(--main-padding) 80px;
+    }
+}
