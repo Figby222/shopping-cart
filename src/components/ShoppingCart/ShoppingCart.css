@@ -12,3 +12,10 @@
     padding: var(--cart-item-padding);
     border-radius: var(--cart-item-border-radius);
 }
+
+.shopping-cart-item-count,
+.total-price {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 5px;
+}
