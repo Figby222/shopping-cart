@@ -35,3 +35,7 @@ main {
     gap: 30px;
     justify-content: normal;
 }
+
+a {
+    text-decoration: none;
+}
