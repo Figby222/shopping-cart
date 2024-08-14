@@ -75,4 +75,8 @@ nav {
     main {
         padding: var(--main-padding) 80px;
     }
+
+    .StoreItem {
+        padding: 40px;
+    }
 }
