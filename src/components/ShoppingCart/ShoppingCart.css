@@ -1,0 +1,9 @@
+:root {
+    --cart-item-gap: 10px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: var(--cart-item-gap);
+}

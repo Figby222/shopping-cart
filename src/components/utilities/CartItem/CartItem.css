@@ -6,6 +6,16 @@
     font-size: 1rem;
 }
 
+.remove-from-cart {
+    grid-column: 2 / -1;
+}
+
+.cart-item-title,
+.cart-item-quantity,
+.cart-item-price {
+    grid-column: 1 / -1;
+}
+
 .cart-item-quantity,
 .cart-item-price {
     display: grid;
