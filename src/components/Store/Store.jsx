@@ -55,7 +55,7 @@ function Store({ cart, setCart }) {
         <>
             <h1>Store</h1>
             <nav>
-                <Link to="/homepage">Home</Link>
+                <Link to="/homepage" className="home">Home</Link>
             </nav>
             <aside>
                 <ShoppingCart cart={cart} removeFromCartHandler={removeFromCartHandler}/>
