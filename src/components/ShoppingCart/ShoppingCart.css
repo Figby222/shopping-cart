@@ -24,3 +24,8 @@
     grid-template-columns: repeat(2, max-content);
     gap: 5px;
 }
+
+.item-count-label,
+.total-price-label {
+    font-weight: bolder;
+}
