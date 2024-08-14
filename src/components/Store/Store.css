@@ -1,6 +1,6 @@
 :root {
     --StoreItem-gap: 30px;
-    --ul-padding: 10px;
+    --main-padding: 10px;
 }
 
 h1, h2 {
@@ -13,12 +13,16 @@ ul {
     margin: 0;
     grid-template-rows: repeat(auto, 1fr);
     gap: var(--StoreItem-gap);
-    padding: var(--ul-padding);
+    padding: 0;
+}
+
+aside, main {
+    padding: var(--main-padding);
 }
 
 .StoreItem {
     background-color: #a8d0e656;
-    padding: var(--ul-padding);
+    padding: var(--main-padding);
     border-radius: 10px;
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(max-content), 1fr);
