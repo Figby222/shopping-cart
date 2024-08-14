@@ -52,7 +52,7 @@ function Store({ cart, setCart }) {
 
 
     return (
-        <>
+        <div className="store">
             <h1>Store</h1>
             <nav>
                 <Link to="/homepage" className="home">Home</Link>
@@ -66,7 +66,7 @@ function Store({ cart, setCart }) {
                     {getStoreItems()}
                 </ul>
             </main>
-        </>
+        </div>
     );
 }
 
