@@ -39,4 +39,6 @@ main {
 a {
     text-decoration: none;
     background-color: #a8d0e656;
+    padding: 10px;
+    border-radius: 10px;
 }
