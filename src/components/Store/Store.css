@@ -86,4 +86,10 @@ nav {
     ul {
         gap: 64px;
     }
+
+    main,
+    .store,
+    .ShoppingCart {
+        gap: 20px;
+    }
 }
