@@ -1,5 +1,7 @@
 :root {
     --cart-item-gap: 10px;
+    --cart-item-padding: 10px;
+    --cart-item-border-radius: 10px;
 }
 
 .cart-item {
@@ -7,4 +9,6 @@
     grid-template-columns: 1fr max-content;
     gap: var(--cart-item-gap);
     background-color: #b6e6a856;
+    padding: var(--cart-item-padding);
+    border-radius: var(--cart-item-border-radius);
 }
