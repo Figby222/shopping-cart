@@ -12,3 +12,7 @@
     grid-template-columns: repeat(2, max-content);
     gap: 5px;
 }
+
+.remove-from-cart:hover {
+    background-color: red;
+}
