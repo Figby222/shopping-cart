@@ -4,7 +4,7 @@ import CartItem from "../utilities/CartItem/CartItem";
 
 function ShoppingCart({ cart, removeFromCartHandler }) {
     return (
-        <>
+        <div className="ShoppingCart">
             <h2 className="shopping-cart-heading">Shopping Cart</h2>
             <p className="shopping-cart-item-count" data-testid="shopping-cart-item-count">
                 <span className="item-count-label">
@@ -35,7 +35,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                   }, 0)
                 }
             </p>
-        </>
+        </div>
     );
 }
 
