@@ -20,6 +20,12 @@ aside, main {
     padding: var(--main-padding);
 }
 
+main {
+    display: grid;
+    grid-template-rows: repeat(auto, minmax(max-content, 1fr));
+    gap: 10px;
+}
+
 .StoreItem {
     background-color: #a8d0e656;
     padding: var(--main-padding);
