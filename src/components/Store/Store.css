@@ -58,3 +58,10 @@ nav {
     grid-template-rows: repeat(auto, minmax(max-content, 1fr));
     gap: 10px;
 }
+
+@media (min-width: 600px) {
+    aside,
+    main {
+        padding: var(--main-padding) 40px;
+    }
+}
