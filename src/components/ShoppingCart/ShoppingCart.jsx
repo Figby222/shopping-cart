@@ -6,7 +6,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
     return (
         <>
             <h2 className="shopping-cart-heading">Shopping Cart</h2>
-            <p className="shopping-cart-item-count">
+            <p className="shopping-cart-item-count" data-testid="shopping-cart-item-count">
                 <span className="item-count-label">
                     Item count:
                 </span>
@@ -25,7 +25,7 @@ function ShoppingCart({ cart, removeFromCartHandler }) {
                 })}
 
             </ul>
-            <p className="total-price">
+            <p className="total-price" data-testid="total-price-paragraph">
                 <span className="total-price-label">Total:</span>
                 {
                   cart.length === 0 ?
