@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
     return (
-        <>
+        <div className="Homepage">
             <header>
                 <h1>Ryan's Totally Real Clothes</h1>
             </header>
@@ -22,7 +22,7 @@ function Homepage() {
                     at this current moment.
                 </p>
             </main>
-        </>
+        </div>
     )
 }
 
