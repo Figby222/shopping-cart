@@ -82,4 +82,8 @@ nav {
     .StoreItem {
         padding: 40px;
     }
+
+    ul {
+        gap: 64px;
+    }
 }
