@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 function Homepage() {
     return (
         <>
+            <header>
+                <h1>Ryan's Totally Real Clothes</h1>
+            </header>
             <nav>
                 <ul>
                     <li>
@@ -12,7 +15,6 @@ function Homepage() {
                 </ul>
             </nav>
             <main>
-                <h1>Ryan's Totally Real Clothes</h1>
             </main>
         </>
     )
