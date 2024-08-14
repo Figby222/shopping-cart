@@ -64,4 +64,8 @@ nav {
     main {
         padding: var(--main-padding) 40px;
     }
+    
+    .store {
+        padding: 20px 0;
+    }
 }
