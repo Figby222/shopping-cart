@@ -42,3 +42,8 @@ a {
     padding: 10px;
     border-radius: 10px;
 }
+
+nav {
+    display: grid;
+    justify-items: center;
+}
