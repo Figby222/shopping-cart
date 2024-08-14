@@ -52,3 +52,9 @@ nav {
     display: grid;
     gap: 10px;
 }
+
+.ShoppingCart {
+    display: grid;
+    grid-template-rows: repeat(auto, minmax(max-content, 1fr));
+    gap: 10px;
+}
